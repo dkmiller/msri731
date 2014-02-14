@@ -1,4 +1,4 @@
 msri731
 =======
 
-Notes from MSRI workshop 731: perfectoid spaces and applications
+This repository contains live-TeX'd notes from the MSRI "hot topics" workshop 731: perfectoid spaces and applications. 
