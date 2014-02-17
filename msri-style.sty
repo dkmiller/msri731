@@ -2,10 +2,12 @@
 \usepackage[all]{xy}
 
 % operators
+  \DeclareMathOperator{\cont}{Cont} % continuous valuations
   \DeclareMathOperator{\h}{H}       % (co)homology
   \DeclareMathOperator{\im}{im}     % image of a morphism
   \DeclareMathOperator{\spa}{Spa}   % adic spectrum
   \DeclareMathOperator{\spec}{Spec} % spectrum of a ring
+  \DeclareMathOperator{\spv}{Spv}   % valuation spectrum
   \DeclareMathOperator{\spf}{Spf}   % formal spectrum
   \DeclareMathOperator{\sh}{Sh}
   \DeclareMathOperator{\alhom}{alHom}
@@ -13,6 +15,7 @@
   \DeclareMathOperator{\tor}{Tor}
   \DeclareMathOperator{\ext}{Ext}
   \DeclareMathOperator{\tr}{tr}
+  \DeclareMathOperator{\supp}{supp}
 
 % special symbols
   \newcommand{\dC}{\mathbb{C}}
@@ -21,10 +24,14 @@
   \newcommand{\dQ}{\mathbb{Q}}
   \newcommand{\dR}{\mathbb{R}}
   \newcommand{\dZ}{\mathbb{Z}}
+  \newcommand{\cV}{\mathcal{V}}
   \newcommand{\fm}{\mathfrak{m}}
+  \newcommand{\sO}{\mathscr{O}}
 
 % theorems
   \newtheorem{definition}[subsection]{Definition}
+  \newtheorem{theorem}[subsection]{Theorem}
+  \newtheorem{proposition}[subsection]{Proposition}
   \theoremstyle{definition}
   \newtheorem{example}[subsection]{Example}
 
