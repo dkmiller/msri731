@@ -13,7 +13,194 @@
 
 
 
-d
+Recall that there is a ``tilting correspondence'' relating objects in characteristic 
+zero to objects in characteristic $p$. One does this not at the integral level, 
+but at the ``almost integral level,'' using the almost mathematics of Faltings
+[see Gabber +Romero]
+
+
+
+
+\section{Almost mathematics}
+
+
+\begin{definition}
+A \emph{perfectoid field} $K$ is a complete non-archimedean field such that 
+\begin{enumerate}
+  \item the residue characteristic is $p>0$
+  \item the associated rank-one valuation is non-discrete
+  \item The frobenius map $\Phi:K^\circ/p \to K^\circ/p$ is surjective 
+\end{enumerate}
+\end{definition}
+
+For example, the $p$-adic completion of $\dQ_p(p^{1/p^\infty})$, the field 
+$\dC_p$, or the ``perfectification'' of $\dF_p\lau{t}$, which is the 
+$t$-adic completion of the colimit $\varinjlim_\Phi \dF_p\lau t$. 
+
+The field $\dQ_p$ is not perfectoid because its valuation is not discrete. 
+
+Denote by $\fm\subset K^\circ$ the maximal ideal of non-units. Since the valuation 
+on $K$ is non-discrete, $\fm$ is not finitely generated. Indeed, 
+$\fm^2=\fm = \fm\otimes \fm$, the last equality by flatness of $\fm$ as a 
+$K^\circ$-module. It follows that if we let $\Sigma=\{\fm\text{-torsion modules}\}\subset K^\circ\text{-}\mathsf{Mod}$, then $\Sigma$ is a (thick) abelian Serre subcategory. 
+
+\begin{definition}
+1. A $K^\circ$-module $M$ is \emph{almost zero} if $M\in\Sigma$, i.e. $\fm M=0$. 
+
+2. $K^{\circ a}\text{-}\mathsf{Mod}:= K^\circ\text{-}\mathsf{Mod} / \Sigma$. 
+\end{definition}
+
+For example, the residue field $K^\circ/\fm$ is almost zero. On the other hand, 
+$K^\circ/p$ is not almost zero. 
+
+A crucial fact is that the localization functor $K^\circ\text{-}\Mod \to K^{\circ a}\text{-}\Mod$ has both left and right adoints, denoted $N\mapsto N_!$ and 
+$N\mapsto N_\ast$, respectively. This allows us to easily compute hom-sets in 
+$K^{\circ a}\text{-}\Mod$. Indeed, 
+\begin{align*}
+  \hom_{K^\circ}(M_!,N) &= \hom_{K^{\circ a}}(M^a,N^a) = \hom_{K^\circ}(M,N_\ast)
+\end{align*}
+so the problem is reduced to computing $M_!$ and $M_\ast$. If 
+$M=T^a$ for some $K^\circ$-module $T$, then put 
+$M_\ast = \hom_{K^\circ}(\fm,T)$, the module of ``almost elements'' of $M$. 
+One also has $M_! = \fm\otimes T$. 
+
+This notation is motivated by topology. If $j:U\hookrightarrow X$ is the inclusion 
+of an open subset into a topological space, then the restriction functor 
+$j^\ast:\sh(X) \to \sh(U)$ has left and right adjoints 
+$j_!$ and $j_\ast$. This suggests that $K^{\circ a}\text{-}\Mod$ is the category 
+of sheaves on some subscheme of $\spec(K^\circ)$, even though no such subscheme 
+exists. 
+
+It is a good exercise to prove that $N\mapsto N_!$ is exact. 
+
+If $N$ is a $K^{\circ a}$-module, then $(N_!)^a = N = (N_\ast)^a$, from which we 
+see that $N\mapsto N_!$ and $N\mapsto N_\ast$ are fully faithful. (This is an 
+exercise in pure category theory.) 
+
+If $M$ is an ``honest'' $K^\circ$-module, then neither 
+$(M^a)_!$ nor $(M^a)_\ast$ will be $M$ in general. For example, if $M=K^\circ$, 
+then $(M^a)_! = \fm$, which is not isomorphic to $K^\circ$ as a $K^\circ$-module. 
+On the other hand, if $M=\fm$, then $(M^a)_\ast = K^\circ$. 
+
+The subcategory $\Sigma\subset K^\circ\text{-}\Mod$ is an ``ideal'' in the sense that 
+it is closed under taking tensor products with arbitrary $K^\circ$-modules. Thus 
+$K^{\circ a}\text{-}\mathsf{Mod}$ inherits the tensor product from $K^\circ\text{-}\Mod$, 
+so we can talk about algebras in $K^{\circ a}\text{-}\Mod$. For example, if 
+$A$ is a $K^\circ$-algebra, then $A^a$ is a $K^{\circ a}$-algebra. It is easy to see that 
+every $K^{\circ a}$-algebra arises in this manner. Similarly, one can define 
+modules over $K^{\circ a}$-algebras, and all such modules are induced by ``honest 
+modules'' over the corresponding $K^\circ$-algebra. 
+
+The abelian tensor category $(K^{\circ a}\text{-}\Mod,\otimes)$ has an internal 
+hom-functor defined as follows. If $M,N$ are $K^{\circ a}$-modules, put 
+\[
+  \alhom(M,N) = \hom_{K^{\circ a}}(M,N)^a \text{,}
+\]
+using the natural $K^\circ$-module structure on $\hom(M,N)$. 
+
+
+
+
+
+\section{Almost commutative algebra}
+
+\begin{definition}
+Let $A$ be a $K^{\circ a}$-algebra, $M$ an $A$-module. 
+\begin{enumerate}
+  \item $M$ is \emph{flat} if $M\otimes_A -$ is an exact functor. 
+  \item $M$ is \emph{almost projective} if the functor $\alhom(M,-)$ is exact. 
+  \item Assume $A=R^a$ and $M=N^a$. Then $M$ is \emph{almost finitely generated} 
+    if for all $\epsilon\in \fm$, there exists a finitely generated 
+    $R$-module $N_\epsilon$ with a map $f_\epsilon:N_\epsilon\to M$ such that 
+    $\ker(f_\epsilon)$ and $\coker(f_\epsilon)$ are killed by $\epsilon$. 
+  \item If the number of generaters of the $N_\epsilon$ can be taken to be 
+    bounded, we say that $M$ is \emph{uniformly finitely generated}
+\end{enumerate}
+\end{definition}
+Similarly, one can define the notion of an \emph{almost finitely presented} 
+$A$-module. 
+
+Let $A=R^a$ be an almost $K^{\circ a}$-algebra, and suppose $M=N^a$. Then $M$ is 
+almost flat if and only if $\tor_i^R(N,-)\in\Sigma$ for all $i>0$. Similarly, 
+$M$ is \emph{almost projective} if and only if $\ext_R^i(N,-)\in \Sigma$ for all 
+$i>0$. 
+
+It is not the case that an almost $A$-module is almost projective if and only if 
+it is projective in the categorical sense. It is a good exercise to show that if 
+$M$ is a $K^{\circ a}$-module that is projective, then $M=0$. 
+
+Any finitely generated ideal $I\subset K^\circ$ is an almost finitely generated 
+$K^{\circ a}$-module. In fact, such $I$ are uniformly almost finitely generated. 
+Fix $r\in \dR_{>0}$ such that $r\notin v(K^\times)$. Then the ideal 
+$I_r=\{f\in K^\circ:v(f)>r\}$ is not finitely generated, but is uniformly almost 
+finitely generated. 
+
+
+
+
+
+
+\section{Unramified and etale morphisms}
+
+Suppose $A\to B$ is a finite \'etale map of commutative rings. Then the 
+diagonal $\spec(B)\hookrightarrow \spec(B\otimes_A B)$ is clopen. It follows 
+that there is a unique idempotent $e\in B\otimes_A B$, called the \emph{diagonal 
+idempotent} such that 
+\begin{enumerate}
+  \item $e^2=e$ 
+  \item $\mu(e)=1$, where $\mu:B\otimes_A B\to B$ is the multiplication map 
+  \item $\ker(\mu)\cdot e = 0$ 
+\end{enumerate}
+
+For example, if $A\to B$ is Galois with group $G$, then 
+$B\otimes_A B\simeq \prod_{g\in G} B$ via 
+$(b_1\otimes b_2)\mapsto (b_1\cdot g(b_2))_{g\in G}$. In this setting, $e$ is the 
+element $(1,0,\dots,0)$. 
+
+If one writes $e=\sum_{i=1}^n x_i\otimes y_i$ with $x_i,y_i\in B$, then 
+$\tr(e) = \sum \tr(x_i y_i) = 1$. Moreover, the composite of 
+$b\mapsto (\tr(b x_i))_i:B\to A^{\oplus n}$ and 
+$(a_i)\mapsto \sum_i a_i y_i$, is the identity map. 
+
+
+
+
+\section{Almost \'etale extensions}
+
+Let $K$ be a perfectoid field, and let $f:A\to B$ be a map of 
+$K^{\circ a}$-algebras. 
+
+\begin{definition}
+1. $f$ is \emph{unramified} if there exists $e\in (B\otimes_A B)_\ast$ such 
+that $e^2=e$, $\mu(e)=1$, and $\ker(\mu)\cdot e=0$. 
+
+2. $f$ is \emph{\'etale} if it is flat and unramified. 
+
+3. $f$ is \emph{finite \'etale} if it is \'etale and $B$ is an almost finitely 
+presented projective $A$-module. 
+\end{definition}
+
+If $A$ is a $K^{\circ a}$-algebra, write $A_\fet$ for the category of finite 
+\'etale $A$-algebras. There is a good deformation theory for finite \'etale 
+extensions. For example, if $I\subset A$ is nilpotent, then the natural functor 
+$A_\fet \to (A/I)_\fet$ is an equivalence of categories. 
+
+Suppose $K$ is a perfectoid field of characteristic $p>0$. Choose an element 
+$0\ne t\in\fm$. Let $A$ be an (honest) flat $K^\circ$-algebra which is integrally 
+closed inside $A[1/t]$. Let $B'$ be a finite \'etale $A[1/t]$-algebra. Let $B$ 
+be the integral closure of $A$ in $B'$. If $A$ is perfect, then the map 
+$A^a \to B^a$ is finite \'etale (as a map of $K^{\circ a}$-algebras). This is easy 
+to prove. We have a diagonal idempotent $e\in B'\otimes_A B'$. There exists 
+some $N>0$ such that $t^N\cdot e\in B\otimes_A B$. Everything in sight is 
+perfect, so we can apply the inverse of Frobenius to conclude that 
+$(t^N)^{1/p^n}\cdot e\in B\otimes_A B$ for all $n>0$. Thus  
+$e\in (B\otimes_A B)$ is almost integral, so $B$ is almost \'etale. 
+
+To see that $B$ is almost finitely presented, fix $\epsilon\in\fm$. Write 
+$\epsilon\cdot e = \sum_{i=1}^N x_i\otimes y_i$. The composite 
+$B\to A^{\oplus N} \to B$ of $b\mapsto (\tr(b x_i))_i$ and 
+$(a_i)\mapsto \sum a_i y_i$ is multiplication by $\epsilon$, so $B$ is uniformly almost 
+finitely presented projective. 
 
 
 
