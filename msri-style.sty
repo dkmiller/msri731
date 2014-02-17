@@ -1,4 +1,4 @@
-\usepackage{amsmath,amssymb,amsthm,mathrsfs,stmaryrd}
+\usepackage{amsmath,amssymb,amsthm,hyperref,mathrsfs,stmaryrd}
 \usepackage[all]{xy}
 
 % operators
@@ -23,21 +23,13 @@
   \newcommand{\dZ}{\mathbb{Z}}
   \newcommand{\fm}{\mathfrak{m}}
 
+% theorems
+  \newtheorem{definition}[subsection]{Definition}
+  \theoremstyle{definition}
+  \newtheorem{example}[subsection]{Example}
+
 % special commands
   \newcommand{\pow}[1]{\llbracket {#1} \rrbracket} % rings of formal power series
   \newcommand{\lau}[1]{(\!( {#1} )\!)}             % field of Laurent series
-
-% special symbols: a new way of defining them!
-  \newcounter{char}
-  \setcounter{char}{1}
-  \loop\ifnum\value{char}<27
-    \expandafter\edef\csname c\Alph{char}\endcsname{\noexpand\mathcal{\Alph{char}}}      % mathcal
-    %\expandafter\edef\csname d\Alph{char}\endcsname{\noexpand\mathbb{\Alph{char}}}   % mathbb / mathbf
-    \expandafter\edef\csname f\Alph{char}\endcsname{\noexpand\mathfrak{\Alph{char}}}     % mathfrak
-    \expandafter\edef\csname s\Alph{char}\endcsname{\noexpand\mathscr{\Alph{char}}}      % mathscr
-    \addtocounter{char}{1}
-  \repeat
-
-  \newtheorem{definition}{Definition}
-  \newcommand{\Mod}{\mathsf{Mod}}
+  \newcommand{\Mod}{\textnormal{-}\mathsf{Mod}}
   \newcommand{\fet}{\textnormal{f\'et}}

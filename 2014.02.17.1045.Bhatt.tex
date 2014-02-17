@@ -14,95 +14,128 @@
 
 
 Recall that there is a ``tilting correspondence'' relating objects in characteristic 
-zero to objects in characteristic $p$. One does this not at the integral level, 
-but at the ``almost integral level,'' using the almost mathematics of Faltings
-[see Gabber +Romero]
+zero to objects in characteristic $p$. This correspondence works not at an integral 
+level, but at an ``almost integral level,'' i.e. using the language of almost 
+mathematics. A good general reference for almost mathematics is the book \cite{gr03} 
+of Gabber and Ramero. 
+
 
 
 
 
 \section{Almost mathematics}
 
+Throughout, a \emph{non-archimedean field} $K$ is a field equipped with a 
+rank-one valuation $|\cdot|:K^\times \to \dR_{>0}$. If $K$ is any 
+non-archimedean field, $K^\circ$ denotes the valuation ring 
+$\{x\in K:|x|\leqslant 1\}$ of $K$. 
 
 \begin{definition}
-A \emph{perfectoid field} $K$ is a complete non-archimedean field such that 
+A \emph{perfectoid field} $K$ is a complete non-archimedean field such that: 
 \begin{enumerate}
-  \item the residue characteristic is $p>0$
-  \item the associated rank-one valuation is non-discrete
-  \item The frobenius map $\Phi:K^\circ/p \to K^\circ/p$ is surjective 
+  \item The residue characteristic of $K$ is $p>0$. 
+  \item The associated rank-one valuation is non-discrete. 
+  \item The Frobenius map $\Phi:K^\circ/p \to K^\circ/p$ is surjective. 
 \end{enumerate}
 \end{definition}
 
-For example, the $p$-adic completion of $\dQ_p(p^{1/p^\infty})$, the field 
-$\dC_p$, or the ``perfectification'' of $\dF_p\lau{t}$, which is the 
-$t$-adic completion of the colimit $\varinjlim_\Phi \dF_p\lau t$. 
+\begin{example}
+The $p$-adic completion of $\dQ_p(p^{1/p^\infty})$ is perfectoid. 
+\end{example} 
 
+\begin{example}
+The $p$-adic completion $\dC_p$ of $\overline\dQ_p$ is perfectoid. 
+\end{example}
+
+\begin{example}
+If $k$ is a non-archimedean field of positive characteristic, then the 
+``perfectification'' of $k$ is perfectoid. Here the perfectification of 
+$k$ is the completion of the colimit $\varinjlim_\Phi k$, where $\Phi$ is 
+Frobenius. The perfectification of $\dF_p\lau t$ is the $t$-adic completion of 
+$\dF_p\lau t(t^{1/p^\infty})$. 
+\end{example}
+
+\begin{example}
 The field $\dQ_p$ is not perfectoid because its valuation is not discrete. 
+\end{example}
 
-Denote by $\fm\subset K^\circ$ the maximal ideal of non-units. Since the valuation 
-on $K$ is non-discrete, $\fm$ is not finitely generated. Indeed, 
-$\fm^2=\fm = \fm\otimes \fm$, the last equality by flatness of $\fm$ as a 
-$K^\circ$-module. It follows that if we let $\Sigma=\{\fm\text{-torsion modules}\}\subset K^\circ\text{-}\mathsf{Mod}$, then $\Sigma$ is a (thick) abelian Serre subcategory. 
+Let $K$ be a perfectoid field, and denote by $\fm\subset K^\circ$ the unique 
+maximal ideal. Since the valuation on $K$ is non-discrete, $\fm$ is not 
+finitely generated. One has $\fm\otimes \fm \xrightarrow\sim \fm = \fm^2$, the 
+first isomorphism coming from the flatness of $\fm$. Let 
+$\Sigma\subset K^\circ\Mod$ be the full subcategory consisting of $\fm$-torsion 
+modules. Since $\fm^2=\fm$, $\Sigma$ is a (thick) abelian Serre subcategory. 
 
-\begin{definition}
-1. A $K^\circ$-module $M$ is \emph{almost zero} if $M\in\Sigma$, i.e. $\fm M=0$. 
-
-2. $K^{\circ a}\text{-}\mathsf{Mod}:= K^\circ\text{-}\mathsf{Mod} / \Sigma$. 
+\begin{definition} 
+Let $K$ be a perfectoid field. 
+\begin{enumerate}
+  \item A $K^\circ$-module $M$ is \emph{almost zero} if $M\in\Sigma$, i.e. $\fm M=0$. 
+  \item The category of \emph{$K^{\circ a}$-modules} is the Serre quotient 
+    $K^\circ\Mod / \Sigma$. 
+\end{enumerate}
 \end{definition}
 
 For example, the residue field $K^\circ/\fm$ is almost zero. On the other hand, 
-$K^\circ/p$ is not almost zero. 
+$K^\circ/p$ (or $K^\circ / t$ for any $t\in \fm$) is not almost zero.
 
-A crucial fact is that the localization functor $K^\circ\text{-}\Mod \to K^{\circ a}\text{-}\Mod$ has both left and right adoints, denoted $N\mapsto N_!$ and 
-$N\mapsto N_\ast$, respectively. This allows us to easily compute hom-sets in 
-$K^{\circ a}\text{-}\Mod$. Indeed, 
+Write $(-)^a$ for the localization functor $K^\circ\Mod \to K^{\circ a}\Mod$. 
+A crucial fact is that $(-)^a$ has both left and right adjoints, denoted 
+$N\mapsto N_!$ and $N\mapsto N_\ast$, respectively. This allows us to easily 
+compute hom-sets in $K^{\circ a}\Mod$. Indeed, 
 \begin{align*}
   \hom_{K^\circ}(M_!,N) &= \hom_{K^{\circ a}}(M^a,N^a) = \hom_{K^\circ}(M,N_\ast)
 \end{align*}
-so the problem is reduced to computing $M_!$ and $M_\ast$. If 
-$M=T^a$ for some $K^\circ$-module $T$, then put 
-$M_\ast = \hom_{K^\circ}(\fm,T)$, the module of ``almost elements'' of $M$. 
-One also has $M_! = \fm\otimes T$. 
+so the problem of computing $\hom_{K^{\circ a}}(M^a,N^a)$ is reduced to that 
+of computing $M_!$ and $N_\ast$. Fortunately, the functors $(-)_!$ and 
+$(-)_\ast$ can be explicitly described. One has 
+\begin{align*}
+  (T^a)_! &= \fm\otimes T \\
+  (T^a)_\ast &= \hom_{K^\circ}(\fm,T) .
+\end{align*}
+For a $K^{\circ a}$-module $M$, one calls $M_\ast$ the module of ``almost 
+elements'' of $M$. 
 
-This notation is motivated by topology. If $j:U\hookrightarrow X$ is the inclusion 
-of an open subset into a topological space, then the restriction functor 
-$j^\ast:\sh(X) \to \sh(U)$ has left and right adjoints 
-$j_!$ and $j_\ast$. This suggests that $K^{\circ a}\text{-}\Mod$ is the category 
-of sheaves on some subscheme of $\spec(K^\circ)$, even though no such subscheme 
-exists. 
+This notation is motivated by topology. If $j:U\hookrightarrow X$ is the 
+inclusion of an open subset into a topological space, then the restriction 
+functor $j^\ast:\sh(X) \to \sh(U)$ has left and right adjoints 
+$j_!$ and $j_\ast$. This suggests that $K^{\circ a}\Mod$ is the category 
+of sheaves on some subscheme of $\spec(K^\circ)$ that lies ``in between'' 
+the special point and generic fiber, even though no such subscheme exists. 
 
-It is a good exercise to prove that $N\mapsto N_!$ is exact. 
+It is an easy exercise (and purely formal) to prove that $N\mapsto N_!$ is an 
+exact functor. Moreover, if $N$ is a $K^{\circ a}$-module, then 
+$(N_!)^a = N = (N_\ast)^a$, from which we see that $N\mapsto N_!$ and 
+$N\mapsto N_\ast$ are fully faithful. (This too is an exercise in pure category 
+theory.) 
 
-If $N$ is a $K^{\circ a}$-module, then $(N_!)^a = N = (N_\ast)^a$, from which we 
-see that $N\mapsto N_!$ and $N\mapsto N_\ast$ are fully faithful. (This is an 
-exercise in pure category theory.) 
+While $(-)_!$ and $(-)_\ast$ are sections of $(-)^a$, one does not generally 
+have $(M^a)_!=M$ or $(M^a)_\ast=M$, for $M$ a $K^\circ$-module. For example, if 
+$M=K^\circ$, then $(M^a)_! = \fm\ne M$. Similarly, if $M=\fm$, then 
+$(M^a)_\ast = K^\circ\ne M$. 
 
-If $M$ is an ``honest'' $K^\circ$-module, then neither 
-$(M^a)_!$ nor $(M^a)_\ast$ will be $M$ in general. For example, if $M=K^\circ$, 
-then $(M^a)_! = \fm$, which is not isomorphic to $K^\circ$ as a $K^\circ$-module. 
-On the other hand, if $M=\fm$, then $(M^a)_\ast = K^\circ$. 
+The subcategory $\Sigma\subset K^\circ\Mod$ is an ideal in the sense that it is 
+closed under taking tensor products with arbitrary $K^\circ$-modules. Thus 
+$K^{\circ a}\Mod$ inherits a tensor product from $K^\circ\Mod$, so we can talk 
+about algebras in $K^{\circ a}\Mod$. For example, any $K^\circ$-algebra $A$ 
+induces a $K^{\circ a}$-algebra $A^a$. Using the functor $(-)_\ast$, one can 
+show that every $K^{\circ a}$-algebra is of this form. Moreover, with the 
+obvious definition of a module over a $K^{\circ a}$-algebra $A^a$, one sees that 
+all $A^a$-modules are of the form $M^a$, for $M$ an $A$-module. 
 
-The subcategory $\Sigma\subset K^\circ\text{-}\Mod$ is an ``ideal'' in the sense that 
-it is closed under taking tensor products with arbitrary $K^\circ$-modules. Thus 
-$K^{\circ a}\text{-}\mathsf{Mod}$ inherits the tensor product from $K^\circ\text{-}\Mod$, 
-so we can talk about algebras in $K^{\circ a}\text{-}\Mod$. For example, if 
-$A$ is a $K^\circ$-algebra, then $A^a$ is a $K^{\circ a}$-algebra. It is easy to see that 
-every $K^{\circ a}$-algebra arises in this manner. Similarly, one can define 
-modules over $K^{\circ a}$-algebras, and all such modules are induced by ``honest 
-modules'' over the corresponding $K^\circ$-algebra. 
-
-The abelian tensor category $(K^{\circ a}\text{-}\Mod,\otimes)$ has an internal 
-hom-functor defined as follows. If $M,N$ are $K^{\circ a}$-modules, put 
+The abelian tensor category $(K^{\circ a}\Mod,\otimes)$ has an internal 
+hom-functor. For $K^{\circ a}$-modules $M,N$, the hom-set 
+$\hom_{K^{\circ a}}(M,N)$ is naturally a $K^\circ$-modules, so we can put 
 \[
-  \alhom(M,N) = \hom_{K^{\circ a}}(M,N)^a \text{,}
+  \alhom(M,N) = \hom_{K^{\circ a}}(M,N)^a .
 \]
-using the natural $K^\circ$-module structure on $\hom(M,N)$. 
 
 
 
 
 
 \section{Almost commutative algebra}
+
+As before, let $K$ be a perfectoid field. 
 
 \begin{definition}
 Let $A$ be a $K^{\circ a}$-algebra, $M$ an $A$-module. 
@@ -117,17 +150,17 @@ Let $A$ be a $K^{\circ a}$-algebra, $M$ an $A$-module.
     bounded, we say that $M$ is \emph{uniformly finitely generated}
 \end{enumerate}
 \end{definition}
-Similarly, one can define the notion of an \emph{almost finitely presented} 
-$A$-module. 
+There is an obvious notion of an \emph{almost finitely presented} $A$-module 
+along the same lines. 
 
 Let $A=R^a$ be an almost $K^{\circ a}$-algebra, and suppose $M=N^a$. Then $M$ is 
-almost flat if and only if $\tor_i^R(N,-)\in\Sigma$ for all $i>0$. Similarly, 
-$M$ is \emph{almost projective} if and only if $\ext_R^i(N,-)\in \Sigma$ for all 
-$i>0$. 
+almost flat if and only if $\tor_i^R(N,-)$ takes values in almost zero 
+modules for all $i>0$. Similarly, $M$ is almost projective if and only if 
+$\ext_R^i(M,-)$ takes values in almost zero modules for all $i>0$. 
 
-It is not the case that an almost $A$-module is almost projective if and only if 
-it is projective in the categorical sense. It is a good exercise to show that if 
-$M$ is a $K^{\circ a}$-module that is projective, then $M=0$. 
+It is not the case that an almost $A$-module is almost projective if and only 
+if it is projective in the categorical sense. In fact, it is a good exercise to 
+show that if $M$ is a $K^{\circ a}$-module that is projective, then $M=0$. 
 
 Any finitely generated ideal $I\subset K^\circ$ is an almost finitely generated 
 $K^{\circ a}$-module. In fact, such $I$ are uniformly almost finitely generated. 
@@ -204,6 +237,10 @@ finitely presented projective.
 
 
 
+
+
+\bibliographystyle{alpha}
+\bibliography{msri-sources}
 
 
 \end{document}
