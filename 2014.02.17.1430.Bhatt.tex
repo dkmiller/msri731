@@ -13,10 +13,253 @@
 
 
 
-d
+Here we treat the affine case of the tilting correspondence for perfectoid 
+spaces. In general, if $R$ is a ring of characteristic $p$, let 
+$\Phi:R\to R$ be the Frobenius $x\mapsto x^p$. 
 
 
 
+
+
+\section{Tilting for fields}
+
+Let $K$ be a perfectoid field. 
+
+\begin{definition}
+Let $K^{\flat\circ} = \varprojlim_\Phi K^\circ/p$. Let 
+$K^\flat=\operatorname{Frac}(K^{\flat\circ})$. 
+\end{definition}
+
+\begin{theorem}[Fontaine-Wintenberger]
+If $K$ is perfectoid, so is $K^\flat$, and tilting induces an equivalence of 
+categories $K_\fet\simeq K_\fet^\flat$. 
+\end{theorem}
+
+One proves this by starting with $K$, passing to the integral level via 
+$K^\circ$, and noting 
+that $K^{\flat\circ}\twoheadrightarrow K^{\flat\circ}/\pi \simeq K^\circ/p$ for 
+some $\pi$ with $|p|\leqslant |\pi|<1$. Our goal is to generalize this by 
+defining categories of perfectoid algebras over $K$ and $K^\flat$, and proving 
+that these categories are equivalent via a generalized tilting functor. 
+
+It is not so obvious, but every perfectoid field of characteristic $p>0$ is 
+the tilt of a perfectoid field of characteristic zero. 
+
+
+
+
+
+\section{Tilting more general algebras}
+
+Let $K$ be a perfectoid field, and choose some nonzero $\pi\in\fm$ with 
+$|p|\leqslant |\pi| < 1$. 
+
+\begin{definition}
+\begin{enumerate}
+  \item A Banach $K$-algebra $R$ is \emph{perfectoid} if $R^\circ\subset R$ is 
+    open and bounded, and $\Phi:R^\circ/p \to R^\circ/p$ is surjective. Let 
+    $K\Perf$ be the category of perfectoid $K$-algebras and continuous 
+    morphisms of $K$-algebras. 
+  \item A \emph{perfectoid $K^{\circ a}$-algebra} is a flat 
+    $K^{\circ a}$-algebra $R$ that is $\pi$-adically complete and Frobenius 
+    induces an isomorphism $R/\pi^{1/p} \xrightarrow\sim R/\pi$. Let 
+    $K^{\circ a}\Perf$ be the category of perfectoid algebras over 
+    $K^{\circ a}$. 
+  \item A perfectoid $(K^{\circ a}/\pi)$-algebra $R$ is a flat 
+    $(K^{\circ a}/\pi)$-algebra $R$ such that Frobenius induces an isomorphism 
+    $R/\pi^{1/p} \xrightarrow \sim R$. Let $(K^{\circ a}/\pi)\Perf$ be the 
+    category of perfectoid $(K^{\circ a}/\pi)$-algebras. 
+\end{enumerate}
+\end{definition}
+
+\begin{example}
+Let $R=K\langle T^{1/p^\infty}\rangle$ in the sense of Tate, i.e. 
+\[
+  R=\left(\bigcup_{n\geqslant 1} K^\circ[T^{1/p^n}]\right)^\wedge[\frac 1 p] 
+\]
+\end{example}
+
+\begin{example}
+Similarly, $A=(K^\circ\langle T^{1/p^\infty}\rangle)^a$ is a perfectoid 
+$K^\circ$-algebra. 
+\end{example}
+
+\begin{example}
+If $K$ has characteristic $p>0$, then perfectoid $K$-algebras are simply 
+Banach $K$-algebras $A$ such that $A^\circ$ is open and bounded. 
+\end{example}
+
+\begin{theorem}[Tilting equivalence]
+There are natural equivalences of categories 
+\begin{align*} \tag{a}\label{eq:a}
+  K\Perf &\xleftarrow\sim K^{\circ a}\Perf \\ \tag{c}\label{eq:c}
+    &\xrightarrow\sim (K^{\circ a}/\pi)\Perf \\ 
+    &= (K^{\flat\circ a}/\pi)\Perf \\ \tag{d}\label{eq:d}
+    &\xrightarrow\sim K^{\flat\circ a}\Perf \\ \tag{b}\label{eq:b}
+    & \xrightarrow\sim K^\flat\Perf
+\end{align*}
+\end{theorem}
+
+The equivalences \eqref{eq:a} and \eqref{eq:b} use almost mathematics, while 
+\eqref{eq:c} and \eqref{eq:d} use some deformation theory. 
+
+
+
+
+
+\section{Comparing $K\Perf$ and $K^{\circ a}\Perf$} 
+
+\begin{lemma}\label{lem:tech-1}
+Let $M$ be a $K^{\circ a}$-module, $N$ a $K^\circ$-module. Then 
+\begin{enumerate}
+  \item $M$ is flat in over $K^{\circ a}$ if and only if $M_\ast$ is flat over $K^\circ$. 
+  \item If $N$ is flat over $K^\circ$, then $N^a$ is flat, and 
+    \[
+      N_\ast^a = \{x\in N[\frac 1 \pi] : \epsilon x\in N\text{ for all }\epsilon\in\fm\} 
+    \]
+  \item If $M$ is flat over $K^{\circ a}$, then $M$ is $\pi$-adically complete if 
+    and only if $M_\ast$ is $\pi$-adically complete
+\end{enumerate}
+\end{lemma}
+
+\begin{theorem}
+The functors 
+\begin{align*}
+  K\Perf &\to K^{\circ a}\Perf && R\mapsto (R^\circ)^a \\
+  K^{\circ a}\Perf &\to K\Perf && A\mapsto A[\frac 1 \pi] 
+\end{align*}
+are an equivalence of categories. 
+\end{theorem}
+
+The proof of this theorem relies in part on the following proposition. 
+\begin{proposition}
+If $R$ is perfectoid over $K$, then $R^{\circ a}$ is perfectoid over $K^{\circ a}$. 
+\end{proposition}
+\begin{proof}
+By assumption, $\Phi:R^\circ/\pi \to R^\circ/\pi$ is surjective. We show that 
+its kernel is $\pi^{1/p}\cdot R^\circ$. Let 
+$x\in R^\circ$ such that $x^p\in \pi\cdot R^\circ$. Then $x^p=\pi\cdot y$ for some 
+$y\in R^\circ$. Thus $(x/\pi^{1/p})^p = y\in R^\circ$, so 
+$x/\pi^{1/p}\in R^\circ$, whence 
+$x\in \pi^{1/p} R^\circ$. 
+
+To see that $R^{\circ a}$ is $\pi$-adically complete, refer to Lemma \ref{lem:tech-1}. 
+\end{proof}
+
+\begin{proposition}
+Let $A$ be a perfectoid $K^{\circ a}$-algebra. Define $R=A_\ast[\frac 1 \pi]$, with 
+the Banach structure making $A_\ast$ open and bounded. Then $A_\ast = R^\circ$ 
+and $R$ is perfectoid. 
+\end{proposition}
+\begin{proof}
+First, note that $\Phi:A_\ast/\pi^{1/p} \to A_\ast/\pi$ is injective by Lemma 
+\ref{lem:tech-1}. Alternatively, we know that it is an almost isomorphism. So 
+for $x\in A_\ast$ with $x^p\in \pi\cdot A_\ast$, we have  
+$\epsilon\cdot x\in \pi^{1/p}\cdot A_\ast$ for all $\epsilon\in\fm$. It follows 
+that $x\in ((\pi^{1/p}\cdot A_\ast)^a)_\ast = \pi^{1/p}\cdot A_\ast$, whence 
+$\ker(\Phi)=0$. 
+
+Next, we assume $x\in R$ has $x^p\in A_\ast$ and show that $x\in A_\ast$. Write 
+$y=\pi^{k/p} x\in A_\ast$ for some $k\geqslant 1$. Raise both sides to the $p$ 
+power, to obtain $y^p=\pi^k x^p\in \pi A_\ast$. By the injectivity we have already 
+proved, we get $y\in \pi^{1/p} A_\ast$. Thus 
+$\pi^{(k-1)/p} x\in A_\ast$, so we can apply induction. 
+
+Finally, we show that $\Phi:A_\ast/\pi^{1/p} \to A_\ast/\pi$ is surjective. Because 
+the map is already almost surjective, it is enough to show that the composite 
+$A_\ast/\pi^{1/p} \to A_\ast/\pi \twoheadrightarrow A_\ast/\fm$ is surjective. 
+Choose $x\in A_\ast$. By almost surjectivity, we can write 
+$\pi^{1/p}\cdot x \equiv y^p\mod \pi A_\ast$ for some $y$. Let $z=y/\pi^{1/p^2}\in R$. Then 
+$z^p = y^p/\pi^{1/p} = x\mod \pi^{1-1/p} A_\ast$, so $z^p\in A_\ast$. We already 
+have shown that this implies $z\in A_\ast$, so $z^p=q\mod \pi^{1/p} A_\ast$ implies 
+that $x$ has a $p$-th root modulo $\fm$. 
+\end{proof}
+
+
+
+
+
+\section{Some deformation theory}
+
+We'll start with a review of the cotangent complex as it appears in standard 
+algebraic geometry. If $A\to B$ is a ring homomorphism, then the cotangent 
+complex $L_{B/A}$ is an object in $\mathsf D^{\leqslant 0}(B\Mod)$. If 
+$A\to B$ is smooth, then $L_{B/A} = \Omega_{B/A}^1[0]$. Most importantly, 
+$L_{B/A}$ controls the deformation theory of $A\to B$ in full generality. 
+
+\begin{example}
+Suppose $A=\dF_p$ and $B$ is any perfect $\dF_p$-algebra. It turns out that 
+$L_{B/A}=0$. This is easy to prove. By assumption, the Frobenius map 
+$\Phi:B\to B$ is an isomorphism, so the induced morphism 
+$d\Phi:L_{B/A} \to L_{B/A}$ is an isomorphism. But $d\Phi=0$ because 
+$d(y^p) = p y^{p-1} d y = 0$. 
+\end{example}
+
+\begin{corollary}
+There exists a unique flat $(\dZ/p^n)$-algebra $W_n(B)$ lifting $B$ from 
+$\dF_p$ to $\dZ/p^n$. 
+\end{corollary}
+
+One typically calls $W_n(B)$ the ring of $p$-typical Witt vectors in $B$ 
+of length $n$. 
+
+
+
+
+
+\section{Comparing $K^{\circ a}\Perf$ and $(K^{\circ a}/\pi)\Perf$}
+
+If $A\to B$ is a map of $K^{\circ a}$-algebras, then \cite{gr03} define 
+$L_{B/A}$ as an object of $\mathsf D(B\Mod)$. This $L_{B/A}$ is actually 
+constructed as an ``honest complex,'' and satisfies the desired properties. 
+
+\begin{lemma}\label{lem:perf-cot}
+Let $A$ be a perfectoid $(K^{\circ a}/\pi)$-algebra. Then 
+$L_{A/(K^{\circ a}/\pi)}=0$. 
+\end{lemma}
+\begin{proof}
+Essentially, this comes down to the fact that the relative Frobenius is an 
+isomorphism. Consider the following commutative diagram:
+\[\xymatrix{
+  A 
+    & A/\pi^{1/p} \ar[l]_-\sim
+    & A \ar[l] \\
+  K^{\circ a}/\pi \ar[u] 
+    & K^{\circ a}/\pi^{1/p} \ar[l]_-\sim \ar[u] 
+    & K^{\circ a}/\pi \ar[u] \ar@{->>}[l] 
+}\]
+Tne previous argument completes the proof. 
+\end{proof}
+
+Lemma \ref{lem:perf-cot} implies that 
+$(K^{\circ a}/\pi)\Perf \simeq (K^{\circ a}/\pi^n)\Perf \simeq K^{\circ }\Perf$. 
+Explicitly, start with $A\in (K^{\flat \circ a}/t)\Perf$. Then 
+$A^\flat = \varprojlim_\Phi A$ is a perfectoid $K^{\flat\circ a}$-algebra. 
+
+
+
+
+
+\section{Tilting \'etale covers}
+
+Let $A$ be a perfectoid algebra over $K$. Our goal is to prove that there are  
+natural equivalences 
+\begin{align*} \tag{a}
+  A_\fet &\xleftarrow\sim A^{\circ a}_\fet \\ \tag{b}
+  &\xrightarrow\sim (A^{\circ a}/\pi)_\fet \\
+  &= (A^{\flat\circ a}/t)_\fet \\ \tag{d}
+  &\xleftarrow\sim (A^{\flat\circ a})_\fet \\ \tag{c}
+  &\xrightarrow\sim A^\flat_\fet
+\end{align*}
+We have seen that \eqref{eq:b} and \eqref{eq:d} follow from deformation theory, 
+and \eqref{eq:c} follows from the last example. 
+
+
+
+
+
+\bibliographystyle{alpha}
+\bibliography{msri-sources}
 
 
 \end{document}
