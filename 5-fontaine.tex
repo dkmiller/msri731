@@ -13,9 +13,9 @@
 
 
 
-Unfortunately, titles of talks were not given by the speakers. So there will 
-be little about comparison theorems in this talk. A better title would be 
-``universal rings.'' 
+Unfortunately, titles of talks were not given by the speakers. So this talk 
+will contain nothing about $p$-adic comparison theorems. A better title would 
+be ``constructing universal rings.'' 
 
 
 
@@ -23,31 +23,42 @@ be little about comparison theorems in this talk. A better title would be
 
 \section{Rings of Witt vectors}
 
-Fix a prime number $p>0$. Christopher Denninger has discovered a very beautiful 
+Fix a prime number $p>0$. Cuntz and Denninger discovered a very beautiful 
 way of constructing the ring of Witt vectors $W(R)$, for $W$ a perfect 
-$\dF_p$-algebra. It involves some ``stupid multiplicative deformation theory.'' 
+$\dF_p$-algebra. It involves some ``naive multiplicative deformation theory.'' 
+For more details, see their preprint \cite{cd13}. 
 
 Let $\Lambda$ be a commutative ring, $R$ a $\Lambda$-algebra $n>0$ an integer. 
-Recall that a \emph{$\Lambda$-infinitesimal thickening} of order $\leqslant n-1$ 
-of $R$ is a pair $(A,I)$, where $A$ is a $\Lambda$-algebra, $I$ is an ideal in 
-$A$, $A/I=R$, ad $I^n=0$. We can consider the category of 
-such thickenings, and ask whether it has a universal object. Instead, we will 
-consider triples $(A,I,\sigma)$, where $(A,I)$ is a $\Lambda$-thickening of 
-$R$, and $\sigma:R\to A$ is a multiplicative section of $A\twoheadrightarrow R$. 
-The category of such triples has an initial object. 
+Recall that a \emph{$\Lambda$-infinitesimal thickening} of order 
+$\leqslant n$ of $R$ is a pair $(A,I)$, where $A$ is a $\Lambda$-algebra, 
+$I\subset A$ is an ideal, together with an isomorphism $A/I\to R$ of 
+$\Lambda$-algebras, such that $I^{n+1}=0$. It is natural to ask whether the 
+category of such thickenings has an initial object. The answer is no in 
+general, so we consider the category of triples $(A,I,\sigma)$, where 
+$(A,I)$ is a $\Lambda$-thickening of $R$ and $\sigma:R\to A$ is a 
+multiplicative section of $A\twoheadrightarrow R$. The category of such triples 
+has an initial object which can be constructed explicitly. 
 
-Take the group ring 
-$\Lambda[R^\times]$ consisting of sums $\sum_{x\in R^\times} \lambda_x [x]$, 
-with all but finitely may $\lambda_x=0$. There is an augmentation map 
+Start with the monoid ring $\Lambda[R]$ consisting of formal sums 
+$\sum_{x\in R} \lambda_x [x]$, with all but finitely may $\lambda_x=0$. 
+There is a ring homomorphism (called the augmentation map) 
 $\varepsilon:\Lambda[R^\times] \to R$, sending $\sum \lambda_x [x]$ to 
-$\sum \lambda_x x$. The ring 
-$U_{n,\Lambda}(R) = \Lambda[R^\times]/(\ker\varepsilon)^n$ is a universal 
-such object. 
+$\sum \lambda_x x$. Put 
+$U_{n,\Lambda}(R) = \Lambda[R^\times]/(\ker\varepsilon)^{n+1}$. Clearly 
+$(U_{n,\Lambda}(R),\ker\varepsilon)$ is a $\Lambda$-infinitesimal thickening of 
+$R$ of order $\leqslant n$. There is an obvious multiplicative section 
+$\sigma:R\to U_{n,\Lambda}(R)$ given by $r\mapsto [r]$. It is easy to check 
+that $(U_{n,\Lambda}(R),\ker\varepsilon,\sigma)$ is the universal 
+``$\Lambda$-infinitesimal thickening of order $\leqslant n$ with section'' of 
+$R$. 
 
-Note that $W_n(R) = U_{n,\dZ}(R) = U_{n,\dZ_p}(R)$ if $R$ is perfect. 
-
-Starting with $(A,I)$, we form $\sigma:R\to A$ by 
-$x\mapsto (\widehat{x^{p^-m}})^{p^m}$. 
+If $R$ is a perfect $\dF_p$-algebra, then $U_{n,\dZ}(R)=U_{n,\dZ_p}(R)$ is 
+$W_n(R)$, the ring of length-$n$ Witt vectors of $R$, so 
+$W(R) = \varprojlim_n U_{n,\dZ}(R)$. If $R$ is a perfect $\dF_p$-algebra, then 
+given any $\Lambda$-infinitesimal thickening $(A,I)$ of $R$, we can form a 
+multiplicative section $\sigma:R\to A$ by 
+$x\mapsto (\widetilde{x^{p^{-m}}})^{p^m}$, for $\widetilde{x^{p^{-m}}}$ a lifting 
+of $x$ to $A$, and $m\gg 0$. 
 
 
 
@@ -55,7 +66,9 @@ $x\mapsto (\widehat{x^{p^-m}})^{p^m}$.
 
 \section{Tilting revisited}
 
-\begin{definition}
+Let's start by defining the class of rings we'll be working with. 
+
+\begin{definition}\label{def:banach-ring}
 A \emph{Banach ring} $A$ is a topological ring containing a pseudo-uniformizer 
 (topologically nilpotent invertible element) $\pi$, and an open subring 
 $A_0\ni \pi$, such that 
@@ -63,57 +76,69 @@ $A = A_0[\frac 1 \pi]$, and such that $A_0 \to \varprojlim A_0/\pi^n$ is an
 isomorphism of topological rings.  
 \end{definition}
 
-A Banach ring is the same thing as a complete Tate algebra (in the sense of 
-Huber). 
+Note that a Banach ring is simply a complete Tate algebra (in the sense of 
+Huber). Recall that if $A$ is a Banach ring, then a set $S\subset A$ is called 
+\emph{bounded} if for all neighborhoods $U$ of $0$, there exists 
+$n\geqslant 1$ so that $\pi^n S\subset U$. An element $a\in A$ is 
+\emph{power-bounded} if the set $\{a^n:n\geqslant 0\}$ is bounded, and we 
+write $A^\circ\subset A$ for the subring of power-bounded elements. 
 
 \begin{definition}
 A \emph{spectral ring} is a Banach ring $A$ such that $A^\circ$ is bounded. 
 \end{definition}
 
-Recall that $A^\circ$ is the subring of $A$ consisting of $a\in A$ such that the 
-set $\{a^n:n\geqslant 1\}$ is bounded. 
-
 If $A$ is a Banach ring, then $A$ is spectral if and only if there exists a 
-power-multiplicative norm inducing the topology. In other words, 
-we require $|\cdot|:R\to \dR_{\geqslant 0}$ such that $|a b|\leqslant |a|\cdot |b|$, 
-$|1|=1$, and $|a^n|=|a|^n$ for $n\geqslant 0$. In this case one has 
-$A^\circ=\{a\in A:|a|\leqslant 1\}$. To construct $|\cdot|$, choose 
-$\pi$\ldots
-
-Define a norm $|a|=\rho^{v_\pi(a)}$, where 
+power-multiplicative norm inducing the topology. Recall that a 
+\emph{power-multiplicative norm} on $A$ is a map 
+$|\cdot|:A\to \dR_{\geqslant 0}$ such that $|a b|\leqslant |a|\cdot |b|$, 
+$|1|=1$, and $|a^n|=|a|^n$ for $n\geqslant 0$. If $A$ is complete with 
+respect to $|\cdot|$, one has $A^\circ = \{a\in A:|a|\leqslant 1\}$. If $A$ is 
+a Banach ring, we can construct a power-multiplicative norm directly. Choose 
+$\pi\in A$ as in Definition \ref{def:banach-ring}. Also choose $\rho\in \dR$ 
+with $0<\rho<1$. For $a\in A$, put 
 \[
-  v_\pi(a) = \sup \{\frac c d: c,\in \dZ,d>0, \frac{a^c}{\pi^d}\in A^\circ\}
+  v_\pi(a) = \sup\left\{\frac r s :  r\in \dZ,s>0\text{ and }\frac{a^s}{\pi^r}\in A^\circ\right\} .
 \]
-and $0<\rho<1$. 
+One has $v_\pi(a)\in \dR_{\geqslant 0}$, so it makes sense to define 
+$|a| = \rho^{v_\pi(a)}$. 
 
-A perfectoid ring is just a spectral ring $A$, such that there exists a 
-power-bounded unit $\pi$ with $p\in \pi^p A^\circ$, and such that 
-Frobenius is surjective on $A^\circ/\pi^p A^\circ$. So a perfectoid field is a 
-perfectoid ring which is a field, and which admits a multiplicative norm. 
+\begin{definition}
+A \emph{perfectoid ring} is a spectral ring $A$, such that there exists a 
+power-bounded unit $\pi\in A^\circ$ such that $p\in \pi^p A^\circ$ and the 
+Frobenius map $A^\circ/\pi^p A^\circ$ is surjective. 
+\end{definition}
 
-If $A$ is a spectral ring, then $AA$ is perfectoid if and only if $A$ is 
-perfect. If $\pi$ is any pseudo-uniformizer, then 
-$\widehat{\dF_p\lau\pi (\pi^{1/p^\infty})}\hookrightarrow A$. 
+So a perfectoid field is a perfectoid ring which is a field, and which admits a multiplicative norm. 
 
-If $A$ has characteristic not $p$, then $A$ is a Banach $p$-adic algebra, so 
-$\dQ_p\hookrightarrow A$, but there is no canonical perfectoid subfield of 
+If $A$ is a spectral ring of positive characteristic, then $A$ is perfectoid 
+if and only if it is perfect. Moreover, if $\pi\in A$ is any 
+pseudo-uniformizer, then $A$ is naturally an algebra over the perfectoid field 
+$\dF_p\lau{\pi^{1/p^\infty}} = \widehat{\dF_p\lau\pi (\pi^{1/p^\infty})}$. 
+
+If the characteristic of $A$ is not $p$, then $A$ is a Banach $p$-adic algebra, 
+so $\dQ_p\hookrightarrow A$, but there is no canonical perfectoid subfield of 
 $A$. 
 
-Let $A$ be a perfectoid ring of characteristic zero. One can associate the 
-tilt $A^\flat$ of $A$, which can be defined in two different ways. First, 
-choose $\pi\in A^\circ$ with $p\in \pi A^\circ$, and put 
+Let $A$ be a perfectoid ring of characteristic zero. One can define a new ring 
+$A^\flat$, called the \emph{tilt} of $A$, in two different but equivalent ways. 
+First, choose a pseudo-uniformizer $\pi\in A^\circ$ with $p\in \pi A^\circ$, 
+and put 
 \[
   A^{\flat\circ} = \varprojlim_\Phi A^\circ/\pi
 \]
-where $\Phi:x\mapsto x^p$ is Frobenius. Put $A^\flat=A^{\flat\circ}[\frac 1 \pi]$. 
-Alternatively, we could put 
+where $\Phi:x\mapsto x^p$ is Frobenius. Define 
+$A^\flat=A^{\flat\circ}[\frac 1 \pi]$. Alternatively, we could have defined 
+$A^\flat$ as a set to be  
 \[
-  A^\flat = \varprojlim_{x\mapsto x^p} A = \{(x^{(n)}:(x^{(n+1)})^p = x^{(n)}\}
+  A^\flat = \varprojlim_{x\mapsto x^p} A = \left\{(x^{(n)})_{n\geqslant 0}:(x^{(n+1)})^p = x^{(n)}\right\} .
 \]
-with multiplication the obvious thing. Addition is defined by 
+This has an obvious multiplication operation, but the addition is not obvious. 
+We define it directly by 
 \[
   (x+y)^{(n)} = \lim_{m\to \infty} (x^{(n+m)} + y^{(n+m)})^{p^m} .
 \]
+Define $(-)^\sharp:A^\flat \to A$ given by 
+$(x^{(n)})_{n\geqslant 0} \mapsto x^{(0)}$. 
 
 If $A$ is a perfectoid ring of characteristic zero, put $R=A^\flat$; this is 
 a perfectoid ring of characteristic $p$. There is a natural surjection 
@@ -122,30 +147,35 @@ $\theta_A:W(R^\circ) \twoheadrightarrow A^\circ$, defined by
   \theta_A\left(\sum_{i=0}^\infty p^i [a_i]\right) = \sum_{i=0}^\infty p_i a_i^{(0)} = \sum_{i=0}^\infty p^i a_i^\sharp
 \]
 where each $a_i=(a_i^{(n)})_{n\geqslant 0}$. The kernel of 
-$\theta_A$ is a primitive ideal of degree one. In other words, it can be generated 
-by an element of the form $[\pi]+p\eta$, where $\pi$ is a pseudo-uniformizer 
-of $R$, and $\eta\in W(R^\circ)^\times$. 
+$\theta_A$ is a primitive ideal of degree one. In other words, it can be 
+generated by an element of the form $[\pi]+p\eta$, where $\pi$ is a 
+pseudo-uniformizer of $R$, and $\eta\in W(R^\circ)^\times$. 
 
-To summarize, we have a functor from the category of perfectoid rings of characteristic 
-zero to the category of ``perfectoid pairs.'' Here a perfectoid pair is a pair 
-$(R,I)$, where $R$ is a perfectoid ring of characteristic $p>0$, and 
-$I\subset W(R^\circ)$ is a primitive ideal of degree one. 
+We have defined a functor from the category of perfectoid rings of 
+characteristic zero to the category of ``perfectoid pairs.'' Here a perfectoid 
+pair is a pair $(R,I)$, where $R$ is a perfectoid ring of characteristic $p>0$, 
+and $I\subset W(R^\circ)$ is a primitive ideal of degree one. 
 
 \begin{theorem}
 This functor is an equivalence of categories.
 \end{theorem}
-Given a pair $(R,I)$, define $A=(R,I)^\sharp$ by 
-$A^\circ =W(R^\circ)/I$ and $A=A^\flat[\frac 1 p]$. All one has to do is check that 
-$(-)^\sharp$ is an inverse to $A\mapsto (A^\flat, \ker\theta_A)$. 
+\begin{proof}
+We construct an inverse. Given a perfectoid pair $(R,I)$, define 
+$A=(R,I)^\sharp$ by $A^\circ =W(R^\circ)/I$ and $A=A^\flat[\frac 1 p]$. 
+Checking that $(-)^\sharp$ is an inverse to 
+$A\mapsto (A^\flat, \ker\theta_A)$ is a straightforward exercise. 
+\end{proof}
 
 
 
 
 
+\section{Tilting and analytic extensions}
 
-Let $K$ be a perfectoid field of characteristic zero. We know that $K^\flat$ is a 
-perfectoid field of characteristic $p$. If $R=F$ is a perfectoid field of 
-characteristic $p$, then if $I\subset W(F^\circ)$, the above construction 
+We know that for any perfectoid field $K$ of characteristic zero, the tilt 
+$K^\flat$ is a perfectoid field of characteristic $p$. On the other hand, 
+suppose we start out with a perfectoid field $F$ of characteristic $p$. 
+Then to any primitive ideal $I\subset W(F^\circ)$, the above construction 
 yields a perfectoid field $(R,I)^\sharp$ of characteristic zero, whose tilt is 
 $F$. Thus every perfectoid field of characteristic $p$ is the tilt of a 
 (explicitly constructed) perfectoid field of characteristic zero. 
@@ -255,5 +285,8 @@ completion of $\acris^\varphi(A)$.
 
 
 
+
+\bibliographystyle{alpha}
+\bibliography{msri-sources}
 
 \end{document}
