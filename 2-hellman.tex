@@ -201,6 +201,48 @@ noetherian for all $n\geqslant 0$) then $\sO_X$ is a sheaf on $X=\spa(A,A^+)$.
 For example, Tate algebras of finite type over any non-archimedean field $k$ 
 are strongly noetherian. 
 
+\begin{example}[The closed unit ball]
+Let $k$ be a non-archimedean field which is complete and algebraically closed, 
+for example $\dC_p$. Let $X=\spa(k\langle T\rangle, k^\circ\langle T\rangle)$. 
+The space $X$ can have up to five different types of points, depending on 
+whether $k$ is spherically complete. 
+
+1. These are the ``classical points'' coming fromo rigid geometry. Every 
+element $x\in k^\circ$ induces a valuation $f\mapsto |f(x)|$. 
+
+The next two types of points are constructed in the same way. Let 
+$x\in k^\circ$, $r\in \dR_{>0}$. The valuation $v_{x,r}$ is defined by 
+either of the following formulas:
+\begin{align*}
+  v_{x,r}\left(\sum (T-x)^i\right) &= \sup_{i\geqslant 0} |a_i|\cdot r^i \\
+  v_{x,r}(f) &= \sup_{y\in D_r(x)} |f(y)|
+\end{align*}
+where $D_r(x) = \{y\in k^\circ:|x-y|\leqslant r\}$ is the closed ball of 
+radius $r$ about $x$. 
+
+2. If $r\in |k^\times|$, we say that $v_{x,r}\in X$ is type 2. 
+
+3. If $r\notin |k^\times|$, we say that $v_{x,r}\in X$ is type 3. 
+
+4. Suppose $k$ is not spherically complete, i.e. there exists a sequence 
+$D_\bullet = D_1\supset D_2\supset \cdots$ of open balls such that 
+$\bigcap_i D_i = \varnothing$. The valuation 
+\[
+  v_{D_\bullet}(f) = \inf_{i\geqslant 1} \sup_{y\in D_i} |f(y)|
+\]
+is said to be of type 4. 
+
+5. Points of type 1, 3, and 4 are closed and rank one. Points of type 2 are 
+\emph{not} closed (but have rank one) -- they have (rank two) specializations 
+of the following type, illustrated by an example. The point $v_{x,1}$ has 
+specialization $\xi_{x,1}$, which takes values in 
+$\dR_{>0}\times \langle \gamma\rangle$, where we put $\gamma<\dR_{>0}$ (i.e. 
+use the lexicographic order). Put 
+\[
+  \xi_{x,1}(f) = \sup_{i\geqslant 1} |a_i|\cdot \gamma^i \in \dR_{>0}\times \gamma^\dZ .
+\]
+\end{example}
+
 
 
 
@@ -225,6 +267,7 @@ is equivalent to $\cV$.
 An \emph{adic space} is an object of $\cV$ that is locally isomorphic to an 
 affinoid adic space. 
 \end{definition}
+
 
 
 
