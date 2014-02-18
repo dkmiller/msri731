@@ -13,8 +13,245 @@
 
 
 
-d
+Unfortunately, titles of talks were not given by the speakers. So there will 
+be little about comparison theorems in this talk. A better title would be 
+``universal rings.'' 
 
+
+
+
+
+\section{Rings of Witt vectors}
+
+Fix a prime number $p>0$. Christopher Denninger has discovered a very beautiful 
+way of constructing the ring of Witt vectors $W(R)$, for $W$ a perfect 
+$\dF_p$-algebra. It involves some ``stupid multiplicative deformation theory.'' 
+
+Let $\Lambda$ be a commutative ring, $R$ a $\Lambda$-algebra $n>0$ an integer. 
+Recall that a \emph{$\Lambda$-infinitesimal thickening} of order $\leqslant n-1$ 
+of $R$ is a pair $(A,I)$, where $A$ is a $\Lambda$-algebra, $I$ is an ideal in 
+$A$, $A/I=R$, ad $I^n=0$. We can consider the category of 
+such thickenings, and ask whether it has a universal object. Instead, we will 
+consider triples $(A,I,\sigma)$, where $(A,I)$ is a $\Lambda$-thickening of 
+$R$, and $\sigma:R\to A$ is a multiplicative section of $A\twoheadrightarrow R$. 
+The category of such triples has an initial object. 
+
+Take the group ring 
+$\Lambda[R^\times]$ consisting of sums $\sum_{x\in R^\times} \lambda_x [x]$, 
+with all but finitely may $\lambda_x=0$. There is an augmentation map 
+$\varepsilon:\Lambda[R^\times] \to R$, sending $\sum \lambda_x [x]$ to 
+$\sum \lambda_x x$. The ring 
+$U_{n,\Lambda}(R) = \Lambda[R^\times]/(\ker\varepsilon)^n$ is a universal 
+such object. 
+
+Note that $W_n(R) = U_{n,\dZ}(R) = U_{n,\dZ_p}(R)$ if $R$ is perfect. 
+
+Starting with $(A,I)$, we form $\sigma:R\to A$ by 
+$x\mapsto (\widehat{x^{p^-m}})^{p^m}$. 
+
+
+
+
+
+\section{Tilting revisited}
+
+\begin{definition}
+A \emph{Banach ring} $A$ is a topological ring containing a pseudo-uniformizer 
+(topologically nilpotent invertible element) $\pi$, and an open subring 
+$A_0\ni \pi$, such that 
+$A = A_0[\frac 1 \pi]$, and such that $A_0 \to \varprojlim A_0/\pi^n$ is an 
+isomorphism of topological rings.  
+\end{definition}
+
+A Banach ring is the same thing as a complete Tate algebra (in the sense of 
+Huber). 
+
+\begin{definition}
+A \emph{spectral ring} is a Banach ring $A$ such that $A^\circ$ is bounded. 
+\end{definition}
+
+Recall that $A^\circ$ is the subring of $A$ consisting of $a\in A$ such that the 
+set $\{a^n:n\geqslant 1\}$ is bounded. 
+
+If $A$ is a Banach ring, then $A$ is spectral if and only if there exists a 
+power-multiplicative norm inducing the topology. In other words, 
+we require $|\cdot|:R\to \dR_{\geqslant 0}$ such that $|a b|\leqslant |a|\cdot |b|$, 
+$|1|=1$, and $|a^n|=|a|^n$ for $n\geqslant 0$. In this case one has 
+$A^\circ=\{a\in A:|a|\leqslant 1\}$. To construct $|\cdot|$, choose 
+$\pi$\ldots
+
+Define a norm $|a|=\rho^{v_\pi(a)}$, where 
+\[
+  v_\pi(a) = \sup \{\frac c d: c,\in \dZ,d>0, \frac{a^c}{\pi^d}\in A^\circ\}
+\]
+and $0<\rho<1$. 
+
+A perfectoid ring is just a spectral ring $A$, such that there exists a 
+power-bounded unit $\pi$ with $p\in \pi^p A^\circ$, and such that 
+Frobenius is surjective on $A^\circ/\pi^p A^\circ$. So a perfectoid field is a 
+perfectoid ring which is a field, and which admits a multiplicative norm. 
+
+If $A$ is a spectral ring, then $AA$ is perfectoid if and only if $A$ is 
+perfect. If $\pi$ is any pseudo-uniformizer, then 
+$\widehat{\dF_p\lau\pi (\pi^{1/p^\infty})}\hookrightarrow A$. 
+
+If $A$ has characteristic not $p$, then $A$ is a Banach $p$-adic algebra, so 
+$\dQ_p\hookrightarrow A$, but there is no canonical perfectoid subfield of 
+$A$. 
+
+Let $A$ be a perfectoid ring of characteristic zero. One can associate the 
+tilt $A^\flat$ of $A$, which can be defined in two different ways. First, 
+choose $\pi\in A^\circ$ with $p\in \pi A^\circ$, and put 
+\[
+  A^{\flat\circ} = \varprojlim_\Phi A^\circ/\pi
+\]
+where $\Phi:x\mapsto x^p$ is Frobenius. Put $A^\flat=A^{\flat\circ}[\frac 1 \pi]$. 
+Alternatively, we could put 
+\[
+  A^\flat = \varprojlim_{x\mapsto x^p} A = \{(x^{(n)}:(x^{(n+1)})^p = x^{(n)}\}
+\]
+with multiplication the obvious thing. Addition is defined by 
+\[
+  (x+y)^{(n)} = \lim_{m\to \infty} (x^{(n+m)} + y^{(n+m)})^{p^m} .
+\]
+
+If $A$ is a perfectoid ring of characteristic zero, put $R=A^\flat$; this is 
+a perfectoid ring of characteristic $p$. There is a natural surjection 
+$\theta_A:W(R^\circ) \twoheadrightarrow A^\circ$, defined by 
+\[
+  \theta_A\left(\sum_{i=0}^\infty p^i [a_i]\right) = \sum_{i=0}^\infty p_i a_i^{(0)} = \sum_{i=0}^\infty p^i a_i^\sharp
+\]
+where each $a_i=(a_i^{(n)})_{n\geqslant 0}$. The kernel of 
+$\theta_A$ is a primitive ideal of degree one. In other words, it can be generated 
+by an element of the form $[\pi]+p\eta$, where $\pi$ is a pseudo-uniformizer 
+of $R$, and $\eta\in W(R^\circ)^\times$. 
+
+To summarize, we have a functor from the category of perfectoid rings of characteristic 
+zero to the category of ``perfectoid pairs.'' Here a perfectoid pair is a pair 
+$(R,I)$, where $R$ is a perfectoid ring of characteristic $p>0$, and 
+$I\subset W(R^\circ)$ is a primitive ideal of degree one. 
+
+\begin{theorem}
+This functor is an equivalence of categories.
+\end{theorem}
+Given a pair $(R,I)$, define $A=(R,I)^\sharp$ by 
+$A^\circ =W(R^\circ)/I$ and $A=A^\flat[\frac 1 p]$. All one has to do is check that 
+$(-)^\sharp$ is an inverse to $A\mapsto (A^\flat, \ker\theta_A)$. 
+
+
+
+
+
+
+Let $K$ be a perfectoid field of characteristic zero. We know that $K^\flat$ is a 
+perfectoid field of characteristic $p$. If $R=F$ is a perfectoid field of 
+characteristic $p$, then if $I\subset W(F^\circ)$, the above construction 
+yields a perfectoid field $(R,I)^\sharp$ of characteristic zero, whose tilt is 
+$F$. Thus every perfectoid field of characteristic $p$ is the tilt of a 
+(explicitly constructed) perfectoid field of characteristic zero. 
+
+Suppose $K_0$ is a finite extension of $\dQ_p$. Let $L$ be an ``analytically 
+profinite extension of $K_0$.'' In other words, $L$ could be an algebraic extension 
+of $K_0$ which is infinitely ramified and such that the Galois group of the Galois 
+closure of $L/K_0$ is a $p$-adic Lie group. Clearly any analytically profinite 
+extension of $K_0$ gives a $p$-adic representation of $G_{K_0}$. 
+
+Let $K$ be the completion of $L$. To $K$ we associate a ``norm field,'' which is 
+isomorphic to $k_L\lau t$, where $k_L$ is the residue field of $L$. The 
+``Fontaine-Wintenberger theorem'' is that $L$ and $k_L$ have the same 
+\'etale sites. Moreover, $K$ is perfectoid and 
+$K^\flat$ is the perfectoid completion of $k_L\lau t$. 
+
+If we took $K=\dC_p$, then we get an algebraically closed perfectoid field 
+$F$ of characteristic $p$. It is unknown if all the untiltings of this field 
+are isomorphic. 
+
+Let $K$ be a fixed perfectoid field of characteristic zero. Then $K^\flat$ is a 
+perfectoid field of characteirstic $p$. We have $\theta_K:W(K^{\flat\circ}) \to K^\circ$, 
+and $\ker\theta_K=(\xi)$. If $A$ is any perfectoid $K$-algebra, we would get 
+$(A^\flat,(\xi))$. 
+
+
+
+
+
+\section{Period rings}
+
+First we construct a ring $\mathbf B_E^b(R)$. Let $k$ be a perfect field of 
+characteristic $p$. Fix an ultrametric field $E$, whose residue field is $k$. 
+For $R$ any perfect ring of characteristic $p$, denote by $W_{E^\circ}(R)$ the 
+ring $E^\circ\otimes_{W(k)} W(R)$ (completed tensor product). In other words, 
+\[
+  W_{E^\circ}(R) = \varprojlim (E^\circ/\pi^n)\otimes_{W(k)} W(R)
+\]
+where $\pi$ is any pseudo-uniformizer of $E$. 
+
+There is a map $R\to W_{E^\circ}(R)$, which sends $x$ to 
+$1\otimes [x]$. This is a multiplicative section of 
+$W_{E^\circ}(R) \to R$. If $E$ has characteristic $p$, this map is additive, so 
+we can view $R$ as a subring of $W_{E^\circ}(R) = E_0\hat\otimes_k R$. 
+
+Suppose $R$ is a perfectoid $k$-algebra. (Since $k$ is not perfectoid, we simply 
+assume $k\subset R^\circ$.) Choose a pseudo-uniformizer of $E$, and $\varpi$, 
+a pseudo-uniformizer of $R$. Put 
+\[
+  \mathbf B_E^b(R) = W_{E^\circ}(R^\circ)[\frac 1 \pi,\frac{1}{[\varpi]}]
+\]
+
+If $E$ is discretely valued, we can choose $\pi$ to be a uniformizer of $E$. 
+Then 
+\[
+  \mathbf B_E^b(R) = \{\sum_{i\gg -\infty} [a_i] \pi^i: a_i\in R\text{ bounded}\}
+\]
+In general, given $(a_n)_{n\geqslant 0}$, with $\{a_n\}\subset R$ bounded, and 
+$(\nu_n)_{n\geqslant 0}$, with $\nu_n\in E$ converging to zero, then the infinite sum 
+$\sum_{n=0}^\infty [a_n] \nu_n \in \mathbf B_E^b(R)$, but this ``decimal expansion'' 
+is not unique. 
+
+If we choose an absolute value on $E$, and a power-multiplicative norm on 
+$R$, then this defines a power-multiplicative norm in the ring $\mathbf B_E^b(R)$. 
+Up to equivalence of norm, we can fix a power-multiplicative norm $|\cdot |$ on 
+$R$. 
+
+\begin{proposition}
+For all $\rho\in \dR$, $0<\rho<1$, there exists a unique power multiplicative norm 
+$|\cdot |_\rho$ on $\mathbf B_E^b(R)$ such that 
+$|[a]|_\rho = |a|$ for all $a\in R$, and such that 
+$|\pi|=\rho$. 
+\end{proposition}
+
+Choose a non-empty closed interval $I=[\rho_1,\rho_2]$, with 
+$0<\rho_1<\leqslant \rho_2<1$. Put 
+\[
+  |\alpha|_I = \sup\{|\alpha|_{\rho_1},|\alpha|_{\rho_2}\} = \sup_{\rho_1\leqslant \rho\leqslant \rho_2} |\alpha|_\rho .
+\]
+Let $\mathbf B_{E/I}(R)$ be the completion of $\mathbf B_E^b(R)$ with respect to 
+the norm $|\cdot |_I$. This is a spectral $E$-algebra. If $E$ is a perfectoid 
+field, then $\mathbf B_{E/I}(R)$ is a perfectoid $E$-algebra. The tilt of 
+$\mathbf B_{E/I}(R)$ is $\mathbf B_{E^\flat/I}(R)$. 
+
+Now we can define some period rings. Let $A$ be a perfectoid $\dQ_p$-algebra. 
+We define $\mathbf B_\text{cris}^+(A)$ and $\mathbf B_\text{dR}^+(A)$. 
+One has 
+\[
+  \mathbf B_\text{dR}^+(A) = \varprojlim_{n\geqslant 0} \mathbf B_n(A)
+\]
+the inverse limit being taken in the category of Banach $\dQ_p$-allgebras, and 
+$\mathbf B_m(A)$ being the universal divided-power thickening of $A$ of order 
+$\leqslant n+1$. More explicitly, we have 
+$\theta:W(A^{\flat\circ})[\frac 1 p] \twoheadrightarrow A$, whose kernel is 
+a principal ideal $(\xi)$. 
+
+Then $\mathbf B_m(A) = W(A^{\flat\circ})[\frac 1 p]/\xi^m$, so 
+\[
+  \mathbf B_\text{dR}^+(A) = \varprojlim W(A^{\flat\circ})[\frac 1 p]/(\ker\theta)^n
+\]
+Finally, $\mathbf B_\text{dR}(A) = \mathbf B_{dR}^+(A)[\frac 1 \xi]$. 
+
+To define $A_\text{cris}$, start with $A_{cris}^\varphi$ to be the sub $W(R^\circ)$-algebra of 
+$W(R^\circ)[\frac 1 p]$ generated by the $\{\xi^m / m\}$. Put 
+$B_{cris}^+(A) = A_{cris}(A)[\frac 1 p]$, where $A_{cris}(A)$ is the $p$-adic 
+completion of $A_{cris}^\varphi$. 
 
 
 
