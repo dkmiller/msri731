@@ -164,8 +164,8 @@ show that if $M$ is a $K^{\circ a}$-module that is projective, then $M=0$.
 
 Any finitely generated ideal $I\subset K^\circ$ is an almost finitely generated 
 $K^{\circ a}$-module. In fact, such $I$ are uniformly almost finitely generated. 
-Fix $r\in \dR_{>0}$ such that $r\notin v(K^\times)$. Then the ideal 
-$I_r=\{f\in K^\circ:v(f)>r\}$ is not finitely generated, but is uniformly almost 
+Fix $r\in \dR_{>0}$ such that $r\notin |K^\times|$. Then the ideal 
+$I_r=\{f\in K^\circ:|f|<r\}$ is not finitely generated, but is uniformly almost 
 finitely generated. 
 
 
@@ -182,7 +182,7 @@ idempotent} such that
 \begin{enumerate}
   \item $e^2=e$ 
   \item $\mu(e)=1$, where $\mu:B\otimes_A B\to B$ is the multiplication map 
-  \item $\ker(\mu)\cdot e = 0$ 
+  \item $\ker(\mu)\cdot e = 0$. 
 \end{enumerate}
 
 For example, if $A\to B$ is Galois with group $G$, then 
@@ -190,10 +190,14 @@ $B\otimes_A B\simeq \prod_{g\in G} B$ via
 $(b_1\otimes b_2)\mapsto (b_1\cdot g(b_2))_{g\in G}$. In this setting, $e$ is the 
 element $(1,0,\dots,0)$. 
 
-If one writes $e=\sum_{i=1}^n x_i\otimes y_i$ with $x_i,y_i\in B$, then 
-$\tr(e) = \sum \tr(x_i y_i) = 1$. Moreover, the composite of 
-$b\mapsto (\tr(b x_i))_i:B\to A^{\oplus n}$ and 
-$(a_i)\mapsto \sum_i a_i y_i$, is the identity map. 
+If one writes $e=\sum_{i=1}^N x_i\otimes y_i$ with $x_i,y_i\in B$, then 
+$\tr(e) = \sum \tr(x_i y_i) = 1$. Moreover, consider the maps 
+$\alpha:B\to A^{\oplus N}$ and $\beta:A^{\oplus N} \to B$ defined by 
+\begin{align*}
+  \alpha(b) &= (\tr(b x_i))_i \\
+  \beta(a_i)_i &= \sum_i a_i y_i .
+\end{align*}
+One has $\beta\circ\alpha = 1_B$, so $B$ is projective. 
 
 
 
@@ -219,11 +223,16 @@ extensions. For example, if $I\subset A$ is nilpotent, then the natural functor
 $A_\fet \to (A/I)_\fet$ is an equivalence of categories. 
 
 Suppose $K$ is a perfectoid field of characteristic $p>0$. Choose an element 
-$0\ne t\in\fm$. Let $A$ be an (honest) flat $K^\circ$-algebra which is integrally 
+$0\ne t\in\fm$. Let $A$ be a flat $K^\circ$-algebra which is integrally 
 closed inside $A[1/t]$. Let $B'$ be a finite \'etale $A[1/t]$-algebra. Let $B$ 
-be the integral closure of $A$ in $B'$. If $A$ is perfect, then the map 
-$A^a \to B^a$ is finite \'etale (as a map of $K^{\circ a}$-algebras). This is easy 
-to prove. We have a diagonal idempotent $e\in B'\otimes_A B'$. There exists 
+be the integral closure of $A$ in $B'$. 
+
+\begin{proposition}
+If $A$ is perfect, then $A^a \to B^a$ is finite \'etale as a map of 
+$K^{\circ a}$-allgebras. 
+\end{proposition}
+\begin{proof}
+We have a diagonal idempotent $e\in B'\otimes_A B'$. There exists 
 some $N>0$ such that $t^N\cdot e\in B\otimes_A B$. Everything in sight is 
 perfect, so we can apply the inverse of Frobenius to conclude that 
 $(t^N)^{1/p^n}\cdot e\in B\otimes_A B$ for all $n>0$. Thus  
@@ -234,6 +243,7 @@ $\epsilon\cdot e = \sum_{i=1}^N x_i\otimes y_i$. The composite
 $B\to A^{\oplus N} \to B$ of $b\mapsto (\tr(b x_i))_i$ and 
 $(a_i)\mapsto \sum a_i y_i$ is multiplication by $\epsilon$, so $B$ is uniformly almost 
 finitely presented projective. 
+\end{proof}
 
 
 
