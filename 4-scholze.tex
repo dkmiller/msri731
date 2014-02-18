@@ -13,7 +13,282 @@
 
 
 
-d
+\section{Tilting perfectoid algebras}
+
+Fix a perfectoid base field $K$. This field contains the subring $K^\circ=\cO_K$ 
+of integral elements, which contains a unique maximal ideal $\fm$. Recall that 
+the \emph{tilt} of $K$ is 
+\[
+  K^\flat \supset \cO_K^\flat = \varprojlim_\Phi \cO_K/p\supset \fm^\flat
+\]
+Choose a nonzero $\varpi\in \fm$, $\varpi^\flat\in \fm^\flat$ such that 
+$\cO_K/\varpi \simeq \cO_{K^\flat}/\varpi^\flat$. 
+
+\begin{definition}
+An affinoid $K$-algebra $(R,R^+)$ is \emph{perfectoid} if $R$ is a 
+perfectoid $K$-algebra. 
+\end{definition}
+
+Note that $\fm\subset R^\circ \subset R^+\subset R^\circ$, and 
+$R^+ \to R^\circ$ is an almost isomorphism. Also, the rings $R^+,R^\circ$ carry 
+the $\varpi$-adic topology, and are complete with respect to this topology. 
+(This is true because $R^\circ\subset R$ is bounded.) 
+
+\begin{proposition}
+There is a tilting equivalence 
+\[
+  \{(R,R^+)\text{ perfectoid $K$-algebras}\} \leftrightarrow \{(S,S^+)\text{ perfectoid $K^\flat$-algebras}\}
+\]
+where a perfectoid $K$-algebra $R$ is mapped to 
+\[
+  R^\flat = \varprojlim_{x\mapsto x^p} R
+\]
+as a multiplicative monoid. One has 
+$R^\flat\supset R^{\flat +} = \varprojlim_{x\mapsto x^p} R^+$. There are 
+natural isomorphisms $R^+/\varpi \simeq R^{\flat +}/\varpi^\flat$. 
+\end{proposition}
+
+We have a diagram 
+\[\xymatrix{
+  K 
+    & \ar[l] \cO_K \ar@{->>}[r] 
+    & \cO_K/\varpi \ar@{=}[d] \\
+  K^\flat 
+    & \ar[l] \cO_{K^\flat} \ar[r] 
+    & \cO_{K^\flat} / \varpi^\flat
+}\]
+From Bhargav's talk, we know that 
+$R^{\flat\circ} = \varprojlim_\Phi R^\circ/\varpi$, and there is an obvious multiplicative 
+projection 
+\[
+  \varprojlim_\Phi R^\circ \twoheadrightarrow \varprojlim_\Phi R^\circ/\varpi .
+\]
+It turns out that this is an isomorphism, so we can use it to transfer the 
+additive structure of $\varprojlim_\Phi R^\circ/\varpi$ to $\varprojlim_{x\mapsto x^p} R^\circ$. 
+For an arbitrary sequence $(\bar x_0,\bar x_1,\dots)\in \varprojlim R^\circ/\varpi$, 
+choose lifts $\tilde x_i$ of $\bar x_i$ to $R^\circ$, and put 
+\[
+  x_i = \lim_{n\to \infty} (\tilde x_{i+n})^{p^n} \in R^\circ
+\]
+It is not hard to show that this gives a well-defined continuous multiplicative 
+homomorphism 
+\[
+  R^\flat = \varprojlim_{x\mapsto x^p} R \to R \qquad f\mapsto f^\sharp .
+\]
+
+\begin{proposition}
+There exists a continuous map 
+$\spa(R,R^+) \to \spa(R^\flat,R^{\flat +}), x\mapsto x^\flat$ defined by 
+\[
+  |f(x^\flat)| = |f^\sharp(x)| \qquad(f\in R^\flat) .
+\]
+\end{proposition}
+\begin{proof}
+First, we need to check that $x^\flat$ is actually a valuation. All the properties 
+but the triangle inequality are clear. But $f\mapsto f^\sharp$ is not additive, so it 
+is not \emph{a priori} clear that $x^\flat$ satisfies the triangle inequality. Let 
+$f,g\in R^\flat$. Rescaling by an element of $K$, we may assume that 
+$f,g\in R^{\flat +}$, but are not both in $\varpi\cdot R^{\flat +}$. Note that 
+$f^\sharp\mod \varpi = f\mod\varpi^\flat$, as elements of 
+$R^+/\varpi = R^{\flat+}/\varpi^\flat$. It follows that 
+$f^\sharp+g^\sharp \equiv (f+g)^\sharp \mod\varpi$, i.e. $(-)^\sharp$ is additive 
+modulo $\varpi$. We can now compute 
+\begin{align*}
+  |(f+g)(x^\flat)|^{1/p^n} &= |(f^{1/p^n}+g^{1/p^n})^\sharp(x)| \\
+    &\leqslant \max(|\pi|, |((f^\sharp)^{1/p^n}+(g^\sharp)^{1/p^n})(x)|) \\
+    &\leqslant \max(|\pi|, |f^\sharp(x)|^{1/p^n}, |g^\sharp(x)|^{1/p^n}) \\
+    &= \max(|f^\sharp(x)|, |g^\sharp(x)|)^{1/p^n} ,
+\end{align*}
+for $n\gg 0$. Raising to the $p^n$-th power, we get 
+$|(f+g)(x^\flat)| = \max(|f(x^\flat)|,|g(x^\flat)|)$, as desired. 
+\end{proof}
+
+\begin{theorem}
+Let $(R,R^+)$ be a perfectoid affinoid $K$-algebra with tilt 
+$(R^\flat,R^{\flat +})$. Then 
+\begin{enumerate}
+  \item The map $(-)^\flat:X=\spa(R,R^+) \to \spa(R^\flat,R^{\flat +})=X^\flat$ is a 
+    homeomorphism, preserving rational subsets. 
+  \item The structure presheaves $\sO_X$, $\sO_X^+$, $\sO_{X^\flat}$, $\sO_{X^\flat}^+$ are 
+    sheaves. 
+  \item For all $U\subset X$ rational, $(\sO_X(U),\sO_X^+(U))$ is a perfectoid 
+    affinoid $K$-algebra with tilt $(\sO_{X^\flat}(U), \sO_{X^\flat}^+(U))$. 
+  \item For all $x\in X$, the completed residue field $\widehat{k(x)}$ is 
+    perfectoid with tilt $\widehat{k(x^\flat)}$. 
+\end{enumerate}
+\end{theorem}
+
+We have already seen that if $R$ is strongly noetherian, then the structure 
+presheaves on $\spa(R,R^+)$ are sheaves. In this theorem, there are no finiteness 
+conditions -- it is the ``perfectoidness'' of $R$ that is used in showing that 
+$\sO_X$ etc.\ are sheaves. 
+
+The proof is based on an approximation lemma: given $f\in R$, we want there to 
+exist $g\in R^\flat$ such that $f_g^\sharp$ is small. In some sense, this happens, 
+but see Caraiani's talk for more details. 
+
+First we show that $\sO_X$ is a sheaf if $K$ has characteristic $p$. 
+
+\begin{definition}
+We say 
+that $(R,R^+)$ is \emph{$p$-finite} if there is a reduced Tate $K$-algebra 
+$(S,S^+)$, topologically of finite type, such that $R^+$ is the $\varpi$-adic 
+completion of $\varinjlim_\Phi S^+$, and $R=R^+[\frac 1 \varpi]$. 
+\end{definition}
+
+\begin{proposition}
+In this situation, the map $X=\spa(R,R^+) \to Y=\spa(S,S^+)$ is a 
+homeomorphism preserving rational subsets. Moreover, for any $U\subset X$ rational, 
+$(\sO_X(U),\sO_X^+(U))$ is $p$-finite, and is the perfect completion of 
+$\sO_Y(U),\sO_Y^+(U))$. 
+\end{proposition}
+
+
+\begin{corollary}
+Let $X$ be as in the proposition. Let $X=\bigcup U_i$ be a finite cover by 
+rational $U_i\subset X$. Then 
+\[\xymatrix{
+  0 \ar[r] 
+    & R^+ \ar[r] 
+    & \prod \sO_X^+(U_i) \ar[r] 
+    & \prod \sO_X^+(U_{i j}) \ar[r] 
+    & \cdots 
+}\]
+is almost exact (i.e. its cohomology is killed by $\fm)$. 
+\end{corollary}
+\begin{proof}
+We already know that $\sO_Y$ is a sheaf, so 
+\[\xymatrix{
+  0 \ar[r] 
+    & S \ar[r] 
+    & \prod \sO_Y(U_i) \ar[r] 
+    & \prod \sO_Y(U_{i j}) \ar[r] 
+    & \cdots
+}\]
+is exact. We can apply Banach's open mapping theorem to show that in the complex 
+\[\xymatrix{
+  0 \ar[r] 
+    & S^+ \ar[r] 
+    & \prod \sO_Y^+(U_i) \ar[r] 
+    & \prod \sO_Y^+(U_{i j}) \ar[r] 
+    & \cdots 
+}\]
+all the cohomology groups are killed by a (single) power of $\varpi$. Take the 
+direct limit over Frobenius, all cohomology groups are almost zero. Complete 
+everything in sight, and we get the result. 
+\end{proof}
+
+As in Bhargav's talks, the main idea is that properties true for the generic fiber 
+are ``almost true'' (i.e. true in the almost context). 
+
+\begin{proposition}
+Suppose $K$ is a perfectoid field of characteristic $p$. Any perfectoid affinoid 
+$K$-algebra $(R,R^+)$ is a completed filtered direct limit of $p$-finite ones. 
+\end{proposition}
+
+This is a generalization of the fact that any $\dZ$-algebra is a direct filtered 
+direct limit of $\dZ$-algebras of finite type, and the proof runs similarly. 
+
+Note that a filtered direct limit of almost exact sequences is almost exact. This 
+gives us the following corollary. 
+
+\begin{corollary}
+For any $X=\spa(R,R^+)$, where $(R,R^+)$ is a perfectoid affinoid $K$-algebra and 
+$K$ has characteristic $p$, the structure presheaves $(\sO_X,\sO_X^+)$ are 
+sheaves. 
+\end{corollary}
+
+
+
+
+
+\section{Almost purity}
+
+Fix a perfectoid $K$-algebra $R$. In Bhargav's talk we had the following diagram:
+\[\xymatrix{
+  R_\fet 
+    & R^{\circ a}_\fet \ar@{_{(}->}[l] \ar[r]^-\sim 
+    &  (R^{\circ a}/\varpi)_\fet \ar@{=}[d] \\
+  R^\flat_\fet 
+    & \ar[l]_-\sim R_\fet^{\flat\circ a} \ar[r]^-\sim 
+    & (R^{\flat\circ a}/\varpi^\flat)_\fet
+}\]
+We get a functor $R_\fet^\flat \hookrightarrow R_\flat$, inverse to the tilting 
+functor. 
+
+\begin{theorem}
+There is a natural equivalene $R_\fet^\flat\simeq R_\fet$. Equivalently, for all 
+finite \'etale $R$-algebras $S$, $S$ is perfectoid, and $S^{\circ a}$ is 
+finite \'etale over $R^{\circ a}$. 
+\end{theorem}
+
+This is the almost purity theorem of Faltings, motivated by the classical 
+Zariski-Nagata purity theorem. 
+
+Take any such $S$. Choose $R^+=R^\circ$, and let $X=\spa(R,R^+)$, and 
+$X^\flat = \spa(R^\flat,R^{\flat +})$. If $U\subset X$ is rational, we have 
+$S(U) = S\otimes_R \sO_X(U)$., a finite \'etale $\sO_X(U)$-algebra. 
+
+\begin{lemma}
+Fix a point $x\in X$. Then 
+\[
+  \twolim_{U\ni x} \sO_X(U)_\fet \simeq \widehat{k(x)}_\fet .
+\]
+\end{lemma}
+\begin{proof}
+We compute 
+\begin{align*}
+  \twolim_{U\ni x} &\simeq (\varinjlim \sO_X(U))_\fet .
+\end{align*}
+But $\varinjlim \sO_X^+(U)$ is henselian along $\varpi$ because each 
+$\sO_X^+(U)$ is complete. General theory tells us that 
+\[
+  (\sO_{X,x})_\fet \simeq (\widehat{\sO_{X,x}^+}[\frac 1 \varpi])_\fet
+\]
+\end{proof}
+But in the eact sequence 
+\[\xymatrix{
+  0 \ar[r] 
+    & I \ar[r] 
+    & \sO_{X,x}^+ \ar[r] 
+    & k(x)^+ \ar[r] 
+    & 0 
+}\]
+the ideal $I$ is a $K$-vector space. Indeed, if $f\in I$, then $|f|\leqslant |\varpi|$, 
+so $f$ lies in an open neighborhood of $x$. Thus 
+$\frac f \varpi \in \varinjlim(\sO_{X,x}^+ \to k(x)^+) = I$. Take $\varpi$-adic 
+completion, and $I$ vanishes, so $\widehat{\sO_{X,x}^+} = \widehat{k(x)}^+)$. It 
+follows that $(\widehat{\sO_{X,x}^+}[\frac 1 \varpi])_\fet = \widehat{k(x)^+}_\fet$. 
+
+\begin{corollary}
+\[
+  \twolim_{U\ni x} \sO_X(U)_\fet \simeq \widehat{k(x)}_\fet \simeq \widehat{k(x^\flat)}_\fet \simeq \twolim_{U\ni x} \sO_{X^\flat}(U)_\fet 
+\]
+\end{corollary}
+
+It follows that locally, $S(U)$ is in the image of $\sO_{X^\flat}(U)_\fet\hookrightarrow \sO_X(U)_\fet$. A basic gluing argument yields the result. 
+
+
+
+
+
+
+\section{Perfectoid spaces}
+
+\begin{definition}
+A \emph{perfectoid space} over $K$ is an adic space over $K$ that is locally isomorphic 
+to $\spa(R,R^+)$, where $(R,R^+)$ is a perfectoid affinoid $K$-algebra. 
+\end{definition}
+
+\begin{corollary}
+There is an equivalence of categories 
+\[
+  \{\text{perfectoid spaces over }K\} \simeq \{\text{perfectoid spaces over $K^\flat$}\} 
+\]
+given by $X\mapsto X^\flat$. Moreover, $|X|\simeq |X^\flat|$, 
+$\sO_X$ tilts to $\sO_{X^\flat}$ when evaluated on affinoid perfectoid opens 
+$U\subset X$. 
+\end{corollary}
 
 
 
