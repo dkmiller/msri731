@@ -14,7 +14,8 @@
 
 
 Here we treat the affine case of the tilting correspondence for perfectoid 
-spaces. In general, if $R$ is a ring of characteristic $p$, let 
+spaces. Unless anything is said to the contrary, all theorems are due to 
+Scholze. If $R$ is a ring of characteristic $p$, let 
 $\Phi:R\to R$ be the Frobenius $x\mapsto x^p$. 
 
 
@@ -26,11 +27,12 @@ $\Phi:R\to R$ be the Frobenius $x\mapsto x^p$.
 Let $K$ be a perfectoid field. 
 
 \begin{definition}
-Let $K^{\flat\circ} = \varprojlim_\Phi K^\circ/p$. Let 
+The \emph{tilt} of $K$ has valuation ring 
+$K^{\flat\circ} = \varprojlim_\Phi K^\circ/p$. So  
 $K^\flat=\operatorname{Frac}(K^{\flat\circ})$. 
 \end{definition}
 
-\begin{theorem}[Fontaine-Wintenberger]
+\begin{theorem}[Fontaine, Wintenberger]
 If $K$ is perfectoid, so is $K^\flat$, and tilting induces an equivalence of 
 categories $K_\fet\simeq K_\fet^\flat$. 
 \end{theorem}
@@ -75,7 +77,7 @@ $|p|\leqslant |\pi| < 1$.
 \begin{example}
 Let $R=K\langle T^{1/p^\infty}\rangle$ in the sense of Tate, i.e. 
 \[
-  R=\left(\bigcup_{n\geqslant 1} K^\circ[T^{1/p^n}]\right)^\wedge[\frac 1 p] 
+  R=\left(\bigcup_{n\geqslant 1} K^\circ[T^{1/p^n}]\right)^\wedge[\frac 1 p] .
 \]
 \end{example}
 
@@ -91,17 +93,18 @@ Banach $K$-algebras $A$ such that $A^\circ$ is open and bounded.
 
 \begin{theorem}[Tilting equivalence]
 There are natural equivalences of categories 
-\begin{align*} \tag{a}\label{eq:a}
-  K\Perf &\xleftarrow\sim K^{\circ a}\Perf \\ \tag{c}\label{eq:c}
-    &\xrightarrow\sim (K^{\circ a}/\pi)\Perf \\ 
-    &= (K^{\flat\circ a}/\pi)\Perf \\ \tag{d}\label{eq:d}
-    &\xrightarrow\sim K^{\flat\circ a}\Perf \\ \tag{b}\label{eq:b}
-    & \xrightarrow\sim K^\flat\Perf
-\end{align*}
+\[\xymatrix{
+  K\Perf 
+    & \ar[l]^-\sim_-{(a)} K^{\circ a}\Perf \ar[r]_-\sim^-{(b)} 
+    & (K^{\circ a}/\pi)\Perf \ar@{=}[d] \\
+  K^\flat\Perf 
+    & \ar[l]_-\sim^-{(d)} K^{\flat\circ a}\Perf \ar[r]^-\sim_-{(c)} 
+    & (K^{\flat\circ a}/\pi)\Perf
+}\]
 \end{theorem}
 
-The equivalences \eqref{eq:a} and \eqref{eq:b} use almost mathematics, while 
-\eqref{eq:c} and \eqref{eq:d} use some deformation theory. 
+One proves equivalences (a) and (d) using almost mathematics, while (c) and (d) 
+require some deformation theory -- in particular the cotangent complex. 
 
 
 
@@ -115,7 +118,7 @@ Let $M$ be a $K^{\circ a}$-module, $N$ a $K^\circ$-module. Then
   \item $M$ is flat in over $K^{\circ a}$ if and only if $M_\ast$ is flat over $K^\circ$. 
   \item If $N$ is flat over $K^\circ$, then $N^a$ is flat, and 
     \[
-      N_\ast^a = \{x\in N[\frac 1 \pi] : \epsilon x\in N\text{ for all }\epsilon\in\fm\} 
+      N_\ast^a = \left\{x\in N\left[\frac 1 \pi\right] : \epsilon\cdot x\in N\text{ for all }\epsilon\in\fm\right\} 
     \]
   \item If $M$ is flat over $K^{\circ a}$, then $M$ is $\pi$-adically complete if 
     and only if $M_\ast$ is $\pi$-adically complete
@@ -185,9 +188,10 @@ We'll start with a review of the cotangent complex as it appears in standard
 algebraic geometry. If $A\to B$ is a ring homomorphism, then the cotangent 
 complex $L_{B/A}$ is an object in $\mathsf D^{\leqslant 0}(B\Mod)$. If 
 $A\to B$ is smooth, then $L_{B/A} = \Omega_{B/A}^1[0]$. Most importantly, 
-$L_{B/A}$ controls the deformation theory of $A\to B$ in full generality. 
+$L_{B/A}$ controls the deformation theory of $A\to B$ regardless of whether $B$ 
+is smooth over $A$. 
 
-\begin{example}
+\begin{example}\label{eg:cot-perf}
 Suppose $A=\dF_p$ and $B$ is any perfect $\dF_p$-algebra. It turns out that 
 $L_{B/A}=0$. This is easy to prove. By assumption, the Frobenius map 
 $\Phi:B\to B$ is an isomorphism, so the induced morphism 
@@ -210,8 +214,9 @@ of length $n$.
 \section{Comparing $K^{\circ a}\Perf$ and $(K^{\circ a}/\pi)\Perf$}
 
 If $A\to B$ is a map of $K^{\circ a}$-algebras, then \cite{gr03} define 
-$L_{B/A}$ as an object of $\mathsf D(B\Mod)$. This $L_{B/A}$ is actually 
-constructed as an ``honest complex,'' and satisfies the desired properties. 
+an object of $\mathsf D(B\Mod)$ that they call $L_{B/A}$. This $L_{B/A}$ is actually 
+constructed as an ``honest complex'' in $\mathsf D(B_\ast\Mod)$. The complex 
+$L_{B/A}$ satisfies all the properties one would hope for. 
 
 \begin{lemma}\label{lem:perf-cot}
 Let $A$ be a perfectoid $(K^{\circ a}/\pi)$-algebra. Then 
@@ -228,7 +233,7 @@ isomorphism. Consider the following commutative diagram:
     & K^{\circ a}/\pi^{1/p} \ar[l]_-\sim \ar[u] 
     & K^{\circ a}/\pi \ar[u] \ar@{->>}[l] 
 }\]
-Tne previous argument completes the proof. 
+The argument from Example \ref{eg:cot-perf} completes the proof. 
 \end{proof}
 
 Lemma \ref{lem:perf-cot} implies that 
@@ -242,17 +247,18 @@ $A^\flat = \varprojlim_\Phi A$ is a perfectoid $K^{\flat\circ a}$-algebra.
 
 \section{Tilting \'etale covers}
 
-Let $A$ be a perfectoid algebra over $K$. Our goal is to prove that there are  
-natural equivalences 
-\begin{align*} \tag{a}
-  A_\fet &\xleftarrow\sim A^{\circ a}_\fet \\ \tag{b}
-  &\xrightarrow\sim (A^{\circ a}/\pi)_\fet \\
-  &= (A^{\flat\circ a}/t)_\fet \\ \tag{d}
-  &\xleftarrow\sim (A^{\flat\circ a})_\fet \\ \tag{c}
-  &\xrightarrow\sim A^\flat_\fet
-\end{align*}
-We have seen that \eqref{eq:b} and \eqref{eq:d} follow from deformation theory, 
-and \eqref{eq:c} follows from the last example. 
+Let $A$ be a perfectoid algebra over $K$. We have the following chain of 
+equivalences of categories: 
+\[\xymatrix{
+  A_\fet
+    & \ar[l]^-\sim_-{(a)} A^{\circ a}_\fet \ar[r]_-\sim^-{(b)} 
+    & (A^{\circ a}/\pi)_\fet \ar@{=}[d] \\
+  A^\flat_\fet
+    & \ar[l]_-\sim^-{(d)} A^{\flat\circ a}_\fet \ar[r]^-\sim_-{(c)} 
+    & (A^{\flat\circ a}/\pi)_\fet
+}\]
+Essentially, we have seen that (b) and (d) follow from deformation theory, 
+while (c) follows from the last example. 
 
 
 
