@@ -13,7 +13,234 @@
 
 
 
-d
+The goal is to understand Scholze's proof of the weight-monodromy conjecture 
+for hypersurfaces in projective space. We will do this by comparing \'etale 
+topoi in characteristic zero and characteristic $p$. 
+
+
+
+
+
+\section{Tilting}
+
+Recall the tilting equivalence. Let $K$ be a perfectoid field (i.e. a complete 
+non-archimedean field with non-discrete valuation such that Frobenius 
+$K^\circ/\pi \to K^\circ/\pi$ is surjective, where $\pi\in K^\circ$ has 
+$|p|\leqslant |\pi| <1$). The tilt of $K$ is $K^\flat$, which as a set is 
+\[
+  K^\flat = \varprojlim_{x\mapsto x^p} K .
+\]
+There is a section map $(-)^\sharp:K^\flat \to K$ that is multiplicative and 
+continuous, but not additive or surjective. We say that 
+$\spa(K,K^\circ)$ tilts to $\spa(K^\flat,K^{\flat\circ})$. A baby case of the 
+almost purity theorem tells us that there is an equivalence of categories 
+$K_\fet \simeq K^\flat_\fet$. This leads to an isomorphism of Galois groups 
+$\gal(\bar K/K) \simeq \gal(\bar K^\flat/K^\flat)$. 
+
+This can be generalized to perfectoid spaces over $K$. Recall that a 
+\emph{perfectoid space} over $K$ is an adic space $X$ over $K$ that is locally 
+of the form $\spa(R,R^+)$, where $R$ is a perfectoid $K$-algebra and 
+$R^+\subset R^\circ$ is an open integrally closed subring. The space $X$ tilts 
+(locally) to $\spa(R^\circ,R^{\circ +})$, yielding a functor $X\mapsto X^\flat$ 
+from perfectoid spaces over $K$ to perfectoid spaces over $K^\flat$. 
+
+Recall that we have a map $R^\flat = \varprojlim_{x\mapsto x^p} R \to R$ given 
+by $(x_i)_{i\geqslant 1} \mapsto x_0$. This map is continuous, multiplicative, 
+but not surjective. However, it induces an isomorphism 
+$R^+/\pi \simeq R^{\flat +}/\pi^\flat$. This lets define a homeomorphism 
+$|X|\to |X^\flat|$, $x\mapsto x^\flat$, where for $f\in R^\flat$, we have 
+$|f(x^\flat)| = |f^\sharp(x)|$. This homeomorphism preserves rational 
+subsets. To prove this, one uses an approximation lemma: given $f\in R^+$, 
+there exists $g\in R^{\flat +}$ such that $|f|+\|g^\sharp|$ except when both 
+are ``very small'' (i.e. except when $|f|<\varepsilon$, in which case we only 
+require $|g^\sharp|<\varepsilon$). 
+
+The structure sheaves $(\sO_X,\sO_X^+)$ of $X$ tilt to sheaves 
+$(\sO_{X^\flat}, \sO_{X^\flat}^+)$ on $X^\flat$. Recall that an \'etale 
+morphism of perfectoid spaces is a composite of a finite \'etale morphism with 
+an open immersion. Using the almost purity theorem, we get an isomorphism 
+$X_\et\simeq X^\flat_\et$. Recall that a key point here is that locally, 
+$\widehat{\sO_{X,x}^+}[\frac 1 \pi] \simeq \widehat{k(x)}$, and both are perfectoid 
+fields. This reduces the proof of the almost purity theorem to the case for 
+perfectoid fields. This isomorphism on stalks actually holds more generally 
+for analytic adic spaces. The sheaf property is crucial here. 
+
+
+
+
+
+\section{Comparing perfectoid spaces with noetherian spaces}
+
+To apply any of this to the weight-monodromy conjecture, we need to compare 
+\'etale sites and underlying spaces of perfectoid spaces with the \'etale 
+sites and underlying spaces of locally noetherian adic spaces. For example, 
+let $(\dP_K^n)^\ad$ be the adic projective space glued out of 
+$\spa(K\langle T_1,\dots,T_n\rangle,K^\circ\langle T_1,\dots,T_n\rangle)$ in 
+the usual way. Also define $(\dP_K^n)^\perf$ by glueing copies of 
+\[
+  \spa(K\langle T_1^{1/p^\infty},\dots,T_n^{1/p^\infty}\rangle,K^\circ\langle T_1^{1/p^\infty},\dots,T_n^{1/p^\infty}\rangle)
+\] 
+in the usual way. 
+
+\begin{definition}
+Let $X$ be a perfectoid space over $K$, and $\{X_i\}$ a filtered inverse 
+system of noetherian adic spaces over $K$, together with a compatible system 
+of maps $\varphi_i :X\to X_i$. We say that $X\sim \varprojlim X_i$ if 
+\begin{enumerate}
+  \item The induced map $|X|\to \varprojlim |X_i|$ is a homeomorphism. 
+  \item For all $x\in X$ inducing $x_i\in X_i$, the map 
+    $\varinjlim k(x_i) \to k(x)$ has dense image. 
+\end{enumerate}
+\end{definition}
+
+Note that if $Y\to X_i$ is an \'etale morphism of adic spaces, then 
+$Y\times_{X_i} X\sim \varprojlim_{j\geqslant i} Y\times_{X_i} X_j$. 
+
+Consider $\dP_K^{n,\perf}$ as perfectoid space over $K$. 
+
+\begin{theorem}
+We have $\dP_K^{n,\perf,\flat} \simeq \dP_{K^\flat}^{n,\perf}$. 
+
+2. $\dP_K^{n,\perf} \sim \varprojlim_\Phi \dP_K^{n,\ad}$, where 
+$\Phi(x_0:\cdots:x_n) = (x_0^p:\cdots:x_n^p)$. 
+
+3. There are homeomorphisms of topological spaces 
+$|\dP_{K^\flat}^{n,\ad}| \simeq |\dP_{K^\flat}^{n,\perf}|\simeq |\dP_K^{n,\perf}| \simeq \varprojlim_\Phi |\dP_K^{n,\ad}|$. 
+
+4. There is an equivalence of \'etale topoi 
+$\dP_{K^\flat,\et}^{n,\ad,\sim}\simeq \varprojlim_\Phi \dP_{K,\et}^{n,\ad,\sim}$. 
+
+5. Denote by $\pi$ the map 
+$|\dP_{K^\flat}^{n,\ad} \to |\dP_K^{n,\ad}|$. If 
+$U\subset |\dP_K^{n,\ad}|$ is open,  put $V=\pi^{-1}(U)\subset |\dP_{K^\flat}^{n,\ad}|$.
+There is a commutative diagram 
+\[\xymatrix{
+  V_\et^\sim \ar[r] \ar[d] 
+    & \dP_{K^\flat,\et}^{n,\ad,\sim} \ar[d] \\
+  U_\et^\sim \ar[r] 
+    & \dP_{K,\et}^{n,\et,\sim} 
+ }\] 
+\end{theorem}
+\begin{proof}
+1. It suffices to check this on affinoid pieces, where this comes down to the 
+fact that 
+\[
+  (K^\circ/\pi)\langle T_1^{1/p^\infty},\dots,T_n^{1/p^\infty}\rangle = (K^{\flat \circ}/\pi^\flat) \langle T_1^{1/p^\infty},\dots,T_n^{1/p^\infty}\rangle . 
+\]
+
+3. This follows from part 2 and the tilting equivalence. 
+\end{proof}
+
+Note that part 3 tells us that $|\dP_{K^\flat}^{n,\ad}|\simeq \varprojlim_\Phi |\dP_K^{n,\ad}|$. 
+
+There is a map $\varprojlim_\Phi |\dP_K^{n,\ad}| \to |\dP_K^{n,\ad}|$ that on 
+coordinates is $(x_0:\cdots:x_n)\mapsto (x_0^\sharp:\cdots : x_n^p)$. 
+
+\begin{corollary}
+There are natural isomorphisms 
+\[
+  \h^i(\dP_{K^\flat,\et}^{n,\ad},\dZ/\ell^m) \simeq \h^i(\dP_{K,\et}^{n,\ad}.\dZ/\ell^m) 
+\]
+\end{corollary}
+In proving the corollary, one can assume that $K$ (and hence $K^\flat$) are 
+separably closed. 
+
+
+
+
+
+\section{Proving the weight-monodromy conjecture}
+
+Let $k$ be a local field, $X$ a proper smooth variety over $k$. Then the groups 
+$V=\h^i(X_{\bar k},\bar\dQ_\ell)$ admit a continuous action of the group 
+$\gal(\bar k/k)$. Assume $\ell\ne p$. Then this action is characterized by the 
+action a (lift of) Frobenius. Let $\pi\in k$ be a uniformizer and 
+$\dF_q=k^\circ/\pi$. By the Grothendieck $\ell$-adic monodromy theorem, after a 
+finite base-change, everything is defined in terms of a nilpotent operator 
+$N$ (which encodes the action of the tame inertia). 
+
+From basic linear algebra, we know that we can write 
+$V=\bigoplus_{j=0}^{2 i} V_i$, where on each $V_i$ the eigenvalues of Frobenius 
+are Weil numbers of weight $j$ (i.e. their absolute value is 
+$q^{j/2}$ for each complex embedding $\bar\dQ_\ell\hookrightarrow \dC$). If 
+$X$ has good reduction, we know that only one weight occurs, so $N=0$. 
+This is because in general, $N:V_j \to V_{j-2}$. 
+
+\begin{conjecture}[Deligne]
+If $V$ is as above, then $N^j:V_{i+j} \to V_{i-j}$ is an isomorphism for all 
+$0\leqslant j\leqslant i$. 
+\end{conjecture}
+
+Equivalently, we can define the monodromy filtration on $V$ which is uniquely 
+characterized by the conclusion of the conjecture, and the conjecture claims 
+that the monodromy filtration and weight filtration are the same. 
+
+The weight-monodromy conjecture is known in the equal-characteristic case. 
+
+\begin{theorem}[Deligne]
+Let $C$ be a curve over $\dF_q$, $x\in C(\dF_q)$ such that 
+$k$ is the local field of $C$ at $x$. If $X\to C\smallsetminus \{x\}$ is 
+smooth, then $X_k=X\times_{C\smallsetminus \{x\}} \spec(k)$ satisfies the 
+weight-monodromy conjecture. 
+\end{theorem}
+
+Note that the weight-monodromy conjecture only concerns the monodromy operator 
+and the Frobenius operator. If we let $K=\widehat{k(\pi^{1/p^\infty})}$, then these 
+remain the same, so it suffices to work with varieties over $K$. 
+
+Let $Y\subset \dP_K^n$ be a smooth hypersurface. We can pass to the adic world 
+to obtain $Y^\ad\subset \dP_K^{n,\ad}$. There is a comparison theorem between 
+the \'etale cohomology of $Y$, and the \'etale cohomology of an open adic 
+neighborhood $\widetilde Y$ of $Y^\ad$. Over $\dC_p$, we have a diagram 
+\[\xymatrix{
+  \dP_{\dC_p^\flat}^n \ar[r] 
+    & \widetilde Y_{\dC_p} \\
+  \pi^{-1}(\widetilde Y) \ar@{^{(}->}[u] 
+    & Y_{\dC_p} \ar@{^{(}->}[u] 
+}\]
+
+\begin{lemma}
+Suppose $Y$ is cut out by a homogeneous polynomial $f$ of degree $d$. Then 
+there exists a homogeneous polynomial 
+$g\in \dC_p^\flat\langle T_1^{1/p^\infty},\dots,T_n^{1/p^\infty}\rangle$ such 
+that $|f(x)|\leqslant \epsilon$ if and only if $|g^\sharp(x)|\leqslant \epsilon$ 
+for all $x\in \dP_{\dC_p}^{n,\ad}$. 
+\end{lemma}
+
+It turns out that $\pi^{-1}(\widetilde Y)$ will contain some $Z$ algebraic 
+over $\dC_p$. Huber gives comparison isomorphisms 
+$\h^i(Y,\dZ/\ell^m)\simeq \h^i(\widetilde Y,\dZ/\ell^m)$ for $\widetilde Y$ 
+sufficiently small. In this setting, we get an injection   
+\[
+  \h^i(Y_{\dC_p,\et},\overline\dQ_\ell) \to \h^i(Z_{\dC_p,\et},\overline\dQ_\ell)
+\]
+that is $\gal(\bar K/K)\simeq \gal(\bar K^\flat/K^\flat)$-equivariant and 
+compatible with cup product. 
+
+One can choose $Z$ so that the representation on the right satisfies the 
+weight-monodromy conjecture, so it suffices to show that the space on the left 
+is a direct summand. We use this using Poincar\'e duality and the following 
+lemma. 
+
+\begin{lemma}
+Let $f\in K^\circ\langle T_0^{1/p^\infty},\dots,T_n^{1/p^\infty}\rangle$ be a 
+homogeneous polynomial of degree $d$. Then for all $\varepsilon,c>0$, there 
+exists $g\in K^{\flat\circ}\langle T_0^{1/p^\infty},\dots,T_n^{1/p^\infty}\rangle$ 
+such that $|f(x)-g^\sharp(x)|\leqslant |\pi|^{1-\varepsilon} \cdot \max(|\pi|^c,|f(x)|)$. 
+\end{lemma}
+\begin{proof}
+Use induction on $c$. Let $R^\circ=K\langle T_0^{1/p^\infty},\dots,T_n^{1/p^\infty}\rangle$. 
+We know that $R^\circ/\pi\simeq R^{\flat\circ}/\pi^\flat$. Almost mathematics tells 
+us that if $|f(x)|\leqslant |\pi|^c$, then $f-g\in |\pi|^{1-\varepsilon+c} \sO_X^+(U)$. 
+\end{proof}
+
+To conclude, we get a map $\h^i(Y,\overline\dQ_\ell)\to \h^i(Z,\overline\dQ_\ell)$. 
+To show this is a direct summand, it is enough to look at $i=2\dim Y$, where the 
+map is either an isomorphism or zero. If the map is zero, we get that 
+$\h^i(\dP_{\dC_p^\flat}^n,\overline\dQ_\ell) \to \h^i(Z_{\dC_p^\flat},\overline\dQ_\ell)$ 
+is zero, but this cannot happen (because of Chern classes). Thus the top-degree 
+map is an isomorphism, so we use compatibility with cup-products and Poincar\'e 
+duality to get the result. 
 
 
 
