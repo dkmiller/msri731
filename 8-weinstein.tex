@@ -9,12 +9,198 @@
 \begin{document}
 \maketitle
 
+Let's move from studying perfectoid spaces ``in the abstract'' to examining some 
+perfectoid spaces that arise ``in nature.'' 
+
+Consider $X(N p^m)$ as a rigid space. The supersingular locus of $X(N p^m)$ is 
+a disjoint union $\coprod_{X(N)(\overline\dF_p)} \cM_m$, where each $\cM_m$ is 
+the \emph{Lubin-Tate space of level $m$}. Letting $m\to \infty$, everything 
+in sight becomes a perfectoid space. 
 
 
 
 
-d
 
+\section{The Lubin-Tate deformation problem}
+
+Let $k$ be an algebraically closed field of characteristic $p$. Let $H_0$ be a 
+one-dimensional formal group over $k$. Assume $H_0$ has finite height $n$. 
+We can write $X+_{H_0} H = X+Y+\cdots$, and the condition on height is that 
+$[p]_{H_0}(T) = f(T^{p^n})$, where $f(T) = c T+\cdots$, where 
+$c\in k^\times$. Better, we can consider $H_0$ as $\spf(k\pow T)$, and $H_0$ 
+is a group object in the category of formal schemes over $k$. Better yet, 
+$H_0$ is a $\dZ_p$-module in the category of formal schemes over $k$. 
+
+An \emph{adic $k$-algebra} is a topological $k$-algebra $R$, complete with 
+respect to some ideal $I\subset R$. For any adic $k$-algebra $R$, 
+$H_0(R)=\nil(R)=\sqrt I$, as a set. Let $\cC$ be the category of noetherian 
+$W(k)$-algebras with residue field $k$. 
+
+
+\begin{theorem}
+The functor $\cC\to \mathsf{Set}$ that assigns to $R$ the set of isomorphism 
+of classes of pairs $(H,\iota)$, where $H$ is a formal group over $R$, and 
+$\iota:H_0 \to H\otimes_R k$ is an isomorphism, is representable by 
+$A_0\simeq W(k)\pow{u_1,\dots,u_{n-1}}$. 
+\end{theorem}
+
+Let $\cO_D=\End H_0 \supset \dZ_p$. Then $D=\cO_D\otimes\dZ_p$ is a division 
+algebra over $\dQ_p$, of invariant $1/n$. Since $\cO_D$ acts on $H$, it acts 
+on the functor in the above theorem, ence on $W(k)\pow{u_1,\dots,u_{n-1}}$. But 
+for $n\geqslant 2$, this action is very mysterious (e.g. it has not been 
+explicitly been written down). 
+
+Drinfeld defined rings $A_0 \to A_1 \to \cdots$, where $A_n$ classifies 
+triples $(H,\iota,\phi)$ over $R$, where 
+$\phi$ is a ``level-$n$ structure,'' i.e. a certain type of map 
+$(\dZ/p^m)^{\oplus n} \to H[p^m]$. Drinfeld level structures are necessary to 
+define the Katz-Mazur models for modular curves over $\dZ_p$. 
+
+Suppose $n=1$. Then $H_0\simeq \widehat\dG_m$, and $A_0=W(k) = \cO_{K_0}$. 
+One has $A_m = W(k)[\xi_{p^m}] = \cO_{K_m}$. The $\{K_m\}$ form the tower 
+of cyclotomic extensions of $K_0$. If $n=2$, then $H_0\simeq \widehat E$, for 
+$E$ a supersingular elliptic curve over $k$. One has 
+$A_m=\cO_{X(N p^m),x}$, where $x\in X(N p^m)(k)^\text{ss}$ is a supersingular 
+point. Drinfeld proved that the $A_m$ are regular local rings admitting an 
+action of both $D^\times$ and $GL(m)$. 
+
+Let's pass to the generic fiber. Define $\cM_{H_0,m}^{(0)}= (\spf A_m)_\eta^\ad$. 
+If we allow the $\iota$ to be a quasi-isogeny of height $j$, then we get a 
+different deformation problem, and a space $\cM_{H_0,m}^{(j)}$, which is 
+(non-canonically) isomorphic to $\cM_{H_0,m}^{(0)}$. (A quasi-isogeny is 
+just an isomorphism in the isogeny category.) For example, 
+$p^{-n} f$ is a quasi-isogeny for all isogenies $f$, but for $n\gg 0$, 
+$p^{-n} f$ is \emph{not} an honest isogeny. The height of 
+$p^{-n} f$ is $ht(f)-n$. 
+
+Let $\cM_{H_0,m} = \coprod_{j\in \dZ} \cM_{H_0,m}^{(j)}$. Then $\cM_{H_0,m}$ admits an action of 
+$D^\times$. Put $\cM_{H_0,\infty} = \varprojlim \cM_{H_0,m}$; for now treat 
+this as a formal projective system. This is called the Lubin-Tate tower. The 
+group $GL_n(\dQ_p)\times D^\times$ acts on $\cM_{H_0,\infty}$, and this space 
+realizes the local Langlands correspondence. 
+
+\begin{example}[$n=1$]
+We get $\cM_{H_0,m}^{(0)} = \spa(K_m,\cO_{K_m})$, so 
+$\cM_{H_0,\infty}^{(0)} = \spa(K_\infty,\cO_{K_\infty})$, at least morally 
+speaking. Here $K_\infty =(\bigcup_m K_m)^\wedge$; note that this is a perfectoid 
+field. Essentially, this ``encompasses'' local class field theory. 
+\end{example}
+
+We would like to give the space $\cM_{H_0,m}$ a moduli interpretation. Morally, 
+for $(R,R^+)$ an affinoid $K_0=W(k)[\frac 1 p]$-algebra, $\cM_{H_0,\infty}(R,R^+)$ is 
+(naively) the set of isomorphism class of triples $(G,\iota,\phi)$, where 
+$G$ is a formal group over $R^+$, $\iota:H_0 \otimes_k R^+/p \to G\otimes_{R^+} R^+/p$ 
+is a quasi-isogeny, and $\phi:\dQ_p^{\oplus n}\to V G$ is an isomorphism, where 
+$V$ is the ``$p$-adic rational Tate module of $G$,'' i.e. 
+$V G=(\varprojlim G[p^m])\otimes \dQ_p$. These triples are only classified up to 
+isogeny. This is not precise because $R^+$ might not be $p$-adically complete, and 
+because $R$ might contain nilpotents. Also, what was written down needs to be 
+sheafified for the topology given by rational subsets (i.e. the topology on 
+$\spa(R,R^+)$). 
+
+Let's return to the case where the height $n=1$. We have 
+$\cM_{H_0,\infty}^{(0)}(R,R^+) = \hom(\cO_{K_\infty}, R^+) = T \mu_{p^\infty}(R^+)^\text{prim}$. Here $(-)^\text{prim}$ denotes the ``set of bases.'' 
+We have $\cM_{H_0,\infty}(R,R^+)) = V \mu_{p^\infty}(R^+)\smallsetminus \{0\}$. 
+
+
+
+
+
+\section{Formal vector spaces}
+
+Let $H$ be a $p$-divisble formal group over $R$, where $p$ is topologically 
+nilpotent in $R$. Let $\widetilde H=\varprojlim_p H$, with the inverse 
+limit being taken in the category of formal schemes. The action of $p$ on 
+$\widetilde H$ is invertible, so $\widetilde H$ is a $\dQ_p$-vector space 
+object in the category of formal schemes. We call $\widetilde H$ a 
+\emph{formal vector space}. 
+
+Note that $\widetilde{\dQ_p/\dZ_p} = \dQ_p$ (both are abstract groups). 
+
+Recall we had a one-dimensional formal group $H_0$ of height $1$ over an 
+algebraically closed field $k$ of characteristic $p$. 
+
+\begin{proposition}
+We have $\widetilde H_0\simeq \spf(k\pow{T^{1/p^\infty}})$. 
+\end{proposition}
+
+\begin{proposition}
+Suppose $R$ is $p$-adically complete. Then if $H$ is a $p$-divisible formal 
+group, $\widetilde H(R)\to \widetilde H(R/p)$ is an isomorphism. 
+\end{proposition}
+
+\begin{proposition}
+Let $H$ be a lift of $H_0$ to $\cO_{K_0}$. Then 
+$\widetilde H\simeq \spf(\cO_{K_0}\pow{T^{1/p^\infty}})$. 
+\end{proposition}
+
+To see why the proposition is true, compute 
+$\widetilde H(R) = \widetilde H(R/p) = \widetilde H_0(R/p)$ to see that 
+$\widetilde H(R)$ does not actually depend on a choice of lift $\widetilde H$. (This 
+is a ``crystalline property'' of lifts.)
+
+
+\begin{corollary}
+Let $K$ be a perfectoid field containing $K_0$. Let $\eta=\spa(K,\cO_K)$. Then 
+$\widetilde H_\eta^\ad$ is a perfectoid space. 
+\end{corollary}
+
+In fact, $\widetilde H_\eta^\ad$ is a $\dQ_p$-vector space object in the category 
+of perfectoid spaces over $K$. Abstractly, $\widetilde H_\eta^\ad$ is the closed 
+unit disk. 
+
+Note that $D\to \End \widetilde H_0 \to \End\widetilde H$. If $(R,R^+)$ is a 
+perfectoid $K$-algebra, $(G,\iota,\phi)\in \cM_{H_0,\infty}(R,R^+)$, we have 
+$\phi:\dQ_p^{\oplus n} \xrightarrow\sim V G(R^+) = \varprojlim G[p^n](R^+)\otimes \dQ_p \hookrightarrow \varprojlim G(R^+) \otimes \dQ_p = \widetilde G(R^+) \simeq \widetilde G(R^+/p)\xrightarrow\sim \widetilde H_0(R^+/p) = \widetilde H(R^+)$. 
+So we have a map $\phi:\dQ_p^{\oplus n} \to \widetilde H(R^+)$. This gives a 
+morphism $\cM_{H_0,\infty} \to (\widetilde H_\eta^\ad)^{\times n}$ which only 
+appears at the infinite level. This morphism is actually an inclusion! 
+
+
+
+
+
+
+\section{Connection to $p$-adic Hodge theory}
+
+Start with a $p$-divisible formal group $H_0$ over $k$. Let $M(H_0$ be its 
+associated Dieudonne module. This is a $W(k)$-module that is free of rank 
+$n=ht(H_0)$, and has an operators $F,V$ with $F V=p$. 
+
+If $R$ is a $k$-algebra, call $R$ \emph{f-semiperfect} if 
+$R=S/I$, where $S$ is a perfect $k$-algebra and $I$ is finitely generated. The 
+main example is $\cO_{\dC_p} / p \simeq \cO_{\dC_p^\flat} / p^\flat$. 
+
+\begin{theorem}[Scholze, Weinstein]
+$\widetilde H_0(R) \simeq \hom_{F,\phi}(M(H_0),\bcris^+(R)) \simeq \bcris^+(R)^{\phi^n=p}$. 
+\end{theorem}
+
+
+Note that $F$ acts on $M(H_0$ and $\phi$ acts $\bcris^+(R)$. 
+
+As a consequence, $\bigwedge^r M(H_0) = M(\bigwedge^r H_0)$. Start with 
+$\widetilde H_0(R)^{\times r}$. By the theorem, this is isomorphic to 
+\[
+  \hom(M(H_0)^{\oplus r}, \bcris^+(R)) \to \hom(\bigwedge^r M(H_0), \bcris^+(R)) \xrightarrow\sim \widetilde{\textstyle\bigwedge^r H_0}(R) 
+\]
+(note that not all the maps are isomorphisms). 
+
+Recall that we had a morphism $\cM_{H_0,\infty} \to (\widetilde H_\eta^\ad)^{\times n}$. 
+We also have a morphism $\cM_{\bigwedge^n H_0,\infty} \to \widetilde{\bigwedge^n H_\eta}^\ad$. There is also a morphism 
+$\det:(\widetilde H_\eta^\ad)^{\times n} \to \widetilde{\bigwedge^n H_\eta}^\ad$. 
+Finally, there is a morphism $\cM_{H_0,\infty} \to \cM_{\bigwedge^n H_0,\infty}$. 
+
+\begin{theorem}
+The following diagram is cartesian:
+\[\xymatrix{
+  \cM_{H_0,\infty} \ar[r] \ar[d] 
+    & (\widetilde H_\eta^\ad)^{\times n} \ar[d]^-{\det} \\
+  \cM_{\bigwedge^n H_0,\infty} \ar[r] 
+    & \widetilde{\textstyle\bigwedge^n H}_\eta^\ad 
+}\]
+\end{theorem}
+
+All objects carry an action of $GL_n(\dQ_p)\times D^\times$. 
 
 
 
