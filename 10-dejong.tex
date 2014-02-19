@@ -1,22 +1,201 @@
-\documentclass{article}
+% !TEX root = msri731.tex
 
-\usepackage{msri-style}
-
-\title{The pro-\'etale site}
-\author{Aise de Jong}
-\date{February 19, 2014}
-
-\begin{document}
-\maketitle
+\section{The pro-\'etale site}
+\thanksauthor{Johan de Jong (Feb.\ 19)}
 
 
 
 
 
-d
+For more on the pro-\'etale site, see Scholze and Bhatt's paper 
+\cite{bs13}, or Scholze's original paper \cite{sc13}. 
+
+We will not discuss the pro-\'etale site of a scheme, but the pro-\'etale site 
+of a locally noetherian adic space $X$. Let $X_\et$ be the \'etale site of $X$, 
+according to the standard definitions. We will construct a full subcaegory 
+$X_\proet$ of the pro-category of $X_\et$. 
 
 
 
 
 
-\end{document}
+\subsection{Basic definitions}
+
+\begin{definition}
+The category $\mathsf{pro}(X_\et)$ has as objects directed inverse systems 
+in $X_\et$. Morphisms $U=(U_i) \to V=(V_j)$ are defined by 
+\[
+  \hom_X(U,V) = \varprojlim_j \varinjlim_i \hom_X(U_i,V_j)
+\]
+\end{definition}
+
+If $U=(U_i)\in \mathsf{pro}(X_\et)$, then write $|U|=\varprojlim_i |U_i|$ for 
+the ``underlying topological space'' of $U$. 
+
+\begin{definition}\label{def:pro-et}
+An object $U$ of $\mathsf{pro}(X_\et)$ is in $X_\proet$ if $U$ can be written 
+as $(U_i)_{i\geqslant 0}$ such that 
+\begin{enumerate}
+  \item $U_0 \to X$ is \'etale (this is automatic)
+  \item the transition maps $U_i \to U_j$ are surjective finite \'etale
+\end{enumerate}
+\end{definition}
+
+We want to give $X_\proet$ the structure of a site. 
+
+\begin{definition}
+A family of morphisms $\{f^t:U^t\to U\}$ in $X_\proet$ is a \emph{covering} if 
+\begin{enumerate}
+  \item $f^t$ satisfy the conditions of Definition \ref{def:pro-et} translated 
+    into ``pro-language,'' i.e. $f^t$ is a pro-\'etale morphism. 
+  \item $|U|=\bigcup f^t(|U^t|)$. 
+\end{enumerate}
+\end{definition}
+
+\begin{example}
+Start with any diagram $U=(\cdots \to U_2 \to U_1 \to U_0)$ with the $U_i \to U_j$ finite 
+\'etale surjective. Given $W_{n,n} \to U_n$ \'etale, we can form 
+$W_{n,k} = W_{n,n}\times_{U_n}\times U_n$ for $k\geqslant n$. 
+Put $W^n=(\cdots \to W_{n,n+1} \to W_{n,n})$; this is an object of $X_\proet$.
+We have morphisms $f^n:W^n\to U$ in $X_\proet$, and $\{f^n\}$ is a covering 
+if and only if $\{|f^n|:|W^n| \to |U|\}$ is jointly surjective.  
+\end{example}
+
+\begin{lemma}
+\begin{enumerate}
+  \item $X_\proet$ is a site. 
+  \item Pro-\'etale morphisms are open
+  \item $X_\proet$ has all finite limits. 
+  \item If $U\in X_\proet$ and $W\subset |U|$ is a quasi-compact open subset, then 
+    $W=|V|$ for some $V\to U$ in $X_\proet$. 
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+We will show that $X_\proet$ has equalizers (at least, a baby case). 
+Let $a,b:U\to V$ be of the form 
+\[\xymatrix{
+  \vdots \ar[d] 
+    & \vdots \ar[d] \\
+  U_1 \ar[d] \ar@<2pt>[r] \ar@<-2pt>[r] 
+    & V_2 \ar[d] \\
+  U_0 \ar@<2pt>[r] \ar@<-2pt>[r] 
+    & V_0
+}\]
+Complete the diagram as: 
+\[\xymatrix{
+    \vdots \ar[d] 
+    & \vdots \ar[d] 
+    & \vdots \ar[d] \\
+  Eq(a_1,b_1) \ar[r] \ar[d] 
+    & U_1 \ar[d] \ar@<2pt>[r] \ar@<-2pt>[r] 
+    & V_2 \ar[d] \\
+  Eq(a_0,b_0) \ar[r] 
+    & U_0 \ar@<2pt>[r] \ar@<-2pt>[r] 
+    & V_0
+}\]
+What is not clear is that the $E_j \to E_{j-1}$ are surjective. Put 
+$E_{n,k}=im(E_k \to E_n)$ for $k\geqslant n$. We can assume everything 
+is affinoid, whence each $E_{n,k}$ is open and closed in $U_n$. Because 
+each $U_n$ has a finite number of connected components, the decreasing 
+chain $E_{n,k}\supset E_{n,k+1}\supset \cdots$ stabilizes. So 
+$E_{n,\infty} = \bigcap_{k\geqslant n} E_{n,k}$ yields 
+$(E_{n,\infty})_n \in X_\proet$. 
+\end{proof}
+
+Suppose $f:X\to Y$ is a morphism of locally noetherian adic spaces. Then we get 
+a commutative diagram 
+\[\xymatrix{
+  X_\proet 
+    & Y_\proet \ar[l] \\
+  X_\et \ar[u] 
+    & Y_\et \ar[l] \ar[u] 
+}\]
+inducing a commutative diagram of associated topoi:
+\[\xymatrix{
+  X_\proet^\sim \ar[r]^-{f_\proet} \ar[d]^-\nu  
+    & Y_\proet^\sim \ar[d] \\
+  X_\et^\sim \ar[r]^-{f_\et} 
+    & Y_\et^\sim 
+}\]
+
+\begin{lemma}
+$\h^a(U_\proet,\nu^\ast \sF) = \varinjlim \h^q(U_i,\sF)$ if 
+$U=(U_i)$ in $X_\proet$ is quasi-compact and quasi-separated. 
+\end{lemma}
+\begin{proof}
+Use the \v Cech-to cohomology spectral sequence. 
+\end{proof}
+
+\begin{lemma}
+$\nu^\ast \mathsf R f_{\et,\ast} \sF = \mathsf R f_{\proet,\ast} \nu^\ast \sF$. 
+\end{lemma}
+
+\begin{example}
+Let $X=\spa(K,K^\circ)$, where $K$ is a nonarchimedean field. Then 
+$X_\proet$ will be the category of profinite sets with continuous $G_K$-action. 
+Coverings are families of maps $\{f^t:S^t \to S\}$ such that the $f^t$ are open 
+and jointly surjective. Even when $K$ is algebraically closed, this is an 
+interesting category. 
+\end{example}
+
+In this example, $\h^i(X_\proet,\varprojlim \underline{\dZ/\ell^n}) = \h^i_\text{cont}(G_K,\dZ_\ell)$. 
+
+
+
+
+
+
+\subsection{Perfectoid setting}
+
+Let $K$ be a perfectoid field of characteristic zero. Let 
+$K^+\subset K^\circ$ be an open and bounded valuation subring. Let 
+$X\to \spa(K,K^+)$ be an adic space. 
+
+\begin{definition}\label{def:aff-perf}
+$U\in X_\proet$ is \emph{affinoid perfectoid} if $U$ can be written as 
+$(U_i)$, where each $U_i=\spa(R_i,R_i^+)$, and $(R,R^+)$ is perfectoid 
+affinoid, where $R^+=(\varinjlim R_i^+)^\wedge$ and $R=R^+[\frac 1 p]$. 
+\end{definition}
+
+In this setting, $\spa(R,R^+)\sim \varprojlim U_i$ in the sense of Scholze. 
+
+\begin{example}
+Let $T^n$ be the torus $\spa(K\langle T_i^{\pm 1}\rangle,K^+\langle T_i^{\pm 1}\rangle)$. 
+Then $U=(\cdots \to T^n \xrightarrow p T^n)$ is affinoid perfectoid. 
+\end{example}
+
+\begin{lemma}
+Let $U=(U_i)$ be as in Definition \ref{def:aff-perf}. Suppose 
+$V_{i_0} \to U_{i_0}$ is either finite \'etale, or a rational subset. Then 
+$V=(U_i\times_{U_{i_0}} V_{i_0})_{i\geqslant i_0}$ is also affinoid 
+perfectoid. 
+\end{lemma}
+
+\begin{corollary}
+If $X\to \spa(K,K^+)$ is smooth, then every object of 
+$X_\proet$ has a covering by affinoid perfectoids. 
+\end{corollary}
+\begin{proof}
+We will show that $X$ has a covering by affinoid perfectoids -- this is \emph{not} 
+a complete proof. The smoothness of $X$ implies that $X$ is locally \'etale over 
+$T^n$. 
+\end{proof}
+
+(The argument works in greater generality. An argument of Colmez proves this 
+for general $X/K$.) 
+
+
+
+
+
+\subsection{Contractible objects}
+
+Let $X=\spa(A,A^+)$ be an affinoid noetherian adic space over $\spa(\dQ_p,\dZ_p)$. 
+Then there exist ``lots'' of $U\in X_\proet$ such that 
+$\h^i(U,\underline{\dF_p})=0$ for $i>0$. 
+
+If $X$ is connected affinoid noetherian over $\spa(\dQ_p,\dZ_p)$, then 
+$\h^i_\text{cont}(\pi_1(X,\bar x),\dF_p)\simeq \h^i(X_\et,\dF_p)$. 
+
+
+
