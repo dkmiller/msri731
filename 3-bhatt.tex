@@ -1,16 +1,7 @@
-\documentclass{article}
+% !TEX root = msri731.tex
 
-\usepackage{msri-style}
-
-\title{Almost ring theory 2: perfectoid rings}
-\author{Bhargav Bhatt}
-\date{February 17, 2014}
-
-\begin{document}
-\maketitle
-
-
-
+\section{Almost ring theory 2: perfectoid rings}
+\thanksauthor{Bhargav Bhatt (Feb.\ 17)}
 
 
 Here we treat the affine case of the tilting correspondence for perfectoid 
@@ -22,7 +13,7 @@ $\Phi:R\to R$ be the Frobenius $x\mapsto x^p$.
 
 
 
-\section{Tilting for fields}
+\subsection{Tilting for fields}
 
 Let $K$ be a perfectoid field. 
 
@@ -51,7 +42,7 @@ the tilt of a perfectoid field of characteristic zero.
 
 
 
-\section{Tilting more general algebras}
+\subsection{Tilting more general algebras}
 
 Let $K$ be a perfectoid field, and choose some nonzero $\pi\in\fm$ with 
 $|p|\leqslant |\pi| < 1$. 
@@ -110,7 +101,7 @@ require some deformation theory -- in particular the cotangent complex.
 
 
 
-\section{Comparing $K\Perf$ and $K^{\circ a}\Perf$} 
+\subsection{Comparing \texorpdfstring{$K\Perf$}{K-Perf} and \texorpdfstring{$K^{\circ a}\Perf$}{Ko-Perf}} 
 
 \begin{lemma}\label{lem:tech-1}
 Let $M$ be a $K^{\circ a}$-module, $N$ a $K^\circ$-module. Then 
@@ -182,7 +173,7 @@ that $x$ has a $p$-th root modulo $\fm$.
 
 
 
-\section{Some deformation theory}
+\subsection{Some deformation theory}
 
 We'll start with a review of the cotangent complex as it appears in standard 
 algebraic geometry. If $A\to B$ is a ring homomorphism, then the cotangent 
@@ -211,7 +202,7 @@ of length $n$.
 
 
 
-\section{Comparing $K^{\circ a}\Perf$ and $(K^{\circ a}/\pi)\Perf$}
+\subsection{Comparing \texorpdfstring{$K^{\circ a}\Perf$}{Koa-Perf} and \texorpdfstring{$(K^{\circ a}/\pi)\Perf$}{Koa/pi-Perf}}
 
 If $A\to B$ is a map of $K^{\circ a}$-algebras, then \cite{gr03} define 
 an object of $\mathsf D(B\Mod)$ that they call $L_{B/A}$. This $L_{B/A}$ is actually 
@@ -245,7 +236,7 @@ $A^\flat = \varprojlim_\Phi A$ is a perfectoid $K^{\flat\circ a}$-algebra.
 
 
 
-\section{Tilting \'etale covers}
+\subsection{Tilting \'etale covers}
 
 Let $A$ be a perfectoid algebra over $K$. We have the following chain of 
 equivalences of categories: 
@@ -259,13 +250,3 @@ equivalences of categories:
 }\]
 Essentially, we have seen that (b) and (d) follow from deformation theory, 
 while (c) follows from the last example. 
-
-
-
-
-
-\bibliographystyle{alpha}
-\bibliography{msri-sources}
-
-
-\end{document}
