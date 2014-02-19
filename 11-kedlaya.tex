@@ -1,22 +1,225 @@
-\documentclass{article}
-
-\usepackage{msri-style}
-
-\title{Relative $p$-adic Hodge theory}
-\author{Kiran Kedlaya}
-\date{February 19, 2014}
-
-\begin{document}
-\maketitle
+% !TEX root = msri731.tex
 
 
 
 
 
-d
+\section{Relative \texorpdfstring{$p$}-adic Hodge theory}
+\thanksauthor{Kiran Kedlaya (Feb.\ 19)}
 
 
 
 
 
-\end{document}
+Everything that follows is joint work with Ruochuan Liu, and is contained 
+in the papers (Relative $p$-adic Hodge theory I,II). 
+
+
+
+
+\subsection{Goals of relative \texorpdfstring{$p$}{p}-adic Hodge theory}
+
+The term ``$p$-adic Hodge theory'' encompasses two aspects. First, there is 
+external $p$-adic Hodge theory, which compares various cohomology theories 
+(\'etale, de Rham, crystalline, \ldots) for varieties over $p$-adic fields. 
+Alternatively, there is a kind of internal $p$-adic Hodge theory, which studies 
+categories of continuous representations of Galois groups of $p$-adic fields 
+(e.g. \'etale cohomology of varieties). 
+
+In this talk, we'll focus only on the internal aspect of $p$-adic Hodge theory. 
+
+Let $K$ be a $p$-adic field (i.e. a field of characteristic zero which is complete 
+for a discrete valuation, with residue field perfect of characteristic $p$). 
+Let $G_K$ be the absolute Galois group of $G_K$. We are interested in the categories 
+$\mathsf{Rep}_{\dZ_p}(G_K)$ and $\mathsf{Rep}_{\dQ_p}(G_K)$ of continuous 
+representations of $G_K$ on finitely generated $\dZ_p$ (resp. $\dQ_p$)-modules. 
+The latter is the isogeny category of the former. 
+
+Let $X$ be an adic space locally of finite type $K$. For 
+$\ast\in \{\dZ_p,\dQ_p\}$, we call an \emph{\'etale $\ast$-local system} a 
+sheaf on $X_\proet$ which is pro-\'etale locally of the form 
+$Y\mapsto \hom_\text{cont}(|Y|,V)$ for $V$ a finitely generated 
+$\ast$-module with its standard topology. For example, if $X=\spa(K,K^\circ)$, then a $\ast$-\'etale local system on $X$ is just an object of 
+$\mathsf{Rep}_\ast(G_K)$, which can be seen by considering the 
+neighborhood $Y=\spa(\dC_K,\dC_K^\circ)$. 
+
+In general, \'etale $\dQ_p$-local systems are not simply $\dZ_p$-local systems 
+up to isoeny! There are many natural examples arising from \'etale covers with 
+noncompact groups of deck transformations, e.g. Tate uniformization of elliptic 
+curves, Drinfeld uniformizations, and Rapoport-Zink period morphisms. 
+Nonetheless, \'etale $\dQ_p$-local systems \emph{do} arise locally from 
+\'etale $\dQ_p$-local systems. 
+
+
+
+
+
+\subsection{Local systems via perfectoid spaces}
+
+Let $K$ be a $p$-adic field. One studies $\mathsf{Rep}_{\dQ_p}(G_K)$ by passing from 
+$K$ to some sufficiently ramified (strictly arithmetically profinite) algebraic 
+extension $K_\infty$ of $K$. The completion $\widehat{K_\infty}$ is perfectoid, 
+and by tilting + Krasner's lemma, one has 
+\[
+  \mathsf{Rep}_{\dQ_p}(G_{K_\infty}) \simeq \mathsf{Rep}_{\dQ_p}(G_{\widehat{K_\infty}}) \simeq \mathsf{Rep}_{\dQ_p}(G_{\widehat{K_\infty}^\flat})
+\]
+To study $\mathsf{Rep}_{\dQ_p}(G_K)$, you have to add descent data. Generally, we assume 
+$K_\infty/K$ is Galois with $\Gamma=\gal(K_\infty/K)$ a $p$-adic Lie group, in which 
+case the descent data becomes a $\Gamma$-action. 
+
+But descent data can also be viewed as a sheaf condition for the pro-\'etale 
+topology, in which case we can consider all $K_\infty$ at once! This point of view 
+adapts well to analytic spaces, using perfectoid algebras as the analogue of 
+strictly arithmetically profinite extensions. 
+
+
+
+For the remainder, let $X$ be an adic space over $\dQ_p$ which is uniform, in the sense 
+that it is locally $\spa(A,A^+)$ where $A$ is a $\dQ_p$-Banach algebra with a 
+submultiplicative norm. In particular, $X$ is reduced. For example, any perfectoid 
+space is uniform. For any adic space $X$ over $\dQ_p$, there is a unique closed 
+immersed subspace $X^u$ of $X$ which is uniform and has the same underlying 
+space. One has $X_\et^u\simeq X_\et$ and $X_\proet^u \simeq X_\proet$. Adic 
+spaces coming from reduced rigid analytic spaces are uniform. Most of our 
+constructions will not see $A^+$. This is related to the fact that 
+$\spa(A,A^\circ) \to \spa(A,A^+)$ is topologically a retraction (when restricted 
+to rank-one points). 
+
+Assume $X$ is locally strongly noetherian. As in de Jong's lecture, we can 
+consider the pro-\'etale site $X_\proet$. This has a structure sheaf 
+\[
+  \sO_X(Y=(Y_i)) = \varinjlim_i \sO(Y_i) .
+\]
+Each $\sO_X(Y_i)$ has a power-multiplicative norm (the spectral norm). Recall 
+that $X_\proet$ has a basis consisting of affinoid perfectoid opens. 
+
+From now on, let $Y$ be an affinoid perfectoid over $X$. From the above, we can 
+define sheaves on $X_\proet$ by defining them on such $Y$. 
+
+\begin{definition}
+The sheaf $\widehat\sO_X$ on $X_\proet$ is defined by $\widehat\sO_X(Y)=$ completion 
+of $\sO(Y)$ for the spectral norm, when $Y$ is as above. 
+\end{definition}
+
+\begin{definition}
+Let $\overline\sO_X(Y) = \widehat\sO_X(Y)^\flat$, for $Y$ as above. 
+\end{definition}
+
+Recall that for $R$ a perfect ring of characteristic $p$, there is a ring 
+$W(R)$ of $p$-typical Witt vectors. Let $[-]:R\to W(R)$ be the Teichmuller 
+character. 
+
+\begin{definition}
+Define $\widetilde{\mathbf A}_X$ on $X_\proet$ by $\widetilde{\mathbf A}_X(Y)=W(\overline\sO_X(Y))$ for $Y$ as above. 
+\end{definition}
+
+It turns out that if $R$ has a power-multiplicative norm, then for any $r>0$, 
+the set $W^r(R)\subset W(R)$ consisting of $\sum p^n [x_n]$ with 
+$\lim_{n\to \infty} p^nn |x_n|^r=0$ is a subring. 
+
+\begin{definition}
+Define $\widetilde{\mathbf A}_X^{\dagger,r}$ on $X_\proet$ for 
+$\widetilde{\mathbf A}_X^{\dagger,r}(Y)=W^r(\overline\sO_X(Y))$ for $Y$ as 
+above. Put $\widetilde{\mathbf A}_X^\dagger = \varinjlim_{r\to 0^+} \widetilde{\mathbf A}_X^{\dagger,r}$. 
+\end{definition}
+
+Let $S$ be a ring and $\varphi$ an automorphism of $S$. A \emph{$\varphi$-module} on 
+$S$ is a finite projective $S$-module $M$ together with an isomorphism 
+$\varphi^\ast M\simeq M$. 
+
+\begin{theorem}[Katz, SGA 7]
+Let $R$ be a perfect $\dF_p$-algebra. Then the following categories are equivalent:
+\begin{enumerate}
+  \item \'etale $\dZ_p$-local systems on $\spec(R)$
+  \item $\varphi$-modules over $W(R)$
+  \item $\varphi$-modules over $W^\dagger(R) = \bigcup_{r>0} W^r(R)$
+\end{enumerate}
+\end{theorem}
+
+(The last category does not appear in SGA 7). For $R=F$ a field, the functors between 
+$\dZ_p$-representations of $G_F$ and $\varphi$-modules over $W(F)$ are 
+\begin{align*}
+  V &\mapsto (V\otimes W(\bar F))^{G_F} \\
+  M &\mapsto (M\otimes_{W(F)} W(\bar F))^{\varphi=1} 
+\end{align*}
+
+A \emph{$\varphi$-module} over a ring sheaf $\ast_X$ on $X_\proet$ is a ``quasicoherent 
+finite projective'' sheaf $\sF$ of $\ast_X$-modules together with an isomorphism 
+$\varphi^\ast \sF\simeq \sF$. 
+
+\begin{proposition}
+Quasicoherent finite projective modules over $\widetilde{\mathbf A}_X|_Y$ or 
+$\widetilde{\mathbf A}_X^\dagger|_Y$ correspond to finite projective modules 
+over $\widetilde{\mathbf A}_X(Y)$ or $\widetilde{\mathbf A}_X^\dagger(Y)$, 
+respectively. Also, these sheaves are acyclic. 
+\end{proposition}
+
+The following is a ``sheafified Artin-Shreier theorem.'' 
+
+\begin{theorem}
+The following categories are equivalent:
+\begin{enumerate}
+  \item \'etale $\dZ_p$-local systems on $X$
+  \item $\varphi$-modules over $\widetilde{\mathbf A}_X$
+  \item $\varphi$-modules over $\widetilde{\mathbf A}_X^\dagger$
+\end{enumerate}
+\end{theorem}
+The functors are 
+\begin{align*}
+  T &\mapsto T\otimes_{\underline{\dZ_p}} \widetilde{\mathbf A}_X \\
+  M &\mapsto M^{\varphi=1} 
+\end{align*}
+(these are between \'etale $\dZ_p$-local systems and $\varphi$-modules over 
+$\widetilde{\mathbf A}_X$. 
+
+\begin{theorem}
+For $T$ an \'etale $\dZ_p$-local system on $X$ corresponding to a $\varphi$-mmodule 
+$\sF$ over $\widetilde{\mathbf A}_X$ and a $\varphi$-mmodule $\sF^\dagger$ over 
+$\widetilde{\mathbf A}_X^\dagger$, the sequences 
+\[
+  0 \to T \to \sF^\ast \xrightarrow{\varphi-1} \sF^\ast \to 0 
+\]
+are exact for $\ast\in \{\varnothing,\dagger\}$. 
+\end{theorem}
+
+The point is that $\sF$ is acyclic on every perfectoid subdomain, not just sufficiently 
+small ones. This recovers Herr's formula for Galois cohomology of 
+$\dZ_p$-local systems over a $p$-adic field. 
+
+Morally, this comes down to $W^\dagger(R)^{\varphi=1} = W^\dagger(R^{\varphi=1})$, 
+where $R^{\varphi=1} = \hom_\text{cont}(\spec R,\dF_p)$. 
+
+
+
+
+
+\subsection{Robba rings and \texorpdfstring{$\dQ_p$}{Qp}-local systems}
+
+[list of ring constructions]
+
+$\mathbf A=\varprojlim (\dZ/p^n)\lau{\pi}$; this is a Cohen ring with residue 
+field $\dF_p\lau{\pi}$. 
+
+$\mathbf A^{\dagger,r}$ are elements of the previous guy that converge for 
+$p^{-r}\leqslant |\pi|<1$. 
+
+$\mathbf A^\dagger=\bigcup_{r>0} \mathbf A^{\dagger,r}$. 
+
+$\mathbf B^\ast = \mathbf A^\ast[p^{-1}]$ for $\ast\in \{\varnothing,\dagger,r\}$
+
+$\mathbf C^{[s,r]}$ is analytic functions on $p^{-r}\leqslant |\pi|\leqslant p^{-s}$
+
+$\mathbf C^r$ is analytic functions on $p^{-r}\leqslant |\pi|<1$. 
+
+\ldots
+
+[list of sheaves of rings]
+
+[\ldots too much to write down: see Kedlaya's notes online]
+
+
+
+
+
+
+
