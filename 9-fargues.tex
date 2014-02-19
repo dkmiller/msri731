@@ -8,4 +8,214 @@
 \thanksauthor{Laurent Fargues (Feb.\ 19)}
 
 
-d
+Let $K$ be a perfectoid extension of $\dQ_p$. We can associate to $K$ its 
+tilt $K^\flat$, and the tilting functor induces an equivalence of categories 
+$K\Perf \xrightarrow\sim K^\flat\Perf$. 
+
+If $F$ is a perfectoid field of characteristic $p$, then there is no canonical 
+choice of some $K$ of characteristic zero with $K^\flat=F$. Consider the set 
+of isomorphism classes of $(K,\iota)$, where $K$ is perfectoid of characteristic 
+zero, $\iota:F\xrightarrow\sim K^\flat$ is an isomorphism. If we mod out by 
+Frobenius on $F$, then this set is isomorphic to $|X_F|^{\deg=1}$, where 
+$X_F$ is an ``algebraic'' curve. 
+
+
+
+
+
+\subsection{Affine adic curves}
+
+Our goal is to construct $X_F^\ad$. Start with a functor 
+$\mathsf{Perf}_K \to \mathsf{Adic}_{\dQ_p/X_F^\ad}\to \mathsf{Perf}_{k(x)}$, 
+the latter functor coming from any $x\in |X_F^\ad|^{\deg=1}$. Scholze showed 
+that the composite is an equivalence. 
+
+Start with $\dF_q$, and $F$ a perfectoid extension of $\dF_q$, 
+and $E$ some non-archimedean field. Fix $\varpi\in E$ with 
+$|p|\leqslant |\varpi_E| <1$. For $\rho\in (0,1)$, denote by $|\cdot |_\rho$ 
+the unique absolute value on $E$ inducing its topology, such that 
+$|\varpi_E|_\rho = \rho$. 
+
+Let $A$ be a perfectoid $F$-algebra. Let $|\cdot|$ be the spectral norm on 
+$A$. Recall that given a closed interval $I\subset (0,1)$, Fontaine constructed 
+a ring $\bB_{A,E,I} = \bB_{E/I}(A)$, which is a ``preperfectoid Banach 
+$E$-algebra.'' A ``preperfectoid $E$-algebra'' is just a Banach $E$-algebra that 
+becomes perfectoid after extension to any perfectoid field. Note that 
+if $E'/E$ is an extension, then $\bB_{A,E,I}\widehat\otimes_E E' = \bB_{A,E',I}$, 
+and if $E$ is perfectoid, then $\bB_{A,E,I}^\flat = \bB_{A,E^\flat,I}$. 
+
+Let $(A,A^+)$ be a perfectoid affinoid algebra. There is a natural way to construct 
+a subring $\bB_{A,E,I}^+\subset \bB_{A,E,I}^\circ$ coming from 
+$A^+\subset A^\circ$. 
+
+\begin{definition}
+$Y_{A,E,I}=\spa(\bB_{A,E,I},\bB_{A,E,I}^+)$. 
+\end{definition}
+
+We will use these spaces to construct the ``adic curve.'' 
+
+If $I\subset I'\subset (0,1)$ and $I=[\rho_1,\rho_2]$, and moreover 
+$\rho_1,\rho_2\in |F^\times|$, say $\rho_1=|a|$, $\rho_2=|b|$, then 
+$\bB_I=\bB_{I'}\langle \frac{[a]}{\varpi_E},\frac{\varpi_E}{[b]}\rangle$. 
+This implies that if $I\subset I'$, then $Y_I\subset Y_{I'}$ is a rational domain. 
+
+\begin{definition}
+$Y_{A,E} = \varinjlim_{I\subset (0,1)} Y_{A,E,I}$. 
+\end{definition}
+
+This is a preperfectoid space over $E$. (In other words, if $K/E$ is perfectoid, 
+then $Y_{A,E}\otimes K$ is perfectoid.) If $E$ is perfectoid, then 
+$Y_{A,E}^\flat = Y_{A,E^\flat}$. 
+
+\begin{example}
+If $E$ has characteristic $p$, then $Y_{A,E}$ is a space over 
+$\spa(E)$. But $Y_{A,E}$ is also a space over $\spa(A)$. This is because 
+$\bB_{AE,I}$ is an $A$-algebra. Indeed, the Teichmuller representative map 
+$[-]:A\to \bB_{A,E,I}$ is additive in this case. 
+\end{example}
+
+It turns out that in characteristic $p$, we have 
+$Y_{A,E}=\spa(A)\times_{\spa F} Y_{F,E}$. 
+
+
+
+
+
+\subsection{Gluing}
+
+\begin{proposition}
+Let $f_1,\dots,f_n,g\in A$, and suppose $(f_1,\dots,f_n,g)=A$. Then 
+$\sum_i \bB_I [f_i] + \bB_I[g] = \bB_I$. 
+\end{proposition}
+
+One also has 
+\[
+  \bB_{A\left\langle\frac{f_1,\dots,f_n}{g}\right\rangle,E,I} = \bB_{A,E,I} \left\langle \frac{[f_1],\dots,[f_n]}{[g]}\right\rangle 
+\]
+Using this localization property, we can glue affinoid spectra $Y_{A,E}$ 
+to a functor $\mathsf{Perf}_F \to \mathsf{PrePerf}_{E/Y_{F,E}}$, which we will 
+write $Z\mapsto Y_{Z,E}$. 
+
+Let's consider the action of Frobenius. For $0<\rho<1$, write 
+$\varphi(\rho) = \rho^q$. The Frobenius $\frob_q$ acts on $A$, yielding an 
+isomorphism $\varphi:\bB_{A,E,I} \to \bB_{A,E,\varphi(I)}$ of Banach algebras. In 
+terms of Teichmuller expansions, one has 
+\[
+  \varphi\left(\sum_{n\geqslant 0} [x_n] \lambda_n\right) = \sum_n [x_n^q] \lambda_n
+\]
+
+\begin{theorem}
+If the valuation on $E$ is discrete, and $\pi_E$ is a uniformizer of $E$, then 
+\[
+  \varphi\left(\sum_{n\gg -\infty} [x_n] \pi_E^n\right) = \sum_{n\gg\-\infty} [x_n^q] \pi_E^n
+\]
+\end{theorem}
+
+Recall that we have a morphism $Y_{Z,E} \to \spa(E)$, and there is a Frobenius 
+automorphism $\varphi$ of $Y_{Z,E}$. Moreover, 
+$\varphi(\text{radius $\rho$})=\text{radius }\rho^{1/q}$. (Recall that 
+$0<\rho<1$.) 
+
+\begin{definition}
+$X_{Z,E}^\ad = \varphi^\dZ \backslash Y_{Z,E}$. 
+\end{definition}
+This is a preperfectoid space over $E$. The construction gives us a functor 
+$\mathsf{Perf}_F \to \mathsf{PrePerf}_{E/X_{F,E}^\ad}$. We call 
+$X_{F,E}^\ad$ the ``adic curve.'' 
+
+Suppose $Z$ is a perfectoid space over $F$ and $F$ has characteristic $p$. 
+The formal construction 
+$\frob^\dZ\backslash Z$ does not actually exist. What we can do is consider 
+$\varphi^\dZ\backslash (Z\times_{\spa F} Y_F) = \varphi^\dZ\backslash Y_{Z,F,E} = X_{Z,F}$. 
+
+
+
+
+
+\subsection{Examples}
+
+Suppose $E$ has characteristic $p$, e.g. $E=\dF_q\lau{\pi_E}$. Then we can 
+describe everything in sight. Start by assuming the valuation of $E$ is discrete, 
+and let $\pi_E\in E^\circ$ be a uniformizer. Let $k_E=\dF_q$ be the residue 
+field of $E$. Then $E=\dF_q\lau{\pi_E}$. 
+
+(Throughout, we've fixed a finite field $\dF_q$, and an extension $F$ of $\dF_q$. The 
+residue field $k_E$ is an extension of $\dF_q$. If we replace $q$ by $q^r$, then the 
+new curve is a finite \'etale cover of the curve defined using $q$.)
+
+Return to the case $E=\dF_q\lau{\pi_E}$. Let $D_F^\ast$ be the punctured unit 
+disk over $F$; this is an adic space over $\spa(F)$. There is also a morphism 
+$D_F^\ast \to D_{\dF_q}^\ast = \spa(\dF_q\lau{\pi_E})$. The morphism 
+$D_F^\ast \to \spa(F)$ is locally of finite type, but the morphism 
+$D_F^\ast \to D_{\dF_q}^\ast$ is not locally of finite type. 
+
+We can consider $\varphi^\dZ\backslash D_F^\ast$; this does not have a natural 
+structural morphism $\varphi^\dZ\backslash \spa(F)$. On the other hand, it does 
+have a natural morphism $\varphi^\dZ\backslash D_F^\ast \to \spa(\dF_q\lau{\pi_E})$. 
+The Frobenius $\varphi$ acts on $\dF_q\lau{\pi_E}$ by 
+$\varphi(\sum_{n\in \dZ} a_n \pi_E^n) = \sum_{n\in \dZ} a_n^q \pi_E^n$. 
+
+If $E=\dF_q\lau{\pi_E^{1/p^\infty}}$, then $Y_{E,F} = D_F^{\ast,1/p^\infty}$. 
+
+\begin{example}
+Suppose $E$ is a finite extension of $\dQ_p$. The residue field $k_E$ of $E$ is 
+a finite field $\dF_q$. Let $\mathcal{LT}$ be the Lubin-Tate group law 
+over $\cO_E$. Let $E_\infty=\widehat{E(\mathcal{LT}[\pi_E^\infty])}$. Let 
+$\pi_E^\flat=(\pi_E^{\flat(m)})_{m\geqslant 0}$; this is a generator of 
+$T_{\pi_E}(\mathcal{LT})$. Moreover, 
+$[\pi_E]_{\mathcal{LT}}(\pi_E^{\flat (m+1)}) = \pi_E^{\flat(m)}$. If we 
+reduce everything modulo $\pi_E$, then $[\pi_E]_{\mathcal{LT}}$ reducces to 
+$\frob_q$, and we have $\frob_q(\pi_E^{\flat(m+1)} = \pi_E^{\flat(m)}$. 
+
+In all this, $\pi_E^\flat\in E_\infty^\flat = \dF_q\lau{\pi_E^{\flat,1/p^\infty}}$. 
+
+Let $\chi:\gal(E_\infty/E) \to \cO_E^\times$ be the Lubin-Tate character. 
+The group $\gal(E_\infty/E)$ acts on $E_\infty^\flat$, and 
+$(\pi_E^\flat)^\sigma  = [\chi(\sigma)]_{\mathcal{LT}}(\pi_E^\flat)$. 
+
+Let $\mathcal G$ be the Lubin-Tate group over $\dF_q$, and 
+$\widetilde{\mathcal G}=\varprojlim_{\times \pi_E,\times \frob_q} \mathcal G$. This 
+is a formal $E$-vector space. Finally, put 
+$\mathcal E=(\widetilde{\mathcal G}\widehat\otimes_{\dF_q} \cO_F)_\eta$. This is a 
+$E$-Banach space. Note that $\gal(E_\infty/E)$ acts on 
+$Y_{F,E_\infty^\flat}$, and 
+$\cO_E^\times$ acts on $\mathcal E\smallsetminus \{0\}$. There is an isomorphism 
+$Y_{F,E_\infty^\flat} \xrightarrow\sim \mathcal E\smallsetminus \{0\}$, compatible 
+with the Lubin-Tate character $\chi:\gal(E_\infty/E) \to \cO_E^\times$. 
+
+We get 
+\[
+  |X_{F,E}^\ad| = \gal(E_\infty/E) \backslash |E_{F,E_\infty}| \simeq E^\times \backslash |\mathcal E\smallsetminus \{0\}|
+\]
+\end{example}
+
+\begin{example}
+Let's look at the case $F=\dF_q\lau{\pi_E^{1/p^\infty}}$, and $E$ is arbitrary. 
+One can check that 
+\[
+  Y_{F,E}\simeq D_E^{\ast,1/p^\infty} = \{0<|T|<1\}\subset \spa(E\langle T^{1/p^\infty}\rangle)
+\]
+where $T=[\pi_F]$. 
+
+There are two radius functions here. On $Y_{F,E}$, a radius 
+$q^{-r}$ corresponds to a radius $q^{-1/r}$ in $\spa(E\langle T^{1/p^\infty}\rangle)$. 
+\end{example}
+
+\begin{example}
+Let $E=\dF_q\lau{\pi_E}$, $F=\dF_q\lau{\pi_F}$. Then the above isomorphism is 
+between $D_E^\ast$ and $D_F^\ast$, where a radius of $q^r$ in 
+$D_E^\ast$ corresponds to radius of $q^{-1/r}$ in $D_F^\ast$. One can write 
+\[
+  \sum_{n\in \dZ} a_n \pi_F^m = \sum_{n\in \dZ} (\sum_{m\in \dZ} a_{n,m} \pi_E^m) \pi_F^n = \sum_{m\in \dZ} (\sum_{n\in \dZ} a_{n,m} \pi_F^n) \pi_E^m 
+\]
+This associates $|\cdot |_{q^{-r}}$ with $|\cdot |_{q^{-1/r}}$. 
+\end{example}
+
+This has implications to $p$-adic Hodge theory. One can consider Huber's 
+``overconvergent ring'' $\mathcal R$, which is a union of rings of holomorphic 
+functions on punctured disks. 
+
+
+
+
+
