@@ -1,4 +1,5 @@
 \usepackage{amsmath,amssymb,amsthm,mathrsfs,stmaryrd}
+\usepackage[hidelinks]{hyperref}
 \usepackage[all]{xy}
 
 % operators
@@ -61,3 +62,8 @@
   \newcommand{\lotimes}{\overset{\mathsf L}{\otimes}}
   \newcommand{\ad}{\textnormal{ad}}
   \newcommand{\perf}{\textnormal{perf}}
+
+% footnote without number
+  \makeatletter
+  \def\thanksauthor{\gdef\@thefnmark{}\@footnotetext}
+  \makeatother
