@@ -7,5 +7,195 @@
 
 
 
-d
+Recall from last time, we started with a $p$-divisible group $H_0$ over an 
+algebraically closed field $k$ of characteristic $p$. There is an associated 
+Dieudonne module $M(H_0$, a free module over $W(k)$ with rank the height of 
+$H_0$. There are also endomorphisms $F,V$ of $M$ with $F V=p$. The dimension of 
+$H_0$ is $\dim_k(M/F M)$. 
+
+We tried to make $\bigwedge^n M(H_0)$ into a Dieudonne module. We give it 
+Frobenius $\bigwedge^n F$, but for $\bigwedge^n H_0$ to actually be a 
+Dieudonne module, we need $\dim H_0\leqslant 1$. If $\dim H_0=1$, we can form 
+$\bigwedge^r H_0$, which has $\Ht \bigwedge^r H_0=\binom n r$ and 
+$\dim H_0 = \binom{n-1}{r-1}$. (Here $n=\dim H_0$.)If $H_0$ has dimension one 
+and height $n$, then $F$ has determinant $p$, so 
+$\bigwedge^n H_0\simeq \mu{p^\infty}$. From last time, there is a Cartesian 
+diagram 
+\[\xymatrix{
+  \cM_{H_0,\infty} \ar[r] \ar[d] 
+    & (\widetilde H_\eta^\ad)^n \ar[d]^-\det \\
+  \cM_{\bigwedge^n H_0,\infty} \ar[r] 
+    & \widetilde{\bigwedge^n H_\eta^\ad}
+}\]
+where $\cM_{\bigwedge^n H_0,\infty} \simeq V \mu_{p^\infty}\smallsetminus \{0\}$, 
+and everything involved is a perfectoid space. The point $\eta$ is 
+$\spa(K)$, for $K$ some perfectoid field containing $W(k)$. 
+
+If we had used $\eta=\spa(K_0,\cO_{K_0})$, everything would be a preperfectoid 
+space, and $\cM_{\bigwedge^n H_0,\infty} =\coprod_\dZ \spa(K_\infty,\cO_{K_\infty})$, 
+where $K_\infty=\widehat{K_0(\zeta_{p^\infty})}$. 
+
+We have 
+\begin{align*}
+  (\widetilde H_\eta^\ad)^n 
+    &\simeq \spf\left(\cO_{K_0}\pow{X_1^{1/p^\infty},\dots,X_n^{1/p^\infty}}\right)_\eta^\ad \\
+  \widetilde{\textstyle\bigwedge^n H}_\eta^\ad
+    &\simeq \spf\left(\cO_{K_0}\pow{T^{1/p^\infty}}\right)_\eta^\ad 
+\end{align*}
+so the ``determinant map'' comes from a ``generalized power series'' 
+$\delta(X_1,\dots,X_n)$ in $X_1^{1/p^\infty},\dots,X_n^{1/p^\infty}$. 
+
+On the level of $\dC_p$-points, this diagram is due to Fargue's book on the 
+Lubin-Tate tower. 
+
+
+
+
+
+\subsection{Some explicit formulas}
+
+Let $R$ be an f-semiperfect $k$-algebra. Then 
+\begin{align*}
+  \widetilde H_0(R) \simeq \hom_{F,\phi}(\operatorname M(H_0),\bcris^+(R)) 
+\end{align*}
+If $n=1$, then the map is 
+\begin{align*}
+  R^\flat\supset \varprojlim_{x\mapsto x^p} (1+\nil(R)) =\widetilde \mu_{p^\infty}(R) &\to \bcris^+(R)^{\phi=p}  \\
+  x\mapsto \log[x] 
+\end{align*}
+
+Let's return to the general case. Let $H_0$ be a one-dimensional formal group of 
+height $n$, and let $H$ be a lift of $H_0$ to $\cO_{K_0}=W(k)$. Let 
+$\log_H:H\otimes K_0 \to \widehat\dG_a$ be an isomorphism. Given a power series 
+$g(T)\in K_0\pow{T}$, define $\delta g(X,Y) = g(X+_H Y)-G(X)-G(Y)$. Note 
+that $\delta\log_H=0$. 
+
+Define 
+\[
+  \operatorname{Qlog}(H)=\{g\in T K_0\pow{T}:d g,\delta g\text{ are integral}\} / T\cO_{K_0}\pow{T} .
+\]
+It turns out that $\operatorname M(H_0) \simeq \operatorname{Qlog}(H)$, and is 
+spanned by $\log_H(T),\dots,\log_H(T^{p^{n-1}})$ (at least up to 
+$1/p$). Write $e=\log_H(T),\dots,F^{n-1} e=\log_H(T^{p^{n-1}})$.  
+
+(A good place to learn about this is the Gross-Hopkins's paper, or Katz's 
+paper on Crystalline cohomology, Jacobi sums,\ldots). 
+
+Given $g\in \operatorname{Qlog}(H_0)$, we can evaluate $g$ on 
+$\widetilde H$. If $(R,R^+)$ is a $K_0$-algebra, then we get 
+$g:\widetilde H(R^+) \to R$, given by 
+\[
+  (x_0,x_1,\dots) \mapsto \lim_{m\to \infty} p^m g(x_m) .
+\]
+The map $g$ is actually a homomorphism $\widetilde H_\eta^\ad\to \dG_a$. 
+This gives 
+\[\xymatrix{
+  \widetilde H_0(R^+) \ar[r]^-\sim \ar[dr]_-{\operatorname{qlog}_{H_0}}
+    & [\operatorname M(H_0)^\ast \otimes \bcris^+(R^+)]^{F\otimes \phi} \ar[d]^-{1\otimes \theta} \\
+  & \operatorname M(H_0)^\ast \otimes R
+}\]
+the ``quasi-logarithm map'' is $X\mapsto (g\mapsto g(X))$, under the 
+isomorphism $\operatorname{M}(H_0)^\ast\otimes R=\hom(\operatorname{M}(H_0),R)$. 
+So we get 
+\[\xymatrix{
+  (\widetilde H_\eta^\ad)^n \ar[r]^-{\operatorname{qlog}_{H_0}} \ar[d]^-{\det} 
+    & (\operatorname{M}(H_0)^\ast)^n\otimes \dG_a \simeq \dG_a^{n^2} \ar[d]^-{\det} \\
+  \widetilde{\bigwedge^n H}_\eta^\ad \ar[r]^-{\log_{\bigwedge^n H_0}} 
+    & \bigwedge^n \operatorname{M}(H_0)^\ast\otimes \dG_a \simeq \dG_a 
+}\]
+Choose coordinates on $H$ and $\bigwedge^n H$ so that 
+\begin{align*}
+  \log_H(T) &= T+\frac{T^{p^n}}{p} + \frac{T^{p^2 n}}{p^2} + \cdots \\
+  \log_{\bigwedge^n H}(T) &= T+(-1)^{n-1} \frac{T^p}{p} + \frac{T^{p^2}}{p^2} + \cdots
+\end{align*}
+
+\begin{proposition}
+In
+\[\xymatrix{
+  \spf(\cO_{K_0}\pow{T^{1/p^\infty}}_\eta^\ad = \widetilde H_\eta^\ad \ar[r] \ar[dr]_-{\log_{\widetilde H}}
+    & H_\eta^\ad \ar[d]^-{\log_H} \\
+  & \dG_a 
+}\]
+the ``downward-right map'' is 
+\[
+  x\mapsto \cdots + p^2 x^{1/p^{2 n}} + p x^{1/p} + x + \frac{x^{p^n}}{p} + \frac{x^{p^{2 n}}}{p^2} + \cdots = \sum_{i\in \dZ} \frac{x^{p^{i n}}}{p^{i n}}
+\]
+\end{proposition}
+
+\begin{proposition}
+We have 
+\[
+  d(X_1,\dots,X_n) = (\bigwedge H) \sum_{\substack{(a_1,\dots,a_n)\in \dZ^n \\ \sum _i = \frac{n(n-1)}{2} \\
+  \{a_i\mod n\}=\{0,\dots,n-1\}}} \varepsilon(\underline a) X_1^{p^{a_1}} \cdots X_n^{p^{a_n}}
+\]
+where $\varepsilon$ is the sign of $i\mapsto a_{i+1} \mod n$. 
+\end{proposition}
+\begin{proof}
+Plug into the previous diagram and see that it commutes. 
+\end{proof}
+
+There is a generalization for ``formal $F$-vector spaces,'' where 
+$F$ is a finite extension of $\dQ_p$. 
+
+
+
+
+
+\subsection{Period maps}
+
+Recall the quasi-logarithm $\operatorname{qlog}_{H_0}:\widetilde H_\eta^\ad \to \operatorname M(H_0)^\ast\otimes \dG_a$. Recall that 
+$\cM_{H_0,\infty}(R,R^+)$ is the set of tuples 
+$(x_1,\dots,x_n)\in \widetilde H(R^+)^n$ such that 
+$d(x_1,\dots,x_n)\in V\mu_{p^\infty}\smallsetminus \{0\}$. Alternatively, this is 
+tuples $(x_1,\dots,x_n)$ linearly independent over $\dQ_p$, such that 
+$0=\log \delta(x_1,\dots,x_n)=\det(\operatorname{qlog}(x_i))$. 
+
+We have elements $\operatorname{qlog}(x_1),\dots,\operatorname{qlog}(x_n)$ in 
+$\operatorname{M}(H_0)^\ast\otimes \dG_a$. The span of these elements gives an 
+element of $\dP^{n-1}$. We could also consider the vector of linear relations; this 
+lives in $\dP^{n-1}\smallsetminus$ all $\dQ_p$-rational hyperplanes. This 
+is the Drinfeld upper half-plane $\Omega$. 
+
+This is the ``Gross-Hopkins period mapp'' 
+$\pi_\text{GH}:\cM_{H_0,\infty} \to \dP^{n-1} = \dP(\operatorname M(H_0))$, and 
+it corresponds to quotienting out by the action of $GL_n(\dQ_p)$. 
+The ``Hodge-Tate period map'' $\pi_\text{HT}:\cM_{H_0,\infty}\to \Omega$ corresponds 
+to quotienting out by $D^\times$. Things live inside a Shimura variety 
+$\text{Sh}_{p^\infty}$, and we have a commutative diagram 
+\[\xymatrix{
+  \mbox{Sh}_{p^\infty} \ar[r]^-{\pi_\text{HT}} 
+    & \dP^{n-1} \\
+  \coprod \cM_{H_0,\infty} \ar[r] \ar@{^{(}->}[u] 
+    & \Omega\ar@{^{(}->}[u] 
+}\]
+
+
+
+
+
+\subsection{Some conjectures}
+
+We are interested in the geometry of $\cM_{H_0,\infty}$ over 
+$\eta=\spa(C,\cO_C)$ for some complete algebraically closed field $C/\dQ_p$. 
+We have a map $\cM_{H_0} \to V\mu_{p^\infty} \smallsetminus \{0\}$. Let 
+$\cM_{H_0,\infty}^\bullet$ be the fiber over some geometric point. The idea is that 
+$\h^\bullet(\cM_{H_0,\infty},\dQ_\ell)$ should realize the local Langlands correspondance. 
+For some $\pi\subset \h^\bullet$ that is supercuspidal, we know that it is of the form 
+$\operatorname{ind}_{\mathscr K}^{GL_n(\dQ_p)} \tau$, where 
+$\mathscr K$ is some open compact=mod-center, and $\tau$ is finite-dimensional. 
+
+Let $(\dP^{n-1})^\text{special}\subset \dP^{n-1}$ be the locus where the stabilizer 
+inside $PGL_n(\dQ_p)$ is nontrivial. Let 
+$(\dP^{n-1})^\text{nonsp}\subset \Omega$ be its complement. Let 
+$\cM_{H_0,\infty}^\text{nonsp} = \pi_\text{HT}^{-1}(\dP^{n-1})^\text{nonsp}$. 
+
+\begin{conjecture}
+The space $\cM_{H_0,\infty}^{\text{nonsp},\bullet}$ can be covered by affinoids 
+$U$ such that $\dim \h^i(U,\dQ_\ell)<\infty$. 
+\end{conjecture}
+
+This is known for $n=2$. 
+
+The following is more of a fantasy than a conjecture: $\cM_{H_0,\infty}^{\text{nonsp},\bullet,\flat}$ is locally $p$-finite. 
+
 
