@@ -1,11 +1,229 @@
 % !TEX root = msri731.tex
 
-\section{Future directions 1: formal \texorpdfstring{$\dQ_p$}{Qp}-vector spaes of slope \texorpdfstring{$>1$}{>1}}
+\section{Future directions 1: formal \texorpdfstring{$\dQ_p$}{Qp}-vector spaces of slope \texorpdfstring{$>1$}{>1}}
 \thanksauthor{Peter Scholze (Feb.\ 20)}
 
 
 
 
 
-d
+As in my last talk, there will be many ``open problems,'' i.e. basic questions 
+about perfectoid spaces whose answer is not known. Much of this is motivated by 
+discussions with Fargues and Weinstein. 
+
+
+
+
+
+\subsection{Crystals and Dieudonn\'e modules}
+
+Let $k$ be a perfect field. Let $\cO_{K_0}=W(k)$ be the ring of $p$-typical Witt 
+vectors over $k$, and let $K_0=\cO_{K_0}[\frac 1 p]$. Let $G$ be a $p$-divisible 
+group over $k$. 
+
+\begin{theorem}
+There is an anti-equivalence of categories:
+\[
+  \{\text{$p$-divisible groups over $k$}\}^\circ \simeq \left\{\begin{array}{c} (M,F,V) :\text{ $M$ is a finite free $\cO_{K_0}$-module} \\ \text{$F:M\to M$ is $\sigma$-linear, $V:M\to M$ is $\sigma^{-1}$-linear} \\ \text{and $V F = F V=p$}\end{array}\right\}
+\]
+\end{theorem}
+
+\begin{definition}
+An \emph{isocrystal} is a finite free $K_0$-vector space $N$ together with 
+$\varphi:N\to N$, a $\sigma$-linear automorphism. 
+\end{definition}
+
+\begin{theorem}[Dieudonn\'e-Manin]
+Assume $k$ is algebraically closed. Then any isocrystal $(N,\varphi)$ is isomorphic 
+to $\bigoplus_i N_{\lambda_i}$, where $\lambda_i\in \dQ$.
+\end{theorem}
+The $N_{\lambda_i}$ are ``isocrystals of slope $\lambda_i$.'' If 
+$\lambda=\frac s r$ with $(s,r)=1$ and $r>0$, then as a vector space, 
+$N_\lambda=K_0^{\oplus r}$ if $0\leqslant s<r$. The Frobenius is the matrix 
+\[
+  \varphi_{N_\lambda} = 
+  \begin{pmatrix}
+    & & & & p \\
+    & & & & & \ddots \\
+    & & & & & & p \\
+    1 \\
+    & \ddots \\
+    & & 1
+  \end{pmatrix}
+\]
+where there $r$ $p$s and $(r-s)$ 1s. The other cases are obtained by twisting. 
+
+If all the $\lambda_i\in [0,1]$, then these come from formal $p$-divisible groups 
+(which are unique up to isogeny). 
+
+\begin{question}
+Are there objects that correspond to general isocrystals of slopes $\geqslant 0$? 
+\end{question}
+
+
+
+
+
+\subsection{The universal cover}
+
+Let $G$ be a $p$-divisible group. For convenience, assume $G$ is actually a formal 
+group. 
+
+\begin{definition}
+The \emph{universal cover} of $G$ is the functor 
+\begin{align*}
+  \widetilde G &:k\textnormal{-}\mathsf{Alg} \to \mathsf{Set} \\
+  \widetilde G(R) &= \varprojlim_{\times p} G(R) 
+\end{align*}
+\end{definition}
+(You may have to take associated fpqc sheaf for this to work.)
+
+\begin{proposition}[Fargues, Fontaine]
+Let $d=\dim G$. Then $\widetilde G$ is represented by 
+$\spf k\pow{T_1^{1/p^\infty},\dots,T_d^{1/p^\infty}}$. 
+\end{proposition}
+
+Consider the ring $k\pow{T_1^{1/p^\infty},\dots,T_n^{1/p^\infty}}$ as an inverse limit 
+of its quotients by ideals consisting of power series with degree 
+$\geqslant i$. 
+
+\begin{definition}
+\begin{enumerate}
+  \item A $k$-algebra $R$ is \emph{semiperfect} if $\Phi:R\to R$ is surjective. Then 
+    $R^\flat=\varprojlim_\Phi R$ surjects to $R$. Let 
+    $I=\ker(R^\flat\twoheadrightarrow R)$. 
+  \item A semiperfect ring $R$ is \emph{balanced} if $\Phi(I) = I^p\subset R^\flat$
+\end{enumerate}
+\end{definition}
+
+\begin{example}
+The ring $k[T^{1/p^\infty}/T$ is balanced. One has $\Phi(I)=I^p=(T^p)$. 
+\end{example}
+
+\begin{example}
+The ring $k[T_1^{1/p^\infty},T^{1/p^\infty}] / (T_1,T_2)$ has 
+$\Phi(I)=(T_1^p,T_2^p)$, but $I^p=(T_1^p,T_1^{p-1} T_2,\dots,T_2^p)$. So this 
+ring is not balanced. 
+\end{example}
+
+Note that $\widetilde G$ is determined by its values on balanced semiperfect 
+rings. 
+
+\begin{proposition}[Fontaine]
+If $R$ is a semiperfect ring, then there is a universal $p$-adically complete 
+PD-thickening $\acris(R)\twoheadrightarrow R$. 
+\end{proposition}
+\begin{proof}
+We briefly recall the construction of $\acris(R)$. It is the $p$-adic completion of 
+the PD hull of the kernel of $W(R^\flat)\twoheadrightarrow R$. 
+\end{proof}
+
+For example, $\acris(\cO_C/p)$ is the usual ring $\acris$. In general, the ring 
+$\acris(R)$ may have lots of $p$-torsion. 
+
+\begin{proposition}
+If $R$ is balanced, then $W(R^\flat) \to \acris(R)$ is injective. 
+\end{proposition}
+
+This is false in general. 
+
+Recall that $\bcris^+(R)=\acris(R)[\frac 1 p]$. We have a Frobenius morphism 
+$\varphi$ acting on both rings. 
+
+\begin{theorem}[Scholze, Weinstein, rem.\ of Lam]
+Let $G$ be a $p$-divisible group over $k$ with universal cover $\widetilde G$ and 
+isocrystal $(N,\varphi)$. Then for any balanced semiperfect $R$, one has 
+\[
+  \widetilde G(R) = \hom_\varphi(N,\bcris^+(R)) .
+\]
+\end{theorem}
+\begin{proof}
+We will define the map. Recall that 
+$\widetilde G(R)=\hom_R(\dQ_p/\dZ_p,G)[\frac 1 p]$. Thus $\widetilde G(R)$ is 
+\[
+  \hom_{\bcris^+(R),\varphi}(N\otimes_{K_0} \bcris^+(R),\bcris^+(R)) = \hom_\varphi(N,\bcris^+(R)) .
+\]
+\end{proof}
+
+In some sense, this is the fully-faithfulness of the Dieudonn\'e-module functor 
+over $R$. 
+
+Note that the right-hand-side in the theorem makes sense even if $N$ does not come 
+from some $G$. 
+
+\begin{definition}
+Let $N$ be any $k$-isocrystal of slope $\geqslant 0$. Define 
+$\widetilde G_N$ as a functor from balanced semiperfect $k$-algebras of slope 
+$>0$. to sets, by 
+\[
+  R\mapsto \hom_\varphi(N,\bcris^+(R)) .
+\]
+\end{definition}
+
+\begin{question}
+Is $\widetilde G_N$ representable, i.e. $\widetilde G_N=\spf(R_N)$ for some 
+inverse limit $R_N$ of balanced semiperfect rings?
+\end{question}
+
+The Frobenius $\Phi:R\to R$ induces a bijection $\widetilde G_N(R) \xrightarrow\sim \widetilde G_N(R)$. 
+So such a $R_N$ would be the perfection of some balanced semiperfect ring. 
+
+Let's specialize to the first interesting case: $N=N_2$. So 
+$N=(K_0,\varphi=p^2)$. In this case we put 
+$\widetilde G_2 = \widetilde G_{N_2}$, which is 
+$R\mapsto \bcris^+(R)^{\varphi=p^2}$. There is a good candidate for a functor 
+representing this ring. We have a map 
+$\widetilde G_1\otimes \widetilde G_1 \to \widetilde G_2$, which comes from 
+the multiplication map 
+\[
+  \bcris^+(R)^{\varphi=p}\otimes \bcris^+(R)^{\varphi=p} \to \bcris^+(R)^{\varphi=p^2} .
+\]
+Recall that $\widetilde G_1=\widetilde{\mu_{p^\infty}}$, so 
+$\widetilde G_1\times \widetilde G_1=\spf(k\pow{X^{1/p^\infty},Y^{1/p^\infty}})$. 
+
+Note that $\dQ_p^\times$ acts on $\widetilde G_1$, via 
+$X\mapsto (1+X)^\gamma-1$ for $\gamma\in \dQ_p^\times$. To make this precise, 
+write $\gamma=p^i\gamma_0$ for $\gamma_0\in \dZ_p^\times$. Then 
+\[
+  ((1+X)^{p^i})^{\gamma_0}-1 = \sum_{n\geqslant 1} \binom{\gamma_0}{n} X^{p^i-n} .
+\]
+We get a map 
+\[
+  \spf\left(k\pow{X^{1/p^\infty},Y^{1/p^\infty}}\right) / (\dZ/2 \times \dQ_p^\times) \to \widetilde G_2 
+\]
+If $\widetilde G_2$ is representable, the representing object should be 
+$R_2^?$, which is the ring of invariants 
+\[
+  R_2^? := k\pow{X^{1/p^\infty},Y^{1/p^\infty}}^{\dZ/2 \times \dQ_p^\times} .
+\]
+
+I suspect that if $\widetilde G_2$ is representable, then the representing object is 
+this ring $R_2^?$. 
+
+If $\widetilde G_2$ is represented by $R_2$, then there is a map 
+$R_2\to R_2^?$, so $R_2^?$ has to be quite big. 
+
+\begin{question}
+Is $R_2^?\ne k$?
+\end{question}
+
+If $k\pow{X^{1/p^\infty},Y^{1/p^\infty}}^{\dZ_p^\times}\ne k$, then 
+$R_2^?\ne k$. One shows this by summing up over iterates of Frobenius. 
+The group $\dZ_p^\times$ is (up to something finite) a topologically cyclic 
+group (at least if $p>2$). 
+
+Let's look at the action of $1+p\dZ_p$, which we can regard as the group of 
+transformations of the form $f(X)=X+a_1 X^p + a_2 X^{p^2} + \cdots$. Topologically, the latter group is generated by $X + p X^p$. The task 
+is to find $F(X,Y)\in k\pow{X^{1/p^\infty},Y^{1/p^\infty}}$ such that for 
+$f(X)=X_X^p$, $f^{-1}(X)=X+X^p+X^{p^2} + \cdots$, one has 
+\[
+  F(X-X^p,Y+Y^p+Y^{p^2}+\cdots ) = F(X,Y) .
+\]
+Alternatively, we could look for $F=F(X,Y)$ such that 
+\[
+  F(X+X^p,Y) = F(X,Y+Y^p) .
+\]
+
+
+
 
