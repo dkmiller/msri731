@@ -7,5 +7,196 @@
 
 
 
-d
+We will be discussing the finiteness of \'etale cohomology modulo $p$, and some 
+basic comparison theorems. 
+
+
+
+
+
+\subsection{Comparison theorem}
+
+The main theorem is the following:
+
+\begin{theorem}\label{thm:main-comp-thm}
+Let $C$ be an algebraically closed complete extension of $\dQ_p$. Let $X$ be 
+a proper smooth adic space over $\spa(C,\cO_C)$. Let $\sL$ be an $\dF_p$-local 
+system on $X$. Then 
+\begin{enumerate}
+  \item $\h^i(X_\et,\sL)$ is a finite-dimensional $\dF_p$-vector space for all $i\geqslant 0$ 
+  \item there is an almost isomorphism (of $\cO_C$-modules) 
+    \[
+      \h^\bullet(X_\et,\sL)\otimes_{\dF_p} \cO_C/p \simeq \h^\bullet(X_\et,\sL\otimes \cO_X^+/p) .
+    \]
+\end{enumerate}
+\end{theorem}
+
+There is a relative version of this theorem, which follows from the base change theorem 
+and a slightly more general version of the main theorem. Moreover, this theorem implies 
+the $\bdr$-comparison theorem. 
+
+The proof works by redution to coherent cohomology via Artin-Schreier sequences. This 
+involves tilting and the pro-\'etale site. Recall that the pro-\'etale site $X_\proet$ 
+computes \'etale cohomology via $\nu:X_\proet \to X_\et$. Here we are mapping 
+$\sF$ on $X_\et$ to $\mathsf R \nu_\ast \nu^\ast \sF$. 
+Over $(K,K^+)$, affinoid perfectoids form a basis for the pro-\'etale topology. 
+Finally, if $U$ is an affinoid perfectoid, then $\h^i(U,\sO_X^+/p)$ is almost 
+zero for $i>0$. One does this by relating this cohomology group to 
+$\h^i(W_\et,\sO_X^+/p)$ for $W$ an affinoid perfectoid space, and applying the 
+almost version of Tate's acyclicity theorem. 
+
+We will use a twisted version of the above theorem.
+
+\begin{theorem}
+Let $\sL$ be an \'etale $\dF_p$-local system. Then $\h^i(U,\sL\otimes \sO_X^+/p)$ is almost 
+zero for $i>0$. Moreover, $\h^0(U,\sL\otimes \sO_X^+/p) = M(U)$, for 
+$\widehat U=\spa(S,S^+)$, is a finitely generated projective $S^+/p$-module compatible 
+with base change. 
+\end{theorem}
+
+We want to use the classical Artin-Schreier sequence on $X_\proet$. We have an 
+exact sequence:
+\[\xymatrix{
+  0 \ar[r] 
+    & \sL \ar[r] 
+    & \sL\otimes \sO_X^+/p \ar[r]^-{\varphi-1} 
+    & \sL\otimes \sO_X^+/p \ar[r] 
+    & 0 
+}\]
+To see exactness, look locally at some affinoid perfectoid $U\in X_\proet$. We 
+can assume $\sL_U$ is trivialized, so it is enough to show surjectivity. To see 
+that, we use tilting. Let $\pi\in \sO_{\widehat U^\flat}^+$ be such that 
+$\pi^\sharp=p$. 
+
+(If $U=(U_i=\spa(A_i,A_i^+))\in X_\proet$, then $\widehat U$ comes from the 
+completion of $\varinjlim A_i$.)
+
+
+The map $\varphi-1:\sO_U^+/p \to \sO_U^+/p$ is \'etale, and is the same as 
+$\sO_{U^\flat}^+/\pi \to \sO_{U^\flat}^+/\pi$. Pass back from the tilted site using 
+the equivalence $\widehat U_\et^\flat \simeq \widehat U_\et$. We get 
+\[\xymatrix{
+  \cdots \ar[r] 
+    & \h^i(X_\et,\sL) \ar[r] \ar@{.>}[d] 
+    & \h^i(X_\et,\sL\otimes \sO_X^+/p) \ar[r] \ar[d]^-\wr 
+    & \h^i(X_\et,\sL\otimes \sO_X^+/p) \ar[r] \ar[d]^-\wr 
+    & \cdots \\
+  & \dF_p^r \ar[r] 
+  & (\cO_C/p)^r \ar[r] 
+  & (\cO_C/p)^r \ar[r] 
+  & 0
+}\]
+The isomorphism uses the fact (which we will prove later) that 
+$\h^i(X_\et,\sL\otimes \sO_X^+/p)$ is an almost finitely generated $\cO_C/p$-module, 
+as well as some facts about Frobenius. The vertical isomorphisms are only almost 
+isomorphisms, and if we knew the appropriate finiteness conditions, we could 
+pass from almost mathematics to ``real'' mathematics. 
+
+Since we are trying to prove a finiteness theorem, we instead use a modified form 
+of Artin-Schreier theory to get rid of the ``almost'' part. We have an exact sequence 
+\[\xymatrix{
+  0 \ar[r] 
+    & \sL \ar[r] 
+    & \sL\otimes \widehat \sO_{X^\flat} \ar[r]^-{\varphi-1} 
+    & \sL\otimes\widehat\sO_{X^\flat} \ar[r] 
+    & 0
+}\]
+where $\widehat\sO_{X^\flat}^+ = \varprojlim_\varphi \sO_X^+/p$ and 
+$\widehat\sO_{X^\flat} = \widehat\sO_{X^\flat}\otimes_{\cO_{C^\flat}} C^\flat$. 
+Passing to cohomology, we get 
+\[\xymatrix{
+  \cdots\ar[r] 
+    & \h^i(X_\proet,\sL) \ar[r] \ar[d]^-\wr 
+    & \h^i(X_\proet,\sL\otimes \widehat\sO_{X^\flat}) \ar[r] \ar[d]^-\wr 
+    & \h^i(X_\proet,\sL\otimes \widehat\cO_{X^\flat}) \ar[r] \ar[d]^-\wr 
+    & \cdots \\
+  0 \ar[r] 
+    & \dF_p^r \ar[r] 
+    & (C^\flat)^r \ar[r] 
+    & (C^\flat)^r \ar[r] 
+    & 0
+}\]
+The proof of Theorem \ref{thm:main-comp-thm} is nearly complete. It remains to 
+show that $\h^j(X_\et,\sL\otimes \sO_X^+/p)=0$ for 
+$j>2\dim X$. Put $d=2\dim X$. Look at the projection 
+$\varepsilon:X_\et \to X_\text{an}$. Since the dimension of $X_\text{an}$ is also $d$, it 
+suffices to show that $\mathsf R^j \varepsilon_\ast(\sL\otimes \sO_X^+/p)$ are almost 
+zero for $j>d$. We will assume $X$ is affinoid, smooth, and has a ``good'' coordinate 
+system $X\to T^d$, where $T^d$ is a $d$-dimensional torus, and that this map is the 
+composition of a rational endomorphism with a finite \'etale map. 
+
+Write $T^d=\spa(C\langle T_i^{\pm 1}\rangle,\cO_C\langle T_i^{\pm 1}\rangle)$. 
+Let $\widetilde T/T$ be the affinoid perfectoid, 
+$\widetilde T=\varprojlim_m T_m$, where 
+$T_m=\spa(C\langle T_i^{\pm 1/p^m}\rangle,\cO_C\langle T_i^{\pm 1/p^m}\rangle)$. Let $\widetilde X=X\times_T \widetilde T$. This is a pro-covering of $X$. (Somewhere 
+in here, we put $T^d=T$.) 
+Then 
+\[
+  \mathsf R\Gamma(X_\proet,\sL\otimes \sO_X^+/p) = \mathscr C(\widetilde X/X,\mathsf R\Gamma(\widetilde X_\proet^\bullet,\sL\otimes \sO_X^+/p)) 
+\]
+But 
+\begin{align*}
+  \h^j(\widetilde X_\proet^{i/X},\sL\otimes \sO_X^+/p) 
+    &= \h^j(\widetilde X\times \dZ_p^{d(i-1)},\sL\otimes \sO_X^+/p) \\
+    &= \hom_\text{cont}(\dZ_p^{d(i-1)},\h^j(\widetilde X,\sL\otimes \sO_X^+/p))
+\end{align*}
+The $\h^j(\widetilde X,\sL\otimes \sO_X^+/p)$ are almost zero for $j>0$. It follows that 
+$\h^j(X_\proet,\sL\otimes \sO_X^+/p)$ is almost isomorphic to 
+$\h_\text{cont}^j(\dZ_p^d,M)$, where $M$ is some finitely generated projective 
+$S^+$-module. 
+
+The group $\dZ_p^d$ has cohomological dimension $d$, so everything vanishes (in the 
+almost sense) if $j>d$. 
+
+
+
+
+
+\subsection{Proof of auxiliary result}
+
+Let's prove the following claim. Let $X$ be a proper smooth adic space over 
+$\spa(K,\cO_K)$, where $K$ contains all $p$-power roots of unity and has 
+characteristic zero. Then $\h^i(X_\et,\sL\otimes \cO_X^+/p)$ is a finitely generated 
+$\cO_K$-module. The idea is to mimic the proof of finite-generation of coherent 
+cohomology for rigid analytic spaces. Write $X=\bigcup V_i$, where the $V_i$ are 
+affinoids with good coordinates. We also want a covering $X=\bigcup V_i'$, where 
+each $V_i'\subsetneq V_i$. This gives us two spectral sequences 
+\begin{align*}
+  E_1^{m_1 m_2} 
+    &= \bigoplus_{|j|=m_1+1} \h^{m_2}(V_{i,\et},\sL\otimes \sO_X^+/p) \Rightarrow \h^{m_1+m_2}(X,\sL\otimes \sO_X^+/p)  \\
+  E_2^{m_1 m_2}(V) 
+    &= \bigoplus \h^i(X,V_j',\sL\otimes \sO_X^+/p) \Rightarrow \h^{m_1+m_2}(X,-)
+\end{align*}
+It suffices to show that the image of the restriction map is a finitely generated 
+$\sO_X$-module. 
+
+\begin{lemma}
+Let $V$ be a ``good'' affinoid, $V'\subsetneq V$ a rational subset. Then the image of 
+$\alpha=\text{res}:\h^i(V_\et,\sL\otimes \sO_X^+/p) \to \h^i(V_\et',\sL\otimes \sO_X^+/p)$ 
+is an almost finitely generated $\cO_K$-module. 
+\end{lemma}
+\begin{proof}
+Write $V'\hookrightarrow V\to T$, where $T$ is a torus. Let $\widetilde T$ be the 
+``perfectoidification of $T$.'' This induces covers $\widetilde V\to V$ and 
+$\widetilde V' \to V'$. Let $\widehat{\widetilde V}'=\spa(S',{S'}^+)$ and 
+$\widehat{\widetilde V}=\spa(S,S^+)$ be the associated adic spaces coming from 
+completion. (Formally, $\widetilde T=\varinjlim spa(T^{1/p^m})$ and 
+$\widehat{\widetilde T}$ is the completion. 
+
+First we pass to the group coordinates, giving 
+\[
+  \alpha:\h_\text{cont}^i(\dZ_p^d,M) \to \h_\text{cont}^i(\dZ_p^d,M\otimes_{S^+/p} {S'}^+/p) .
+\]
+We can assume $M=S^+/p$. Next, we consider $(S_m,S_m^+)$, 
+$(S_m',{S_m'}^+)$, which are the ``levels'' in the pro-\'etale cover 
+$\widetilde T\to T$. The image of 
+\[
+  \h_\text{cont}^i(\dZ_p^d,(S_m^+\otimes_{R_m^+}R^+)/p) \to \h_\text{cont}^i(\dZ_p^d,S_m'\otimes \cdots)
+\]
+is finitely generated over $\cO_K$. 
+
+The rest of the proof uses Hochschild-Serre to reduce to a map 
+$S_m^+\otimes \h^i \to {S_m'}^+\otimes \h^i$. 
+\end{proof}
+
 
