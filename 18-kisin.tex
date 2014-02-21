@@ -7,4 +7,118 @@
 
 
 
-d
+The point is to use the result of the last lecture, along with the Hodge-Tate period 
+map, to compute the completed cohomology and its' Hecke action. 
+
+Let $(G,X)\subset (\operatorname{GSp},S^\pm)$ be a Shimura datum of Hodge type. 
+Let $K^p\subset G(\dA_f^p)$ be a level, and let $K_p\subset G(\dQ_p)$. Write 
+$Y_{K_p K^p}$ for the corresponding Shimura variety, and 
+$X_{K_p K^p}$ for a minimal compactification. We think of everything as living over 
+$\dC_p$. 
+
+
+
+
+
+\subsection{A theorem on Hecke actions}
+
+Recall that we defined completed cohomology as 
+\[
+  \widetilde \h_{c,K^p}^i(\dZ/p^n) = \varinjlim_{K_p \to 0} \h_c^i(Y_{K_p K^p}, \dZ/p^n) .
+\]
+Let $\dT = \dZ_p[G^p\backslash G(\dA_f^p) / K^p]$ be the corresponding Hecke algebra. 
+This acts on $\widetilde \h^i_{c,K^p}(\dZ/p^n)$. 
+
+There is a ``standard'' line bundle $\omega$ on $X_{K_p K^p}$, coming from 
+$\Omega^g$ of the universal family of abelian varieties. Let $I$ be the ideal sheaf 
+of $X\smallsetminus Y$. The algebra $\dT$ acts on a space of ``modular forms'' 
+$\h^0(X_{K_p K^p},\omega^k\otimes I)$. 
+
+\begin{theorem}
+Let $\dT_\textnormal{cl}$ be the minimal quotient of $\dT$ such that the action of 
+$\dT$ on $\h^0(X_{K_p K^p},\omega^{\otimes k}\otimes I)$ factors through 
+$\dT_\textnormal{cl}$ for all $k$, $K_p$. 
+Then the action of $\dT$ on $\widetilde\h_{c,K^p}^i(\dZ/p^n)$ factors through 
+$\dT_\textnormal{cl}$. 
+\end{theorem}
+
+Let $X=\varprojlim_{K_p} X_{K_p K^p}$. This as denoted by 
+$X_{G,\Gamma(p^\infty)}$ in the last talk, and we know it is a perfectoid space. 
+Let $I^+=\sO^+\cap I$. 
+
+\begin{proposition}
+There is an almost isomorphism 
+\[
+  \widetilde \h_{c,K^p}^i(\dZ/p^n) \otimes \cO_{\dC_p}/p^2 \simeq_a \h^i(X,I^+/p^n I^+) .
+\]
+\end{proposition}
+
+Write $j:Y\hookrightarrow X$ for the inclusion. We know that 
+$\h_{c,K^p}$ comes from $j_! \dZ/p^n$. In other words, $\h_c=\h_{K^p}(j_! \dZ/p^n)$. 
+In this case, one has ``one the nose'' that 
+$I^+/p^n = j_! \sO^+/p^n$. Near the boundary, one has $I^+ \to \sO^+ \to \sO_\partial^+$. 
+To prove the theorem, we need to compute $\h^i(X,I^+/p^n)$. For this we use the 
+Hodge-Tate period map $\pi_\text{HT}$, coupled with the fact that $X$ is 
+perfectoid. 
+
+We have a diagram 
+\[\xymatrix{
+  & X_{\operatorname{GSp}} \ar[dr]^-{\pi_\text{HT}} \\
+  X \ar[rr]^-{\pi_\text{HT}} \ar[ur] 
+    & & F \ar@{^{(}->}[r] 
+    & \dP^{\binom{2 g}{g}-1} 
+}\]
+where $D\subset \dZ_p^{2 g}\otimes K$ is mapped to 
+$\bigwedge^g D\subset \bigwedge^g(K^{2 g})$. The pullback of $\sO(1)$ is $\omega$. 
+The embedding from $F$ into projective space is via Pl\"uker coordinates or something 
+similar? 
+
+For $J\subset \{1,\dots,2 g\}$ with $|J|=g$, let $F_J\subset F$ be the locus where 
+$|S_J|\geqslant |S_{J'}|$ for all $J'$. For example, 
+\[
+  \pi_\text{HT}^{-1}(F_{\{g+1,\dots,2 g\}}(\dQ_p)) = \overline{X_{\Gamma(p^\infty)}(0)_a} .
+\]
+
+\begin{lemma}
+All $\pi_\textnormal{HT}^{-1}(F_J)$ are affinoid perfectoid. 
+\end{lemma}
+\begin{proof}
+It is enough to consider $J=\{g+1,\dots,2 g\}$. Then $\gamma$ is a diagonal matrix with 
+$g$ $p$-s, and then $1$s along the diagonal. Consider $\gamma^n\cdot F_J\subset F_J$. 
+These are rational subsets. If $n\gg 0$, then 
+$\pi_\text{HT}^{-1}(\gamma^n\cdot F_J)\subset X_{\Gamma(p^\infty)}(\varepsilon)_a$, 
+which is an affinoid. 
+
+[\ldots not enough on board, did not follow\ldots]
+
+By the lemma, we cam compute $\h^i(X,I^+/p^n)$ using 
+$\{\pi_\text{HT}^{-1}(F_J)\}_J$. Order these open subsets as 
+$V_1,\dots,V_N$, where $N=\binom{2 g}{g}$. Let $J_2\subset \{1,\dots,N\}$, and put 
+$V_{J_2} = \bigcap_{i\in J_2} V_i$. The $V_i$ are affinoid perfectoid. Then 
+$\h^i(V_{J_2},I^+/p^n) =_a 0$ for all $i>0$. 
+
+It is enough to show that the action of $\dT$ on $\h^0(V_{J_2},I^+/p^n)$ factors 
+through $\dT_\text{cl}$. In fact, the $V_{J_2}$ come from $V_{J_2,K_p}\subset X_{K_p K^p}$ 
+for some $K_p$ small enough. The $V_{J_2K_p}$ are affinoids, and bounded functions 
+give a ``natural'' integral model $V_{J_2,K_p}^\circ$. One can ``glue these'' into 
+a formal scheme $X_{K_p K^p}^\circ$, equipped with an ample line bundle 
+$\omega^\text{int}$ extending $\omega$. 
+
+Finally, 
+\begin{align*}
+  \h^0(V_{J_2}, I^+/p^n) 
+    &= \varinjlim_{K_p} \h^0(V_{J_2,K_p}^\circ, I^+/p) \\
+    &= \varinjlim_{K_p} \varinjlim_{S_{J_2}} \h^0(X_{K_p K^p}^\circ, (\omega^\text{int})^{\otimes k |J_2|}\otimes \mathscr J/p^n)
+\end{align*}
+where $\mathscr J$ is the ideal shaef of the boundary on $X_{K_p K^p}^\circ$. 
+\end{proof}
+
+[\ldots to vague to follow + battery ran out\ldots ]
+
+
+
+
+
+
+
+
