@@ -6,4 +6,208 @@
 
 
 
-d
+\subsection{Hodge-Tate spectral sequence}
+
+Let $C$ be an algebraically closed complete extension of $\dQ_p$. Let $X$ be a 
+proper smooth rigid-analytic variety over $C$. Recall there is a Hodge-de Rham 
+spectral sequence 
+\[
+  E_1^{i j} = \h^j(X,\Omega_X^i) \Rightarrow \h_\text{dR}^{i+j}(X) ,
+\]
+obtained from the Hodge filtration on the de Rham complex. One lets 
+$\operatorname{Fil}^k \Omega_X^\bullet$ come from the ``truncated 
+de Rham algebra'' $\Omega_X^{\geqslant k}$. For example, if $X$ is an honest 
+scheme over $C$, then the Hodge-de Rham spectral sequence vanishes in sufficiently 
+large degree. In general, one reduces by ``spreading to discrete valuation rings.'' 
+
+\begin{theorem}\label{thm:hodge-tate-seq}
+There is a Hodge-Tate spectral sequence 
+\[
+  E_2^{i j} = \h^i(X,\Omega_X^j)(-j)\Rightarrow \h_\et^{i+j}(X,\dQ_p)\otimes_{\dQ_p} C .
+\]
+\end{theorem}
+
+\begin{example}
+Let $X$ be a scheme over $C$. Then the Hodge-Tate sequence degenerates at $E_2$. One 
+would expect that the Hodge-Tate sequence always degenerates on the second page. 
+\end{example}
+
+We now prove Theorem \ref{thm:hodge-tate-seq}. This is the descent spectral sequence 
+for for $\nu:X_\proet\to X_\et$. 
+
+\begin{lemma}
+There is a natural isomorphism 
+\[
+  \h_\et^i(X,\dQ_p)\otimes_{\dQ_p} C\simeq \h^i(X_\proet,\widehat\sO_X) .
+\]
+\end{lemma}
+\begin{proof}
+The 
+basic comparison from my last lecture yields an almost isomorphism 
+\[
+  \h_\et^i(X,\dZ/p)\otimes_{\dZ/p} \cO_Cp \simeq \h^i(X_\et,\sO_X^+/p) .
+\]
+We pass by devissage to an almost isomorphism 
+\[
+  \h_\et^i(X,\dZ/p^n)\otimes_{\dZ/p^n}\cO_C/p^n \simeq_a \h^i(X_\et,\sO_X^+/p) .
+\]
+We can pass to the inverse limit to obtain 
+\[
+  \h^i(X_\proet,\widehat\dZ_p)\otimes_{\dZ_p} \cO_C \simeq_a \h^i(X_\proet,\widehat\sO_X^+) .
+\]
+Invert $p$ to obtain the comparison between \'etale and pro-\'etale cohomology. 
+\end{proof}
+
+Now let $X$ be a smooth adic space over $C$. 
+
+\begin{lemma}
+That there is a natural isomorphism 
+\[
+  \mathsf R^j \nu_\ast \widehat\sO_X \simeq \Omega_{X_\et}^j(-j) .
+\]
+\end{lemma}
+\begin{proof}
+We claim that $\mathscr E=\mathsf R^1 \nu_\ast \widehat\sO_X$ is a locally free 
+$\sO_{X_\et}$-module. of rank $d=\dim X$, such that 
+$\bigwedge^i \mathscr E\simeq \mathsf R^j \nu_\ast \widehat\sO_X$ for all 
+$j\geqslant 0$. Work locally and assume we have ``good coordinates'' witnessed by a 
+map $X\to T$, where $T=\spa(C\langle T^{\pm 1}_i\rangle, \cO_C\langle \cdots\rangle)$, 
+and the map is a composite of rational maps and open embeddings. 
+Let $\widetilde T$ correspond to passing to $T_i^{1/p^\infty}$. Then 
+$\widetilde T \to T$ is a $\dZ_p^d$-pro-covering. 
+Let $\widetilde X=X\times_T \widetilde T$; this is a $\dZ_p^d$-pro-covering of $X$. 
+We have $\h^i(X_\proet,\widehat\sO_X) = \h^i_\text{cont}(\dZ_p^d,M)$, where 
+$M=\sO_{\widetilde X}(\widetilde X)$. We can write $M$ explicitly as 
+\[
+  M = \sO_{\widetilde X}(\widetilde X) = \sO_X(X)\widehat\otimes_{C\langle T^{\pm 1}_i} C\langle T^{\pm 1/p^\infty} \rangle .
+\]
+We now compute 
+\begin{align*}
+  \h_\text{cont}^i(\dZ_p^d,M) 
+    &= \sO_X(X)\widehat\otimes \h_\text{cont}^i(\dZ_p^d,C\langle T_i^{\pm 1/p^\infty}\rangle) \\
+    &= \sO_X(X)\widehat\otimes \h_\text{cont}^i(\dZ_p^d,C\langle T_i^{\pm 1}\rangle)) \\
+    &\simeq \sO_X(X)\widehat\otimes \textstyle\bigwedge^i C\langle T_i^{\pm 1}\rangle .
+\end{align*}
+We conclude that $\h^0(X_\proet,\widehat\sO_X) \simeq \sO_X(X)$ and 
+$\h^i(X_\proet,\widehat\sO_X) \simeq \bigwedge^i\h^1(X_\proet,\widehat\sO_X)$ 
+for $i\geqslant 1$. 
+\end{proof}
+
+
+
+
+
+\subsection{Relative period rings}
+
+\begin{lemma}
+There is a natural isomorphism $\mathscr E\simeq \Omega_{X_\et}^1(-1)$. 
+\end{lemma}
+\begin{proof}
+Why should this be true? Assume $X$ is defined over $\spa(K,\cO_K)$, where $K$ is 
+a complete discrete-valuation field with perfect residue field. Then we have a 
+``Poincar\'e lemma.'' There is a ``relative $\bdr$,'' on $X_\proet$, which fits into 
+an exact sequence of sheaves on $X_\proet$. 
+\[\xymatrix{
+  0 \ar[r] 
+    & \mathscr B_\text{dR}^+ \ar[r] 
+    & \mathscr{OB}_\text{dR}^+ \ar[r]^-\nabla 
+    & \mathscr{OB}_\text{dR}^+ \otimes_{\sO_X} \Omega_X^1 \ar[r]^-\nabla 
+    & \cdots
+}\]
+Here $\mathscr B_\text{dR}^+$ is the relative $\bdr^+$ described by Fontaine. Locally, 
+$\mathscr{OB}_\text{dR}^+=\mathscr{B}_\text{dR}^+[u_1,\dots,u_d]$, where 
+$\widetilde X\to X \to T^d(T_i)$, and 
+$u_i=T_i\otimes 1 - 1\otimes [T_i]$. This is a rigid version of the Poincar\'e 
+lemma that Faltings used to construct his period map. One starts with a smooth 
+map $X\to \spec W(k)$, and $\mathscr F\to \mathscr E$ a vector bundle with connection. 
+There exists $\sF\to \sF\otimes \Omega^1 \to \cdots$, a ``linearization of this 
+complex.'' There is a resolution of $\mathscr E$ by acyclic crystals, and we can evaluate 
+this resolution of $\acris^+$. 
+
+Here there is an exact sequence $0\to \mathscr E\to \mathscr L(\mathscr F) \to \mathscr L(\mathscr F\otimes \Omega^1) \to \cdots$. This yields 
+\[
+  0 \to \mathscr E(\acris^+) \to \mathscr L(\mathscr F)(\acris^+) \to \mathscr L(\mathscr F\otimes \Omega^1)(\acris^+) \to \cdots 
+\]
+We want a Faltings extension from the Poincar\'e lemma. Filter the Poincar\'e lemma 
+by $(\ker\theta)^i$, and look at the $i$-th graded piece. In $\mathscr{OB}_\text{dR}^i$, 
+$\ker\theta=(t,u_1,\dots,u_d)$. Tere is an exact sequence 
+\[\xymatrix{
+  0 \ar[r] 
+    & \widehat\sO_X(1) \ar[r] 
+    & \operatorname{gr}_F^1 \mathscr{OB}_\text{dR}^+ \ar[r] 
+    & \widehat\sO_X\otimes_{\sO_X} \Omega_X^1 \ar[r] 
+    & 0
+}\]
+Applying $\mathsf R \nu_\ast$, and we get 
+\[\xymatrix@=0.5cm{
+  0 \ar[r] 
+    & \nu_\ast \widehat\sO_X(1) \ar[r] 
+    & \nu_\ast \operatorname{gr}_F^1 \mathscr{OB}_\text{dR}^+ \ar[r] 
+    & \nu_\ast(\widehat\sO_X\otimes_{\sO_X}\Omega_X^1) \ar[r]^-\partial 
+    & \mathsf R^1\nu_\ast \widehat\sO_X(1) \ar[r] 
+    & \mathsf R^1 \nu_\ast \operatorname{gr}_F^1 \mathscr{OB}_\text{dR}^+
+}\]
+We want $\partial$ to be an isomorphism, so we prove that 
+\[
+  \nu_\ast \operatorname{gr}_F^1 \mathscr{OB}_\text{dR}^+  = \mathsf R^1 \nu_\ast \operatorname{gr}_F^1 \mathscr{OB}_\text{dR}^+ = 0 .
+\]
+It is known that 
+$\mathsf R^k \nu_\ast \operatorname{gr}_F^1 \mathscr{OB}_\text{dR}=0$ 
+for $k\geqslant 0$. 
+\end{proof}
+
+\begin{example}
+Let $A$ be an abelian variety over $C$. Then the Hodge-de Rham spectral sequence 
+is 
+\[
+  0 \to \h^0(A,\Omega_A^1) \to \h_\text{dR}^1(A) \to \h^1(A,\sO_A) \to 0 .
+\]
+The Hodge-Tate spectral sequence is 
+\begin{equation*}\tag{HT1}\label{eq:ht1}
+  0 \to \h^1(A,\sO_A) \to \h_\et^1(A,\dZ_p)\otimes_{\dZ_p} C \to \h^0(A,\Omega_A^1)(-1) \to 0 .
+\end{equation*}
+Assume $A$ has good reduction, and denote also by $A$ a model for $A$ over 
+$\cO_C$. Let $G=A[p^\infty]$ be the associated $p$-divisible group. 
+\end{example}
+
+\begin{theorem}[Faltings, Fargues]
+The complex of finite free $\cO_C$-modules 
+\begin{equation*}\tag{HT2}\label{eq:ht2}
+\xymatrix{
+  0 \ar[r] 
+    & (\operatorname{Lie} G)(1) \ar[r] 
+    & T G\otimes_{\dZ_p} \cO_C \ar[r]^-{\alpha_G} 
+    &(\operatorname{Lie} G^\ast)^\ast \ar[r] 
+    & 0
+}
+\end{equation*}
+has cohomology annhiliated by $p^{1/(p-1)}$. 
+\end{theorem}
+
+Here, $T G$ is the Tate module of $G$. If $G$ is defined over some field $L$, then 
+$\alpha_G$ can be defined over the field generated by $L$ and the torsion-points of 
+$T G$. One defines $\alpha_G$ as follows. Let 
+$\alpha\in T G=\varprojlim G[p^n](\cO_C) = \hom_{\cO_C}(\dQ_p/\dZ_p,G)$. Thus 
+$\alpha:\dQ_p/\dZ_p \to G$. We can dualize to get 
+$\alpha^\ast:G^\ast \to \mu_{p^\infty}$. Take Lie algebras to get 
+$\operatorname{Lie}(G^\ast) \to \operatorname{Lie}(\mu_{p^\infty}) = \cO_C$. 
+
+\begin{theorem}
+The sequences \eqref{eq:ht1} and \eqref{eq:ht2} are dual to eah other. 
+\end{theorem}
+In other words, we claim that the following sequences are dual:
+\[\xymatrix{
+  0 \ar[r] 
+    & \operatorname{Lie} A^\ast\otimes_{\cO_C} C \ar[r] 
+    & \h_\et^1(A_C,\dZ_p)\otimes_{\dZ_p} C \ar[r] 
+    & (\operatorname{Lie} A)^\ast\otimes_{\cO_C} C(-1) \ar[r] 
+    & 0 \\
+  0 \ar[r] 
+    & \operatorname{Lie} A\otimes_{\cO_C} C(1) \ar[r] 
+    & \h_\et^1(A_C^\ast,\dZ_p)\otimes C(1) \ar[r] 
+    & (\operatorname{Lie} A^\ast)^\ast \otimes_{\cO_C} C \ar[r] 
+    & 0
+}\]
+One sees this using the Weil pairing. 
+
+
