@@ -6,4 +6,143 @@
 
 
 
-d
+Fix a genus $g\geqslant 1$. Also fix a prime-to-$p$ level 
+$K^p\subset \operatorname{GSp}_{2 g}(\dA_f^p)$. There are spaces 
+$X_{\Gamma(p^m)}$, $X_{\Gamma_0(p^m)}$ which are moduli spaces of principally 
+polarized abelian varieties of dimension $g$, level $\Gamma$. More 
+precisely, these are minimal compactifications of the moduli spaces. 
+One can imagine $g=1$, in which case we are looking at modular curves. 
+
+
+
+
+
+\subsection{Moduli spaces of abelian varieties}
+
+Consider $(K,K^+)$, a complete non-archimedean field. Define 
+\[
+  X_{\Gamma(p^\infty)}(K,K^+) = \varprojlim X_{\Gamma(p^n)}(K) .
+\]
+If $x$ is a ``$(K,K^+)$-valued point of $X_{\Gamma(p^\infty)}$,'' not in 
+the boundary, then we get an abelian variety $A$ over $K$, together with an 
+isomorphism $A[p^{\infty}](K) \simeq (\dQ_p/\dZ_p)^{\oplus 2 g}$. In particular, 
+\[
+  \operatorname{Lie} A(1)\subset\operatorname T_p A \simeq \dZ_p^{2 g}\otimes K
+\]
+is an isotropic $g$-dimensional subspace of $K^{2 g}$. Let 
+$F(K)$ be the Grasmannian of such subspaces. 
+
+Summing up, we get a map $X_{\Gamma(p^\infty)}(K)^\circ \to F(K)$. 
+
+\begin{theorem}
+There is a perfectoid space $X_{\Gamma(p^\infty)}$, defined over 
+$\dQ_p^\textnormal{cyc}$, such that 
+$X_{\Gamma(p^\infty)}\sim \varprojlim X_{\Gamma(p^n)}$. Moreover, 
+$\pi_\textnormal{HT}:X_{\Gamma(p^\infty)}^\circ(K) \to F(K)$ is induced by a 
+map of adic spaces $X_{\Gamma(p^\infty)} \to F$. Finally, if 
+$(G,X)\subset (\operatorname{GSp},S^\pm)$ is Shimura datum of Hodge type and 
+$X_G$ is the corresponding Shimura variety, as is 
+$X_{G,\Gamma(p^m)}$, then 
+\[
+  X_{G,\Gamma(p^\infty)} \sim \varprojlim X_{G,\Gamma(p^\infty)} \to F
+\]
+is perfectoid. 
+\end{theorem}
+In fact, the theorem says that $\varprojlim X_{\Gamma(p^\infty)}$ is 
+perfectoid. Moreover, the Hodge-Tate period map 
+$\pi_\text{HT}$ is $\operatorname{GSp}_{2 g}(\dQ_p)$-equivariant. 
+
+\begin{example}
+Suppose $g=1$. Then $|X_{\Gamma(p^\infty)}| = \overline{X_{\Gamma(p^\infty)}^\text{ord}}\sqcup X_{\Gamma(p^\infty)}^\text{ss}$. The variety $F$ is the projective space line, so 
+$\pi_\text{HT}$ is a map to $\dP^1$. It maps $X_{\Gamma(p^\infty)}$ to 
+$\dP^1(\dQ_p)$, and maps 
+$X_{\Gamma(p^\infty)}^\text{ss} = \operatorname{LT}_\infty\simeq \Omega_\infty$ 
+to the Drinfeld upper half-plane $\dP^1\smallsetminus \dP^1(\dQ_p)$. 
+\end{example}
+
+
+
+
+
+\subsection{Sketch of proof of main theorem}
+
+We'll mostly concentrate on the fact that the ``infinite level'' Shimura variety is 
+a perfectoid space. The idea is to prove perfectoidness on an open part of 
+$X_{\Gamma(p^\infty)}$, and then use the action of 
+$\operatorname{GSp}_{2g}(\dQ_p)$. After ``moving things around'' by the action of 
+the group, we'll get everything. 
+
+For any $0\leqslant \varepsilon < 1$ and $\Gamma=\Gamma_0(p^n)$ or 
+$\Gamma=\Gamma_1(p^n)$ we'll define $X_\Gamma(0)\subset X_\Gamma(\varepsilon)\subset X_\Gamma(1)$, 
+which is the locus where the Hasse invariant $H$ satisfies 
+$|H|\geqslant p^{-\varepsilon}$. For $\Gamma=\Gamma(1)$, we'll write 
+$X(0)\subset X(\varepsilon)\subset X(1)$. 
+
+\begin{proposition}
+Let $0\leqslant \varepsilon < \frac 1 2$. 
+\begin{enumerate}
+  \item For $m\geqslant 1$, the abelian variety 
+    $A(p^{-m}\varepsilon) \to X(p^{-m} \varepsilon)$ admits a ``canonical subgroup'' 
+    $C_m\subset A(p^{-m}\varepsilon)[p^m]$. 
+  \item The operation $A\mapsto A/C_1$ induces a map 
+    $\widetilde F:X(p^{-m}\varepsilon) \to X(p^{-m+1}\varepsilon)$, which reduces to 
+    Frobenius modulo $p^{1-\varepsilon}$ (on the natural integral models). 
+  \item The operation $(A,C_m)\mapsto (A/C_m,A[p^m]/C_m)$ induces a morphism 
+    $X(p^{-m}\varepsilon) \to X_{\Gamma_0(p^m)}$. This induces an isomorphism onto a 
+    local subset $X_{\Gamma_0(p^m)}(\varepsilon)_a\subset X_{\Gamma_0(p^m)}(\varepsilon)$. (The $(-)_a$ stands for ``anti-canonical.'') This is summarized in the following diagram:
+    \[\xymatrix{
+      X(p^{-m-1}\varepsilon) \ar[r] \ar[d]^-{\widetilde F}
+        & X_{\Gamma_0(p^{m+1})} \ar[d] \\
+      X(p^{-m}\varepsilon) \ar[r] \ar[d] 
+        & X_{\Gamma_0(p^m)} \ar[d] \\
+      X_{\Gamma_0(p)}(\varepsilon)_a \ar@{^{(}->}[r] 
+        & X_{\Gamma_0(p)} 
+    }\]
+    The above diagram is commutative and Cartesian. 
+\end{enumerate}
+\end{proposition}
+
+
+Define 
+\[
+  X_{\Gamma_0(p^\infty)}(\varepsilon)_a = \varprojlim X_{\Gamma_0(p^m)}(\varepsilon)_a = \varprojlim_{\widetilde F} X(p^{-m}\varepsilon) 
+\]
+From part 2 of the proposition, we see that this is perfectoid. There is a map 
+$X_{\Gamma(p^\infty)} \to X_{\Gamma_0(p^\infty)}$ taking 
+$(A,\alpha:\operatorname T_p A\simeq \dZ_p^{2 g})$ to 
+$(A,\alpha^{-1}(\dZ_p^g\oplus 0))$. 
+
+Consider $X_{\Gamma(p^n)}(\varepsilon)_a$ to be the preimage of 
+$X_{\Gamma_0(p^m)}(\varepsilon)_a$. Put 
+\[
+  X_{\Gamma(p^\infty)}(\varepsilon)_a = \varprojlim X_{\Gamma(p^m)}(\varepsilon)_a .
+\]
+We claim that this inverse limit is perfectoid. 
+
+The locus where $X_{\Gamma(p^\infty)}$ is stable under the action of 
+$\operatorname{GSp}_{2 g}(\dQ_p)$. I claim that 
+\[
+  X_{\Gamma(p^\infty)}(\varepsilon) = \operatorname{GSp}_{2 g}(\dZ_p)\cdot X_{\Gamma(p^\infty)}(\varepsilon)_a ,
+\]
+and the the space on the left is perfectoid. 
+
+\begin{lemma}
+\begin{enumerate}
+  \item $\pi_\textnormal{HT}^{-1}(F(\dQ_p)) = \overline{X_{\Gamma(p^\infty)}(0)}$. 
+  \item There exists an open neighborhood $F\supset U\supset F(\dQ_p)$, such that 
+    $\pi_\textnormal{HT}(U)\subset X_{\Gamma(p^\infty)}(\varepsilon)$. 
+  \item $\operatorname{GSp}_{2 g}(\dQ_p)\cdot X_{\Gamma(p^\infty)}(\varepsilon)\supset \pi_\textnormal{HT}^{-1}(\operatorname{GSp}_{2 g}(\dQ_p)\cdot U)$. 
+\end{enumerate}
+\end{lemma}
+
+\begin{lemma}
+If $U\subset F$ is open and contains $F(\dQ_p)$ and is stable under 
+$\operatorname{GSp}_{2 g}(\dQ_p)$, then $U=F$. 
+\end{lemma}
+\begin{proof}
+We'll give an argument if $g=1$. Let $x=\dQ_p\oplus 0\subset \dP^1(\dQ_p)$. 
+If $B\ni x$ is some ball in $\dP^1\smallsetminus \{\infty\}$. Then 
+$\begin{pmatrix} 1 & \\ & p\end{pmatrix}^n \cdot B\subset U$ for 
+$n\gg 0$, whence 
+$B\subset \begin{pmatrix} 1 & \\ & p\end{pmatrix}^{-n} \cdot U = U$. 
+\end{proof}
